@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace RushGame.Utilitaries.Managers
+namespace Gossip.Utilitaries.Managers
 {
     public class CameraManager : MonoBehaviour
     {
@@ -115,6 +115,11 @@ namespace RushGame.Utilitaries.Managers
 
             _IsMoving = false;
             //stopper coroutine
+        }
+
+        public void UpdateTargetDistance(float pTargetDistance)
+        {
+
         }
     }
 }
