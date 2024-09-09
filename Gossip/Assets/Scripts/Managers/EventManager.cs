@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 namespace Gossip.Utilitaries.Managers
@@ -18,8 +19,13 @@ namespace Gossip.Utilitaries.Managers
             DontDestroyOnLoad(gameObject);
         }
 
-        public event Action<GameObject> OnEntityChanged;
+        public event Action<GameObject> OnEntityChangedGameObject;
+        public event Action OnEntityChanged;
 
-        public void EntityChanged(GameObject pEntity) => OnEntityChanged?.Invoke(pEntity);
+        public void EntityChanged() => OnEntityChanged?.Invoke();
+        public void EntityChanged(GameObject pEntity)
+        {
+            OnEntityChangedGameObject?.Invoke(pEntity);
+        }
     }
 }

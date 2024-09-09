@@ -46,12 +46,12 @@ namespace Gossip.Utilitaries.Managers
 
         private void OnEnable()
         {
-            EventManager.instance.OnEntityChanged += ChangeTarget;
+            EventManager.instance.OnEntityChangedGameObject += ChangeTarget;
         }
 
         private void OnDisable()
         {
-            EventManager.instance.OnEntityChanged -= ChangeTarget;
+            EventManager.instance.OnEntityChangedGameObject -= ChangeTarget;
         }
 
         public void ChangeTarget(GameObject pTarget/*, float pTargetDistance*/)
@@ -126,13 +126,13 @@ namespace Gossip.Utilitaries.Managers
             _IsMoving = false;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag(TagManager.WALL_TAG))
-            {
-                _IsInWall = true;
-            }
-        }
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.CompareTag(TagManager.WALL_TAG))
+        //    {
+        //        _IsInWall = true;
+        //    }
+        //}
 
         public void UpdateTargetDistance(float pTargetDistance)
         {
