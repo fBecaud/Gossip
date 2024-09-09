@@ -27,6 +27,7 @@ namespace Gossip.Utilitaries.Managers
         private float _RotationXAxis;
         private bool _IsMoving;
         public bool onSlider;
+        [SerializeField] private bool _IsInWall;
 
         //String Settings
         private const string HORIZONTAL = "Horizontal";
@@ -117,9 +118,17 @@ namespace Gossip.Utilitaries.Managers
             //stopper coroutine
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(TagManager.WALL_TAG))
+            {
+                _IsInWall = true;
+            }
+        }
+
         public void UpdateTargetDistance(float pTargetDistance)
         {
-
+            _CurrentTargetDistance = pTargetDistance;
         }
     }
 }

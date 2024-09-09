@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 1110539629108255097}
   - component: {fileID: 2779547773875999403}
   - component: {fileID: 457521276536510094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "Entit\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
