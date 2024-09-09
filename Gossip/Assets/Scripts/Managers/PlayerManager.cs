@@ -4,18 +4,36 @@ namespace Gossip.Utilitaries.Managers
 {
     public class PlayerManager : MonoBehaviour
     {
-        private GameObject _CurrentPlayer;
+        [SerializeField] private GameObject _CurrentEntity;
 
-        private void OnMouseDown()
+        [SerializeField] private LayerMask entityLayerMask; // Layer mask to filter entity colliders
+        [SerializeField] private LayerMask ignoreLayerMask; // Layer mask to ignore sphere colliders
+
+        private void Update()
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
+            if (Input.GetMouseButtonDown(0) && _CurrentEntity != null)
             {
-                Transform objectHit = hit.transform;
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit, 30f, entityLayerMask))
+                {
+                    if ((ignoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0)
+                    {
+                        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Entitée"))
+                        {
+                            _CurrentEntity = hit.transform.gameObject;
+                            EventManager.instance.EntityChanged(_CurrentEntity);
+                        }
+                    }
+                }
             }
         }
-    }
 
+        public GameObject CurrentEntity
+        {
+            get { return _CurrentEntity; }
+            set { _CurrentEntity = value; }
+        }
+    }
 }
