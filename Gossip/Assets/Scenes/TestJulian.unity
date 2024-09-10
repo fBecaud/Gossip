@@ -1002,6 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CurrentEntity: {fileID: 3489684649664898006}
+  _SelectedEntity: {fileID: 0}
   _EntityLayerMask:
     serializedVersion: 2
     m_Bits: 64

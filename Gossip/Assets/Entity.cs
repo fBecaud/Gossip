@@ -22,13 +22,15 @@ public class Entity : MonoBehaviour
 
     [SerializeField] private Material _EntityMat;
     [SerializeField] private EntityDetection _EntityDetection;
+    [SerializeField] private Outline _Outline;
 
     private Action _Action;
 
     private void Awake()
     {
-        _EntityDetection = GetComponentInChildren<EntityDetection>();
         _EntityMat = GetComponent<Renderer>().material;
+        _EntityDetection = GetComponentInChildren<EntityDetection>();
+        _Outline = GetComponentInChildren<Outline>();
         SetModeVoid();
     }
 
@@ -57,7 +59,7 @@ public class Entity : MonoBehaviour
     public void SetModeInRange()
     {
         _EntityInRange = true;
-        SetColor(_InRangeOutline);
+        SetOutline(_InRangeOutline);
         _Action = DoActionInRange;
     }
 
@@ -68,7 +70,7 @@ public class Entity : MonoBehaviour
 
     public void SetModeSelected()
     {
-        SetColor(_SelectedOutline);
+        SetOutline(_SelectedOutline);
         _Action = DoActionSelected;
     }
 
@@ -79,7 +81,7 @@ public class Entity : MonoBehaviour
 
     public void SetModeCurrentEntity()
     {
-        SetColor(_CurrentEntityOutline);
+        SetOutline(_CurrentEntityOutline);
         _EntityDetection.enabled = true;
         _Action = DoActionCurrentEntity;
     }
@@ -93,7 +95,7 @@ public class Entity : MonoBehaviour
     {
         _EntityInRange = false;
         _EntityDetection.enabled = false;
-        SetColor(Color.grey);
+        DisableOutline();
         _Action = DoActionUsual;
     }
 
@@ -101,8 +103,14 @@ public class Entity : MonoBehaviour
     {
     }
 
-    public void SetColor(Color pColor)
+    private void SetOutline(Color pColor)
     {
-        _EntityMat.SetColor("_BaseColor", pColor);
+        _Outline.enabled = true;
+        _Outline.OutlineColor = pColor;
+    }
+
+    private void DisableOutline()
+    {
+        _Outline.enabled = false;
     }
 }
