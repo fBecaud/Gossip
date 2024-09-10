@@ -26,6 +26,10 @@ public class EntityDetection : MonoBehaviour
             {
                 other.GetComponent<Entity>().SetModeInRange();
             }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Stopper"))
+            {
+                other.GetComponent<Stopper>().SetModeInRange();
+            }
         }
     }
 
