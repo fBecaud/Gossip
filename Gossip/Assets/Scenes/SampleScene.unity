@@ -382,7 +382,7 @@ MonoBehaviour:
   mouseSensitivity: 1
   keyboardSensitivity: 0.2
   touchSensitivity: 0.2
-  target: {fileID: 0}
+  target: {fileID: 3489684649664898006}
   _CurrentTargetDistance: 10
   _MinXAngleCamLock: -30
   _MaxXAngleCamLock: 90
@@ -573,19 +573,18 @@ PrefabInstance:
     - target: {fileID: 2779547773875999403, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2779547773875999403, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -876546973899608171, guid: 2a0d708f0cb6ac24582938c4aac4e148,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 2779547773875999403, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+      objectReference: {fileID: 2100000, guid: 311313efa011949e98b6761d652ad13c, type: 2}
     - target: {fileID: 4518589190532838391, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_Name
@@ -594,17 +593,17 @@ PrefabInstance:
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.38549042
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.96474
+      value: -12.62
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.37975
+      value: 32.943
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
@@ -644,8 +643,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4518589190532838391, guid: 53fc602f0af07a44cb01745378439a6c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3489684649664898007}
   m_SourcePrefab: {fileID: 100100000, guid: 53fc602f0af07a44cb01745378439a6c, type: 3}
+--- !u!1 &3489684649664898006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4518589190532838391, guid: 53fc602f0af07a44cb01745378439a6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3489684649664898005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3489684649664898007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489684649664898006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 1.41
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
