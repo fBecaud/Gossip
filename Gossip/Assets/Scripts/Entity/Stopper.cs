@@ -74,7 +74,7 @@ public class Stopper : MonoBehaviour
 
     private void DoActionMoving()
     {
-        _PathFollower.Speed = _PFSpeed;// To be multiplied by tick system
+        _PathFollower.Speed = _PFSpeed * TimeManager.instance.TimeScale;
     }
 
     public void SetModeTravelCompleted()

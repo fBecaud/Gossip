@@ -13,7 +13,7 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] public float keyboardSensitivity = .2f;
         [SerializeField] public float touchSensitivity = .2f;
         [SerializeField] public float cameraAngleSpeed = 10f;
-        [SerializeField] public float cameraTravelTime = 1.5f;
+        private float _CameraTravelTime;
 
         [Header("Target Settings")]
         [SerializeField] public GameObject target;
@@ -40,7 +40,7 @@ namespace Gossip.Utilitaries.Managers
         private float _XAxis;
         private float _RotationYAxis;
         private float _RotationXAxis;
-        private bool _IsMoving;
+        private bool _IsTransitioning;
 
         // String Settings
         private const string MOUSE_Y = "Mouse Y";
@@ -66,6 +66,7 @@ namespace Gossip.Utilitaries.Managers
                 cameraCollider.isTrigger = true; // Make sure it's a trigger
                 cameraCollider.radius = collisionRadius;
             }
+
         }
 
         private void Start()
@@ -74,7 +75,9 @@ namespace Gossip.Utilitaries.Managers
             {
                 target.GetComponent<Entity>().SetModeCurrentEntity();
             }
+            _CameraTravelTime = TimeManager.instance.FreezeTotalDuration;
             currentCameraPosition = transform.position;
+            _IsTransitioning = false;
         }
 
         private void OnEnable()
@@ -90,17 +93,12 @@ namespace Gossip.Utilitaries.Managers
         public void ChangeTarget(GameObject pTarget)
         {
             AudioManager.instance.PlayOneShot(_EntityTransitionSound, transform.position);
-            StartCoroutine(UpdateCameraPosition(pTarget, cameraTravelTime));
-        }
-
-        public bool IsInCoroutine()
-        {
-            return _IsMoving;
+            StartCoroutine(UpdateCameraPosition(pTarget, _CameraTravelTime));
         }
 
         public void StopCurrentCoroutine()
         {
-            StopCoroutine(UpdateCameraPosition(target, cameraTravelTime));
+            StopCoroutine(UpdateCameraPosition(target, _CameraTravelTime));
         }
 
         private void UpdateRotation()
@@ -111,7 +109,7 @@ namespace Gossip.Utilitaries.Managers
 
         private IEnumerator UpdateCameraPosition(GameObject pTarget, float pTravelTime)
         {
-            _IsMoving = true;
+            _IsTransitioning = true;
             Vector3 lStartPosition = transform.position;
             Vector3 lEndPosition = pTarget.transform.position - transform.forward * _CurrentTargetDistance;
             float startTime = Time.time;
@@ -126,7 +124,7 @@ namespace Gossip.Utilitaries.Managers
             target = pTarget;
             transform.position = lEndPosition;
             currentCameraPosition = lEndPosition;
-            _IsMoving = false;
+            _IsTransitioning = false;
         }
 
         public void UpdateTargetDistance(float pTargetDistance)
@@ -135,24 +133,22 @@ namespace Gossip.Utilitaries.Managers
         }
 
         void LateUpdate()
-        {
-            HandleInput();
-            UpdateCameraRotation();
-            HandleCameraCollision();
+        {   
+            if (!_IsTransitioning) 
+            { 
+                HandleInput();
+                UpdateCameraRotation();
+                HandleCameraCollision();
+            }
         }
 
         private void HandleInput()
         {
             if (Input.GetMouseButton(1))
             {
-                _IsMoving = true;
                 _XAxis = Input.GetAxis(MOUSE_X) * mouseSensitivity;
                 _YAxis = Input.GetAxis(MOUSE_Y) * mouseSensitivity;
                 UpdateRotation();
-            }
-            else
-            {
-                _IsMoving = false;
             }
         }
 

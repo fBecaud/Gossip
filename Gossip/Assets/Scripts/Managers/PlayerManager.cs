@@ -12,6 +12,7 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] private LayerMask _IgnoreLayerMask; // Layer mask to ignore sphere colliders
 
         private int _CombinedLayerMask;
+        [SerializeField] private bool _CanSwape = true;
 
         private void Start()
         {
@@ -20,15 +21,31 @@ namespace Gossip.Utilitaries.Managers
         }
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && _SelectedEntity != null)
+            if (_CanSwape)
             {
-                FindNewEntity();
+                if (Input.GetMouseButtonDown(0) && _SelectedEntity != null)
+                {
+                    FindNewEntity();
+                }
+                ScanEntities();
             }
-            ScanEntities();
+        }
+
+        private void OnEnable()
+        {
+            EventManager.instance.OnTimeFreezeStarted += DisableSwapping;
+            EventManager.instance.OnTimeFreezeEnded += EnableSwapping;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.instance.OnTimeFreezeStarted -= DisableSwapping;
+            EventManager.instance.OnTimeFreezeEnded -= EnableSwapping;
         }
 
         private void FindNewEntity()
         {
+            TimeManager.instance.TempFreezeTime();
             if (_CurrentEntity.layer == LayerMask.NameToLayer("Entitée"))
             {
                 _CurrentEntity.GetComponent<Entity>().SetModeUsual();
@@ -107,6 +124,15 @@ namespace Gossip.Utilitaries.Managers
             }
         }
 
+        private void DisableSwapping()
+        {
+            _CanSwape = false;
+        }
+
+        private void EnableSwapping()
+        {
+            _CanSwape = true;
+        }
 
         public GameObject CurrentEntity
         {
