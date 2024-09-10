@@ -44,7 +44,6 @@ Assets/FMODStudioCache.asset.meta
 Assets/StreamingAssets/*.bank
 fmod.log
 fmod_editor.log
-!FMOD/Build/
  
 # FMOD studio (In folder FMOD)
 FMOD/**.user

@@ -12,13 +12,16 @@ public class Stopper : MonoBehaviour
 
     private float _PFSpeed;
 
-    private bool _IsAware;
+    [SerializeField] private bool _IsAware;
 
     public bool stopperInRange;
+
+    [SerializeField] private EntityDetection _EntityDetection;
 
     private void Awake()
     {
         _PathFollower = GetComponent<PathFollower>();
+        _EntityDetection = GetComponentInChildren<EntityDetection>();
         stopperInRange = false;
     }
 
@@ -35,6 +38,7 @@ public class Stopper : MonoBehaviour
     public void SetModeVoid()
     {
         _PathFollower.IsMove = false;
+        _EntityDetection.enabled = false;
         _Action = DoActionVoid;
     }
 
@@ -51,10 +55,18 @@ public class Stopper : MonoBehaviour
     public void SetModeUsual()
     {
         stopperInRange = false;
+        _EntityDetection.enabled = false;
+    }
+
+    public void SetModeCurrentEntity()
+    {
+        _IsAware = true;
+        _EntityDetection.enabled = true;
     }
 
     public void SetModeMoving()
     {
+        _EntityDetection.enabled = false;
         _PathFollower.IsMove = true;
         _PFSpeed = _PathFollower.Speed;
         _Action = DoActionMoving;

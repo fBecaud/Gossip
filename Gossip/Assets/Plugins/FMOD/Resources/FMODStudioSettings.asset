@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 0
+  HasSourceProject: 1
   HasPlatforms: 1
   sourceProjectPath: FMOD Gossip/FMOD Gossip.fspro
   sourceBankPath: FMOD Gossip/Build

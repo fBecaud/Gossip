@@ -29,7 +29,7 @@ namespace Gossip.Utilitaries.Managers
 
         private void FindNewEntity()
         {
-            if (_CurrentEntity.layer == LayerMask.NameToLayer("Entity"))
+            if (_CurrentEntity.layer == LayerMask.NameToLayer("Entitée"))
             {
                 _CurrentEntity.GetComponent<Entity>().SetModeUsual();
             }
@@ -39,13 +39,13 @@ namespace Gossip.Utilitaries.Managers
             }
             _CurrentEntity = _SelectedEntity; //Changing entity
             _SelectedEntity = null;
-            if (_CurrentEntity.layer == LayerMask.NameToLayer("Entity"))
+            if (_CurrentEntity.layer == LayerMask.NameToLayer("Entitée"))
             {
                 _CurrentEntity.GetComponent<Entity>().SetModeCurrentEntity();
             }
             else if (_CurrentEntity.layer == LayerMask.NameToLayer("Stopper"))
             {
-                _CurrentEntity.GetComponent<Stopper>().SetModeVoid();
+                _CurrentEntity.GetComponent<Stopper>().SetModeCurrentEntity();
             }
             EventManager.instance.EntityChanged(_CurrentEntity);
         }
@@ -72,8 +72,8 @@ namespace Gossip.Utilitaries.Managers
                         _SelectedEntity.GetComponent<Entity>().SetModeSelected();
                     }
                 }
-                else if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0 && hit.transform.gameObject.GetComponent<Stopper>().stopperInRange && 
-                    !hit.transform.gameObject.GetComponent<Stopper>().IsAware)
+                else if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0 && hit.transform.gameObject.GetComponent<Stopper>() != null 
+                    &&hit.transform.gameObject.GetComponent<Stopper>().stopperInRange && !hit.transform.gameObject.GetComponent<Stopper>().IsAware)
                 {
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Stopper"))
                     {
