@@ -36,7 +36,7 @@ public class EntityDetection : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
             {
                 SetColor(other.gameObject, Color.white);
-                other.GetComponent<Entity>().EntityInRange = true;
+                other.GetComponent<Entity>().entityInRange = true;
             }
         }
     }
@@ -48,7 +48,7 @@ public class EntityDetection : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
             {
                 SetColor(other.gameObject, Color.grey);
-                other.GetComponent<Entity>().EntityInRange = false;
+                other.GetComponent<Entity>().entityInRange = false;
             }
         }
     }
@@ -61,7 +61,7 @@ public class EntityDetection : MonoBehaviour
         foreach (var hitCollider in hitColliders)
         {
             SetColor(hitCollider.gameObject, Color.grey);
-            hitCollider.GetComponent<Entity>().EntityInRange = false;
+            hitCollider.GetComponent<Entity>().entityInRange = false;
         }
     }
 
@@ -80,7 +80,7 @@ public class EntityDetection : MonoBehaviour
             if (hitCollider.gameObject != transform.parent.gameObject)
             {
                 SetColor(hitCollider.gameObject, Color.white);
-                hitCollider.GetComponent<Entity>().EntityInRange = true;
+                hitCollider.GetComponent<Entity>().entityInRange = true;
             }
         }
     }

@@ -20,7 +20,7 @@ namespace Gossip.Utilitaries.Managers
                 {
                     if ((ignoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0)
                     {
-                        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Entitée") && hit.transform.gameObject.GetComponent<Entity>().EntityInRange)
+                        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Entitée") && hit.transform.gameObject.GetComponent<Entity>().entityInRange)
                         {
                             _CurrentEntity.GetComponentInChildren<EntityDetection>().enabled = false;
                             _CurrentEntity = hit.transform.gameObject; //Changing entity

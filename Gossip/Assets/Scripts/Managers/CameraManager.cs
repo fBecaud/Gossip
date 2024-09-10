@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
 
 namespace Gossip.Utilitaries.Managers
 {
@@ -35,6 +36,8 @@ namespace Gossip.Utilitaries.Managers
         private const string MOUSE_Y = "Mouse Y";
         private const string MOUSE_X = "Mouse X";
 
+        [SerializeField] private EventReference _EntityTransitionSound;
+
         private void Awake()
         {
             if (instance != null)
@@ -56,6 +59,7 @@ namespace Gossip.Utilitaries.Managers
 
         public void ChangeTarget(GameObject pTarget/*, float pTargetDistance*/)
         {
+            AudioManager.instance.PlayOneShot(_EntityTransitionSound, transform.position);
             StartCoroutine(UpdateCameraPosition(pTarget, cameraTravelTime/*, pTargetDistance*/));
         }
 

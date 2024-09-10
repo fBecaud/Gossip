@@ -216,6 +216,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2140d0cf658d06a49b6969d7b73bd484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _TalkingSound:
+    Guid:
+      Data1: 702853873
+      Data2: 1189614432
+      Data3: -243500632
+      Data4: 1476249640
+    Path: event:/SD/PNJ/voice
+  _CorruptedTalkingSound:
+    Guid:
+      Data1: -442357544
+      Data2: 1108458877
+      Data3: -536434025
+      Data4: -926883562
+    Path: event:/SD/PNJ/voice_corrupted
+  _WalkingSound:
+    Guid:
+      Data1: -454353848
+      Data2: 1230142891
+      Data3: 1932742811
+      Data4: -1792681536
+    Path: event:/SD/PNJ/footstep_dirt
   EntityInRange: 0
 --- !u!1 &7975587188884814555
 GameObject:
