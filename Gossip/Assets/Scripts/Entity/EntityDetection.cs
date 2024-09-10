@@ -9,6 +9,7 @@ public class EntityDetection : MonoBehaviour
         {
             enabled = true;
             SetColor(transform.parent.gameObject, Color.green);
+
         }
         else
         {
@@ -88,5 +89,6 @@ public class EntityDetection : MonoBehaviour
     {
         Material lCubeMat = pGameObject.GetComponent<Renderer>().material; //To be replaced with the shader
         lCubeMat.SetColor("_BaseColor", pColor);
+        print("Setting " + pGameObject + "color  to " + pColor);
      }
 }
