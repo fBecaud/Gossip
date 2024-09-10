@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public static TextMeshProUGUI _Text;
-    static public uint _SpreadCount { get;  private set; }
+    public TextMeshProUGUI _Text;
+    public uint _SpreadCount { get; private set; }
 
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
             return;
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
     }
-    static public void IncreaseCount()
+    public void IncreaseCount()
     {
         _SpreadCount++;
         _Text.text = "Spread: " + _SpreadCount;

@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour
 
     [Space(10)]
     private bool _EntityInRange;
-    public bool isCorrupted;
+    public bool isCorrupted = false;
 
 
     [SerializeField] private Material _EntityMat;
@@ -45,7 +45,7 @@ public class Entity : MonoBehaviour
         if (isCorrupted)
             return;
         isCorrupted = true;
-        ScoreManager.IncreaseCount();
+        ScoreManager.instance.IncreaseCount();
     }
 
     public void SetModeVoid()
@@ -83,6 +83,7 @@ public class Entity : MonoBehaviour
 
     public void SetModeCurrentEntity()
     {
+        UpdateCorrupted();
         SetOutline(_CurrentEntityOutline);
         _EntityDetection.enabled = true;
         _Action = DoActionCurrentEntity;
