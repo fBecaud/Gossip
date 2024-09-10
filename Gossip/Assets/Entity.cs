@@ -40,8 +40,10 @@ public class Entity : MonoBehaviour
 
     public void UpdateCorrupted()
     {
+        if (isCorrupted)
+            return;
         isCorrupted = true;
-
+        ScoreManager.IncreaseCount();
     }
 
     public void SetModeVoid()
@@ -53,7 +55,7 @@ public class Entity : MonoBehaviour
     {
         //Keep empty;
     }
-    
+
     public void SetModeInRange()
     {
         _EntityInRange = true;
@@ -63,7 +65,7 @@ public class Entity : MonoBehaviour
 
     private void DoActionInRange()
     {
-        
+
     }
 
     public void SetModeSelected()
@@ -74,7 +76,7 @@ public class Entity : MonoBehaviour
 
     private void DoActionSelected()
     {
-        
+
     }
 
     public void SetModeCurrentEntity()
@@ -86,7 +88,7 @@ public class Entity : MonoBehaviour
 
     private void DoActionCurrentEntity()
     {
-        
+
     }
 
     public void SetModeUsual()
