@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI _Text;
-    uint _SpreadCount = 0;
+    public uint _SpreadCount { get;  private set; }
 
     // Start is called before the first frame update
     void Start()
