@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7673035699121987813}
   - component: {fileID: 5612621286179003749}
+  - component: {fileID: 6529809021887668889}
   m_Layer: 0
   m_Name: DetectionZone
   m_TagString: Untagged
@@ -47,12 +48,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6529809021887668889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742136166803017508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e004c5bc688435045abe0ac6ee0df5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4518589190532838391
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +78,9 @@ GameObject:
   - component: {fileID: 1110539629108255097}
   - component: {fileID: 2779547773875999403}
   - component: {fileID: 457521276536510094}
-  m_Layer: 0
+  - component: {fileID: 2314711131699867882}
+  - component: {fileID: 322302240295969682}
+  m_Layer: 6
   m_Name: "Entit\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,6 +177,46 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2314711131699867882
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518589190532838391}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &322302240295969682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518589190532838391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2140d0cf658d06a49b6969d7b73bd484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityInRange: 0
 --- !u!1 &7975587188884814555
 GameObject:
   m_ObjectHideFlags: 0

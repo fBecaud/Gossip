@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace RushGame.Utilitaries.Managers
+namespace Gossip.Utilitaries.Managers
 {
     public class CameraManager : MonoBehaviour
     {
@@ -27,6 +27,7 @@ namespace RushGame.Utilitaries.Managers
         private float _RotationXAxis;
         private bool _IsMoving;
         public bool onSlider;
+        [SerializeField] private bool _IsInWall;
 
         //String Settings
         private const string HORIZONTAL = "Horizontal";
@@ -43,9 +44,19 @@ namespace RushGame.Utilitaries.Managers
             instance = this;
         }
 
-        public void ChangeTarget(GameObject pTarget, float pTargetDistance)
+        private void OnEnable()
         {
-            StartCoroutine(UpdateCameraPosition(pTarget, cameraTravelTime, pTargetDistance));
+            EventManager.instance.OnEntityChangedGameObject += ChangeTarget;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.instance.OnEntityChangedGameObject -= ChangeTarget;
+        }
+
+        public void ChangeTarget(GameObject pTarget/*, float pTargetDistance*/)
+        {
+            StartCoroutine(UpdateCameraPosition(pTarget, cameraTravelTime/*, pTargetDistance*/));
         }
 
         public bool IsInCoroutine()
@@ -59,7 +70,7 @@ namespace RushGame.Utilitaries.Managers
 
         public void StopCurrentCoroutine()
         {
-            StopCoroutine(UpdateCameraPosition(target, cameraTravelTime, _CurrentTargetDistance));
+            StopCoroutine(UpdateCameraPosition(target, cameraTravelTime/*, _CurrentTargetDistance*/));
         }
 
         private void UpdateRotation()
@@ -94,27 +105,38 @@ namespace RushGame.Utilitaries.Managers
         /// <param name="pTravelTime">The time in seconds used for the camera to move to the target.</param>
         /// <param name="pTargetDistance">The distance between the camera and the target.</param>
         /// <returns></returns>
-        private IEnumerator UpdateCameraPosition(GameObject pTarget, float pTravelTime, float pTargetDistance)
+        private IEnumerator UpdateCameraPosition(GameObject pTarget, float pTravelTime/*, float pTargetDistance*/)
         {
             _IsMoving = true;
             Vector3 lStartPosition = transform.position;
-            Vector3 lEndPosition = pTarget.transform.position - transform.forward * pTargetDistance;
-            float lStartTime = Time.time;
-            float lEndTime = lStartTime + pTravelTime;
+            Vector3 lEndPosition = pTarget.transform.position - transform.forward * /*pTargetDistance*/_CurrentTargetDistance;
+            float startTime = Time.time;
 
-            while (Time.time < lEndTime)
+            while (Time.time < startTime + pTravelTime)
             {
-                float lRemainingTime = (Time.time - lStartTime) / pTravelTime;
-                transform.position = Vector3.Lerp(lStartPosition, lEndPosition, lRemainingTime);
+                float elapsedTime = (Time.time - startTime) / pTravelTime;
+                transform.position = Vector3.Lerp(lStartPosition, lEndPosition, elapsedTime);
                 yield return null;
             }
             target = pTarget;
-            _CurrentTargetDistance = pTargetDistance;
+            //_CurrentTargetDistance = pTargetDistance;
 
             transform.position = lEndPosition;
 
             _IsMoving = false;
-            //stopper coroutine
+        }
+
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.CompareTag(TagManager.WALL_TAG))
+        //    {
+        //        _IsInWall = true;
+        //    }
+        //}
+
+        public void UpdateTargetDistance(float pTargetDistance)
+        {
+            _CurrentTargetDistance = pTargetDistance;
         }
     }
 }
