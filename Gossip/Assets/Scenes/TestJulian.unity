@@ -229,6 +229,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &229444018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229444019}
+  - component: {fileID: 229444020}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &229444019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229444018}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.58156, y: 2.116405, z: 0.7576227}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1636262644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &229444020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229444018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e611f730a22ae1847b1a8a70ce95c9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _RingbellSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  _Music:
+    Guid:
+      Data1: -492587248
+      Data2: 1090864704
+      Data3: -1518406257
+      Data4: -859583805
+    Path: event:/Music/music
+  _AmbiantSchoolSound:
+    Guid:
+      Data1: -340702407
+      Data2: 1206741754
+      Data3: 406423971
+      Data4: -1032698888
+    Path: event:/SD/Ambiance/amb_school
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +308,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585550}
   - component: {fileID: 330585549}
+  - component: {fileID: 330585551}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -413,6 +479,26 @@ MonoBehaviour:
   cameraTravelTime: 0
   onSlider: 0
   _IsInWall: 0
+  _EntityTransitionSound:
+    Guid:
+      Data1: 997564717
+      Data2: 1328843584
+      Data3: 626422155
+      Data4: -246367183
+    Path: event:/SD/Player/transmission
+--- !u!114 &330585551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,12 +910,12 @@ PrefabInstance:
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8483105
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
@@ -839,17 +925,17 @@ PrefabInstance:
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0000014603136
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
@@ -916,10 +1002,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CurrentEntity: {fileID: 3489684649664898006}
-  entityLayerMask:
+  _EntityLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  ignoreLayerMask:
+  _IgnoreLayerMask:
     serializedVersion: 2
     m_Bits: 128
 --- !u!1 &1636262642
@@ -953,6 +1039,7 @@ Transform:
   m_Children:
   - {fileID: 1159205735}
   - {fileID: 479375854}
+  - {fileID: 229444019}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3489684649664898005
