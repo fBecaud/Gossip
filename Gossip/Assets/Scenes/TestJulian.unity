@@ -477,6 +477,12 @@ MonoBehaviour:
   cameraAngleSpeed: 10
   cameraMoving: 0
   cameraTravelTime: 0
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  collisionRadius: 0.5
+  minDistanceFromWall: 0.5
+  maxCameraDistance: 10
   onSlider: 0
   _IsInWall: 0
   _EntityTransitionSound:
@@ -673,6 +679,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "Entit\xE9e (1)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005112333972676298, guid: 53fc602f0af07a44cb01745378439a6c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005112333972676298, guid: 53fc602f0af07a44cb01745378439a6c,
+        type: 3}
+      propertyPath: outlineColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9034157568767812676, guid: 53fc602f0af07a44cb01745378439a6c,
         type: 3}
