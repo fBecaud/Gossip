@@ -47,6 +47,14 @@ namespace Gossip.Utilitaries.Managers
             instance = this;
         }
 
+        private void Start()
+        {
+            if (target != null)
+            {
+                target.GetComponent<Entity>().SetModeCurrentEntity();
+            }
+        }
+
         private void OnEnable()
         {
             EventManager.instance.OnEntityChangedGameObject += ChangeTarget;

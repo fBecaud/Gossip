@@ -5,28 +5,17 @@ public class EntityDetection : MonoBehaviour
 {
     private void Awake()
     {
-        if (CameraManager.instance.target == transform.parent.gameObject)
-        {
-            enabled = true;
-            SetColor(transform.parent.gameObject, Color.green);
-
-        }
-        else
-        {
-            enabled = false;
-        }
+        transform.parent.gameObject.GetComponent<Entity>().SetModeUsual();
     }
 
     private void OnEnable()
     {
-        EventManager.instance.OnEntityChangedGameObject += CleanEntitiesAndSetNew;
         ScanForEntities();
     }
 
     private void OnDisable()
     {
         CleanEntities();
-        EventManager.instance.OnEntityChangedGameObject -= CleanEntitiesAndSetNew;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,8 +24,7 @@ public class EntityDetection : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
             {
-                SetColor(other.gameObject, Color.white);
-                other.GetComponent<Entity>().entityInRange = true;
+                other.GetComponent<Entity>().SetModeInRange();
             }
         }
     }
@@ -47,8 +35,7 @@ public class EntityDetection : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
             {
-                SetColor(other.gameObject, Color.grey);
-                other.GetComponent<Entity>().entityInRange = false;
+                other.GetComponent<Entity>().SetModeUsual();
             }
         }
     }
@@ -60,14 +47,8 @@ public class EntityDetection : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, lEntityLayerMask);
         foreach (var hitCollider in hitColliders)
         {
-            SetColor(hitCollider.gameObject, Color.grey);
-            hitCollider.GetComponent<Entity>().entityInRange = false;
+            hitCollider.GetComponent<Entity>().SetModeUsual();
         }
-    }
-
-    private void CleanEntitiesAndSetNew(GameObject pNewEntity)
-    {
-        SetColor(pNewEntity, Color.green);
     }
 
     private void ScanForEntities()
@@ -79,16 +60,8 @@ public class EntityDetection : MonoBehaviour
         {
             if (hitCollider.gameObject != transform.parent.gameObject)
             {
-                SetColor(hitCollider.gameObject, Color.white);
-                hitCollider.GetComponent<Entity>().entityInRange = true;
+                hitCollider.gameObject.GetComponent<Entity>().SetModeInRange();
             }
         }
     }
-
-    private void SetColor(GameObject pGameObject, Color pColor)
-    {
-        Material lCubeMat = pGameObject.GetComponent<Renderer>().material; //To be replaced with the shader
-        lCubeMat.SetColor("_BaseColor", pColor);
-        print("Setting " + pGameObject + "color  to " + pColor);
-     }
 }

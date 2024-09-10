@@ -1002,10 +1002,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CurrentEntity: {fileID: 3489684649664898006}
-  entityLayerMask:
+  _EntityLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  ignoreLayerMask:
+  _IgnoreLayerMask:
     serializedVersion: 2
     m_Bits: 128
 --- !u!1 &1636262642

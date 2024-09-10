@@ -237,7 +237,13 @@ MonoBehaviour:
       Data3: 1932742811
       Data4: -1792681536
     Path: event:/SD/PNJ/footstep_dirt
-  EntityInRange: 0
+  _InRangeOutline: {r: 1, g: 1, b: 1, a: 1}
+  _SelectedOutline: {r: 1, g: 0.5019608, b: 0, a: 1}
+  _CurrentEntityOutline: {r: 0, g: 1, b: 0, a: 1}
+  _UsualOutline: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  entityInRange: 0
+  isCorrupted: 0
+  _EntityMat: {fileID: 0}
 --- !u!1 &7975587188884814555
 GameObject:
   m_ObjectHideFlags: 0
