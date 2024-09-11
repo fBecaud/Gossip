@@ -1,11 +1,13 @@
 using UnityEngine;
 using FMODUnity;
 using System;
+using FMOD.Studio;
 
 public class Entity : Character
 {
     [Header("Audio")]
-    [SerializeField] private EventReference _CorruptedTalkingSound;
+    [SerializeField] private EventReference _CorruptedTalkingSoundReference;
+    internal EventInstance _CorruptedTalkingSoundInstance;
 
     [Header("Colors")]
     [SerializeField] private Color _InRangeOutline;
@@ -26,12 +28,15 @@ public class Entity : Character
     protected override void Start()
     {
         base.Start();
+        _CorruptedTalkingSoundInstance = RuntimeManager.CreateInstance(_CorruptedTalkingSoundReference);
         //SetModeMove();
     }
 
     protected override void Update()
     {
         base.Update();
+        UpdateSoundPlayback(ref _TalkingSoundTimer, _TalkingSoundInstance, _TalkingSoundFrequency, _EntityDetection.enabled && IsCorrupted);
+        UpdateSoundPlayback(ref _TalkingSoundTimer, _CorruptedTalkingSoundInstance, _TalkingSoundFrequency, _EntityDetection.enabled && !IsCorrupted);
     }
 
     public void UpdateCorrupted()

@@ -6,13 +6,19 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    [Header("Audio")]
-    [SerializeField] EventReference _RingbellSound;
-    [SerializeField] EventReference _Music;
-    [SerializeField] EventReference _AmbiantSchoolSound;
+    [Header("UI Audio")]
+    [SerializeField] private EventReference _ClickUI;
+
+    [Space(10)]
+    [Header("Ambiant Audio")]
+    [SerializeField] private EventReference _RingbellSound;
+    [SerializeField] private EventReference _Music;
+    [SerializeField] private EventReference _CharacterMusic;
+    [SerializeField] private EventReference _AmbiantSchoolSound;
 
     private EventInstance _CurrentMusicInstance;
-    private StudioEventEmitter _musicEmitter; // Reference to the emitter in your scene
+    private EventInstance _ClickUIInstance;
+    [SerializeField] private StudioEventEmitter _MusicEmitter;
 
     private void Awake()
     {
@@ -26,27 +32,30 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        // Find the FMOD Studio Event Emitter attached to the GameObject that plays your music
-        _musicEmitter = FindObjectOfType<StudioEventEmitter>();
-
-        if (_musicEmitter != null && _musicEmitter.EventInstance.isValid())
-        {
-            _CurrentMusicInstance = _musicEmitter.EventInstance; // Use the existing event instance from the emitter
-        }
-        else
-        {
-            Debug.LogError("FMOD Studio Event Emitter for music not found or not valid!");
-        }
+        _CurrentMusicInstance = _MusicEmitter.EventInstance;
+        _ClickUIInstance = RuntimeManager.CreateInstance(_ClickUI); 
     }
 
     public void PlayOneShot(EventReference pSound, Vector3 pWorldPos)
     {
         RuntimeManager.PlayOneShot(pSound, pWorldPos);
     }
+
+    public void PlayOneShot(EventReference pSound)
+    {
+        RuntimeManager.PlayOneShot(pSound);
+    }
+
+    public void PlayOneShot(EventInstance pSoundInstance)
+    {
+        pSoundInstance.start();
+    }
+
     public void SetParameterLabelName(string eventName, string parameterName, string label)
     {
         _CurrentMusicInstance.setParameterByNameWithLabel(parameterName, label);
     }
+
 
     public void ChangeMusicTrack(string pTrackName)
     {
@@ -70,6 +79,10 @@ public class AudioManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.H))
         {
             ChangeMusicTrack("track4");
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            PlayOneShot(_ClickUIInstance);
         }
     }
 }

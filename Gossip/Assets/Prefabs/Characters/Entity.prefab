@@ -297,11 +297,10 @@ GameObject:
   - component: {fileID: 3543657232418051088}
   - component: {fileID: 7784769204141544255}
   - component: {fileID: 2484425571273266863}
-  - component: {fileID: 3693620284253171663}
   - component: {fileID: 5833552668152468053}
   - component: {fileID: 106174672008402818}
   m_Layer: 6
-  m_Name: "Entit\xE92"
+  m_Name: "Entit\xE91"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +430,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978354910927077467}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 539089cfe4dd8c149854dff36789b0b4, type: 3}
   m_Name: 
@@ -444,49 +443,8 @@ MonoBehaviour:
   DistanceThreshold: 0.2
   TurningSpeed: 10
   IsLoop: 0
-  IsMove: 0
+  IsMove: 1
   IsEndEventEnable: 0
---- !u!114 &3693620284253171663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978354910927077467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2140d0cf658d06a49b6969d7b73bd484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _EntityDetection: {fileID: 6918746190159037781}
-  _PathFollower: {fileID: 0}
-  _Speed: 0
-  _IsInRange: 0
-  _TalkingSound:
-    Guid:
-      Data1: 702853873
-      Data2: 1189614432
-      Data3: -243500632
-      Data4: 1476249640
-    Path: event:/SD/PNJ/voice
-  _CorruptedTalkingSound:
-    Guid:
-      Data1: -442357544
-      Data2: 1108458877
-      Data3: -536434025
-      Data4: -926883562
-    Path: event:/SD/PNJ/voice_corrupted
-  _WalkingSound:
-    Guid:
-      Data1: -454353848
-      Data2: 1230142891
-      Data3: 1932742811
-      Data4: -1792681536
-    Path: event:/SD/PNJ/footstep_dirt
-  _InRangeOutline: {r: 1, g: 1, b: 1, a: 1}
-  _SelectedOutline: {r: 1, g: 0.5019608, b: 0, a: 1}
-  _CurrentEntityOutline: {r: 0, g: 1, b: 0, a: 1}
-  _Outline: {fileID: 0}
 --- !u!114 &5833552668152468053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,30 +458,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _EntityDetection: {fileID: 6918746190159037781}
-  _PathFollower: {fileID: 0}
+  _PathFollower: {fileID: 2484425571273266863}
   _Speed: 0
   _IsInRange: 0
-  _TalkingSound:
+  _TalkingSoundReference:
     Guid:
       Data1: 702853873
       Data2: 1189614432
       Data3: -243500632
       Data4: 1476249640
     Path: event:/SD/PNJ/voice
-  _CorruptedTalkingSound:
-    Guid:
-      Data1: -442357544
-      Data2: 1108458877
-      Data3: -536434025
-      Data4: -926883562
-    Path: event:/SD/PNJ/voice_corrupted
-  _WalkingSound:
+  _WalkingSoundReference:
     Guid:
       Data1: -454353848
       Data2: 1230142891
       Data3: 1932742811
       Data4: -1792681536
     Path: event:/SD/PNJ/footstep_dirt
+  _WalkingSoundFrequency: 0.5
+  _TalkingSoundFrequency: 1
+  _CorruptedTalkingSoundReference:
+    Guid:
+      Data1: -442357544
+      Data2: 1108458877
+      Data3: -536434025
+      Data4: -926883562
+    Path: event:/SD/PNJ/voice_corrupted
   _InRangeOutline: {r: 1, g: 1, b: 1, a: 1}
   _SelectedOutline: {r: 1, g: 0.5019608, b: 0, a: 1}
   _CurrentEntityOutline: {r: 0, g: 1, b: 0, a: 1}

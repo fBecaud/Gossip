@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 367810155265558888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +133,7 @@ MonoBehaviour:
   IsLivePath: 0
   IsShowingIcons: 1
   PathDensity: 36
-  EditMode: 1
+  EditMode: 0
   CreateMeshFlag: 1
   LineMehsWidth: 0.2
   LineOpacity: 0.7
@@ -152,12 +152,12 @@ MonoBehaviour:
   - {x: -1.8974032, y: -1, z: -1.3323894}
   - {x: -8.771174, y: -1, z: 1.5553837}
   NodeList_World:
-  - {x: -3.9230728, y: 0, z: 9.824514}
-  - {x: -9.493875, y: 0, z: 8.053063}
-  - {x: -8.656724, y: 0, z: 0.8037534}
+  - {x: -3.9230728, y: 1, z: 9.824514}
+  - {x: -9.493875, y: 1, z: 8.053063}
+  - {x: -8.656724, y: 1, z: 0.8037534}
   AngleList_World:
-  - {x: -5.5274034, y: 0, z: 5.2976108}
-  - {x: -12.401175, y: 0, z: 8.185384}
+  - {x: -5.5274034, y: 1, z: 5.2976108}
+  - {x: -12.401175, y: 1, z: 8.185384}
 --- !u!1 &377746327516108406
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 1978354910927077467}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.23, y: 0, z: 3.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -465,27 +465,29 @@ MonoBehaviour:
   _PathFollower: {fileID: 2484425571273266863}
   _Speed: 0
   _IsInRange: 0
-  _TalkingSound:
+  _TalkingSoundReference:
     Guid:
       Data1: 702853873
       Data2: 1189614432
       Data3: -243500632
       Data4: 1476249640
     Path: event:/SD/PNJ/voice
-  _CorruptedTalkingSound:
-    Guid:
-      Data1: -442357544
-      Data2: 1108458877
-      Data3: -536434025
-      Data4: -926883562
-    Path: event:/SD/PNJ/voice_corrupted
-  _WalkingSound:
+  _WalkingSoundReference:
     Guid:
       Data1: -454353848
       Data2: 1230142891
       Data3: 1932742811
       Data4: -1792681536
     Path: event:/SD/PNJ/footstep_dirt
+  _WalkingSoundFrequency: 0.5
+  _TalkingSoundFrequency: 1
+  _CorruptedTalkingSoundReference:
+    Guid:
+      Data1: -442357544
+      Data2: 1108458877
+      Data3: -536434025
+      Data4: -926883562
+    Path: event:/SD/PNJ/voice_corrupted
   _InRangeOutline: {r: 1, g: 1, b: 1, a: 1}
   _SelectedOutline: {r: 1, g: 0.5019608, b: 0, a: 1}
   _CurrentEntityOutline: {r: 0, g: 1, b: 0, a: 1}
