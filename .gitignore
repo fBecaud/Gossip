@@ -44,6 +44,8 @@ Assets/FMODStudioCache.asset.meta
 Assets/StreamingAssets/*.bank
 fmod.log
 fmod_editor.log
+Gossip/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+Gossip/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset
  
 # FMOD studio (In folder FMOD)
 FMOD/**.user
@@ -73,3 +75,4 @@ Assets/Plugins/Android/FirebaseApp.androidlib/res/values.meta
 Assets/Plugins/Android/FirebaseApp.androidlib/res/values/google-services.xml.meta
 *.keystore
 *.unitypackage.meta
+

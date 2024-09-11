@@ -21,11 +21,16 @@ namespace Gossip.Utilitaries.Managers
 
         public event Action<GameObject> OnEntityChangedGameObject;
         public event Action OnEntityChanged;
+        public event Action OnTimeFreezeStarted;
+        public event Action OnTimeFreezeEnded;
 
         public void EntityChanged() => OnEntityChanged?.Invoke();
         public void EntityChanged(GameObject pEntity)
         {
             OnEntityChangedGameObject?.Invoke(pEntity);
         }
+
+        public void TimeFreezeStarted() => OnTimeFreezeStarted?.Invoke();
+        public void TimeFreezeEnded() => OnTimeFreezeEnded?.Invoke();
     }
 }
