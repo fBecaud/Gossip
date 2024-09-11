@@ -8,51 +8,81 @@ namespace Gossip.Utilitaries.Managers
     {
         public static CameraManager instance;
 
+        [Header("Camera Settings")]
         [SerializeField] public float mouseSensitivity = 1f;
         [SerializeField] public float keyboardSensitivity = .2f;
         [SerializeField] public float touchSensitivity = .2f;
-        [SerializeField] public GameObject target;
-        [SerializeField] private float _CurrentTargetDistance;
-        [SerializeField] private float _MinXAngleCamLock = -30;
-        [SerializeField] private float _MaxXAngleCamLock = 90;
-
         [SerializeField] public float cameraAngleSpeed = 10f;
-        public bool cameraMoving;
+        private float _CameraTravelTime;
 
-        public float cameraTravelTime = 1.5f;
+        [Header("Target Settings")]
+        [SerializeField] public GameObject target;
+        [SerializeField] private float _CurrentTargetDistance = 5f;
+        [SerializeField] private float minDistanceFromWall = 0.5f;
+        [SerializeField] private float maxCameraDistance = 10f;
+
+        [Header("Camera Angle Constraints")]
+        [SerializeField] private float _MinXAngleCamLock = -30f;
+        [SerializeField] private float _MaxXAngleCamLock = 90f;
+
+        [Header("Collision Settings")]
+        [SerializeField] private LayerMask collisionLayer;  // Layers to detect collisions (e.g., walls)
+        [SerializeField] private float collisionRadius = 0.5f;  // Radius for SphereCast
+        [SerializeField] private float positionSmoothSpeed = 10f;  // Speed for smoothing camera position transitions
+
+        [Header("Sound Settings")]
+        [SerializeField] private EventReference _EntityTransitionSound;
+
+        private SphereCollider cameraCollider;
+        private Vector3 currentCameraPosition;
 
         private float _YAxis;
         private float _XAxis;
-
         private float _RotationYAxis;
         private float _RotationXAxis;
-        private bool _IsMoving;
-        public bool onSlider;
-        [SerializeField] private bool _IsInWall;
+        private bool _IsTransitioning;
 
-        //String Settings
-        private const string HORIZONTAL = "Horizontal";
-        private const string VERTICAL = "Vertical";
+        // String Settings
         private const string MOUSE_Y = "Mouse Y";
         private const string MOUSE_X = "Mouse X";
 
-        [SerializeField] private EventReference _EntityTransitionSound;
-
         private void Awake()
         {
-            if (instance != null)
+            if (instance != null && instance != this)
             {
+                Destroy(gameObject);
                 return;
             }
             instance = this;
+
+            // Ensure the camera has a SphereCollider
+            cameraCollider = GetComponent<SphereCollider>();
+            if (cameraCollider == null)
+            {
+                Debug.LogError("SphereCollider is missing on the Camera!");
+            }
+            else
+            {
+                cameraCollider.isTrigger = true; // Make sure it's a trigger
+                cameraCollider.radius = collisionRadius;
+            }
+
         }
 
         private void Start()
         {
             if (target != null)
             {
-                target.GetComponent<Entity>().SetModeCurrentEntity();
+                target.GetComponentInChildren<Entity>().SetModeCurrentEntity();
             }
+            _CameraTravelTime = TimeManager.instance.FreezeTotalDuration;
+            currentCameraPosition = transform.position;
+            _IsTransitioning = false;
+        }
+
+        private void Update()
+        {
+            _CameraTravelTime = TimeManager.instance.FreezeTotalDuration; //To remove after tests
         }
 
         private void OnEnable()
@@ -65,24 +95,15 @@ namespace Gossip.Utilitaries.Managers
             EventManager.instance.OnEntityChangedGameObject -= ChangeTarget;
         }
 
-        public void ChangeTarget(GameObject pTarget/*, float pTargetDistance*/)
+        public void ChangeTarget(GameObject pTarget)
         {
             AudioManager.instance.PlayOneShot(_EntityTransitionSound, transform.position);
-            StartCoroutine(UpdateCameraPosition(pTarget, cameraTravelTime/*, pTargetDistance*/));
-        }
-
-        public bool IsInCoroutine()
-        {
-            if (_IsMoving)
-            {
-                return true;
-            }
-            else return false;
+            StartCoroutine(UpdateCameraPosition(pTarget, _CameraTravelTime));
         }
 
         public void StopCurrentCoroutine()
         {
-            StopCoroutine(UpdateCameraPosition(target, cameraTravelTime/*, _CurrentTargetDistance*/));
+            StopCoroutine(UpdateCameraPosition(target, _CameraTravelTime));
         }
 
         private void UpdateRotation()
@@ -91,66 +112,85 @@ namespace Gossip.Utilitaries.Managers
             _RotationXAxis -= _YAxis;
         }
 
-        void LateUpdate()
+        private IEnumerator UpdateCameraPosition(GameObject pTarget, float pTravelTime)
         {
-            if (GameManager.instance._isPaused)
-                return;
-            if (Input.GetMouseButton(1))
-            {
-                cameraMoving = true;
-                _XAxis = Input.GetAxis(MOUSE_X) * mouseSensitivity;
-                _YAxis = Input.GetAxis(MOUSE_Y) * mouseSensitivity;
-                UpdateRotation();
-            }
-
-            _RotationXAxis = Mathf.Clamp(_RotationXAxis, _MinXAngleCamLock, _MaxXAngleCamLock);
-
-
-            transform.localEulerAngles = new Vector3(_RotationXAxis, _RotationYAxis, 0);
-            transform.position = target.transform.position - transform.forward * _CurrentTargetDistance;
-        }
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pTarget">The object the camera will look at.</param>
-        /// <param name="pTravelTime">The time in seconds used for the camera to move to the target.</param>
-        /// <param name="pTargetDistance">The distance between the camera and the target.</param>
-        /// <returns></returns>
-        private IEnumerator UpdateCameraPosition(GameObject pTarget, float pTravelTime/*, float pTargetDistance*/)
-        {
-            _IsMoving = true;
+            _IsTransitioning = true;
             Vector3 lStartPosition = transform.position;
-            Vector3 lEndPosition = pTarget.transform.position - transform.forward * /*pTargetDistance*/_CurrentTargetDistance;
+            Vector3 lEndPosition = pTarget.transform.position - transform.forward * _CurrentTargetDistance;
             float startTime = Time.time;
 
             while (Time.time < startTime + pTravelTime)
             {
                 float elapsedTime = (Time.time - startTime) / pTravelTime;
                 transform.position = Vector3.Lerp(lStartPosition, lEndPosition, elapsedTime);
+                currentCameraPosition = transform.position; // Update smoothed position
                 yield return null;
             }
             target = pTarget;
-            //_CurrentTargetDistance = pTargetDistance;
-
             transform.position = lEndPosition;
-
-            _IsMoving = false;
+            currentCameraPosition = lEndPosition;
+            _IsTransitioning = false;
         }
-
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.CompareTag(TagManager.WALL_TAG))
-        //    {
-        //        _IsInWall = true;
-        //    }
-        //}
 
         public void UpdateTargetDistance(float pTargetDistance)
         {
-            _CurrentTargetDistance = pTargetDistance;
+            _CurrentTargetDistance = Mathf.Clamp(pTargetDistance, minDistanceFromWall, maxCameraDistance);
         }
+
+        void LateUpdate()
+        {   
+            if (!_IsTransitioning) 
+            { 
+                HandleInput();
+                UpdateCameraRotation();
+                HandleCameraCollision();
+            }
+        }
+
+        private void HandleInput()
+        {
+            if (GameManager.instance._isPaused)
+                return;
+            if (Input.GetMouseButton(1))
+            {
+                _XAxis = Input.GetAxis(MOUSE_X) * mouseSensitivity;
+                _YAxis = Input.GetAxis(MOUSE_Y) * mouseSensitivity;
+                UpdateRotation();
+            }
+        }
+
+        private void UpdateCameraRotation()
+        {
+            _RotationXAxis = Mathf.Clamp(_RotationXAxis, _MinXAngleCamLock, _MaxXAngleCamLock);
+            transform.localEulerAngles = new Vector3(_RotationXAxis, _RotationYAxis, 0);
+        }
+
+        private Vector3 velocity = Vector3.zero;
+
+        private void HandleCameraCollision()
+        {
+            if (target == null)
+            {
+                return;
+            }
+
+            Vector3 direction = -transform.forward;
+            Vector3 desiredPosition = target.transform.position + direction * _CurrentTargetDistance;
+
+            Vector3 directionToCamera = desiredPosition - target.transform.position;
+            float desiredDistance = _CurrentTargetDistance;
+
+            RaycastHit hit;
+            if (Physics.SphereCast(target.transform.position, collisionRadius, directionToCamera.normalized, out hit, desiredDistance, collisionLayer))
+            {
+                float adjustedDistance = Mathf.Clamp(hit.distance - minDistanceFromWall, 0.0f, desiredDistance);
+                desiredPosition = target.transform.position + directionToCamera.normalized * adjustedDistance;
+            }
+
+            // Smoothly interpolate using SmoothDamp
+            currentCameraPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, 1 / positionSmoothSpeed);
+            transform.position = currentCameraPosition;
+        }
+
     }
 }
