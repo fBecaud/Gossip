@@ -1,6 +1,8 @@
+using System.Collections;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Gossip.Utilitaries.Managers
 {
@@ -18,6 +20,9 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] private bool _CanSwape = true;
         [SerializeField] private bool _IsOnTransitioner = false;
 
+        [SerializeField] private GameObject _TrailPrefab;
+        private GameObject _TrailInstance;
+
         private void Awake()
         {
             if (instance != null)
@@ -27,6 +32,8 @@ namespace Gossip.Utilitaries.Managers
             }
             instance = this;
             DontDestroyOnLoad(gameObject);
+            _TrailInstance = Instantiate(_TrailPrefab);
+            _TrailInstance.SetActive(false);
         }
 
         private void Start()
@@ -63,6 +70,9 @@ namespace Gossip.Utilitaries.Managers
         {
             TimeManager.instance.TempFreezeTime();
             _CurrentEntity.GetComponentInChildren<Character>().SetModeUsual();
+
+            StartCoroutine(UpdateTrailPosition(_SelectedEntity, TimeManager.instance.FreezeTotalDuration));
+
             _CurrentEntity = _SelectedEntity; //Changing entity
             _SelectedEntity = null;
             _CurrentEntity.GetComponentInChildren<Character>().SetModeCurrentEntity();
@@ -82,7 +92,7 @@ namespace Gossip.Utilitaries.Managers
                     return;
                 }
 
-                Entity lEntity = hit.transform.GetComponentInChildren<Entity>();  
+                Entity lEntity = hit.transform.GetComponentInChildren<Entity>();
                 Stopper lStopper = hit.transform.GetComponentInChildren<Stopper>();
 
                 if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0)
@@ -150,6 +160,24 @@ namespace Gossip.Utilitaries.Managers
         {
             get { return _IsOnTransitioner; }
             set { _IsOnTransitioner = value; }
+        }
+        private IEnumerator UpdateTrailPosition(GameObject pTarget, float pTravelTime)
+        {
+            _TrailInstance.SetActive(true);
+            _TrailInstance.transform.position = _CurrentEntity.transform.position;
+            Vector3 lStartPosition = _TrailInstance.transform.position;
+            Vector3 lEndPosition = pTarget.transform.position;// - transform.forward * _CurrentTargetDistance;
+
+            float startTime = Time.time;
+
+            while (Time.time < startTime + pTravelTime)
+            {
+                float elapsedTime = (Time.time - startTime) / pTravelTime;
+                _TrailInstance.transform.position = Vector3.Lerp(lStartPosition, lEndPosition, elapsedTime);
+
+                yield return null;
+            }
+            _TrailInstance.SetActive(false);
         }
     }
 }

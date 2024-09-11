@@ -254,6 +254,8 @@ MonoBehaviour:
     m_Bits: 128
   _CanSwape: 1
   _IsOnTransitioner: 0
+  _TrailPrefab: {fileID: 1434675498405729298, guid: fa26967173645264d94dd401788919ba,
+    type: 3}
 --- !u!1 &4368165219462179177
 GameObject:
   m_ObjectHideFlags: 0
