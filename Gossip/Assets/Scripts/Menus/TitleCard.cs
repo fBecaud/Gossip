@@ -18,7 +18,7 @@ namespace Gossip.Menus
 
         private float _ElapsedTime;
 
-        private const string GAME_SCENE = "Main";
+        private const string GAME_SCENE = "SCN_GOSSIP";
         private const string CREDIT_SCENE = "Credit";
 
         void Start()
