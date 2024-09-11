@@ -93,6 +93,8 @@ namespace Gossip.Utilitaries.Managers
 
         void LateUpdate()
         {
+            if (GameManager.instance._isPaused)
+                return;
             if (Input.GetMouseButton(1))
             {
                 cameraMoving = true;

@@ -19,7 +19,9 @@ public class ScoreManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        _Text = GameObject.Find("Spread").GetComponent<TextMeshProUGUI>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
