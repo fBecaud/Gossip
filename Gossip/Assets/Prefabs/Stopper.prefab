@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 867432116088032719}
-  - component: {fileID: 5566466965494397128}
   - component: {fileID: 456764210082445867}
-  m_Layer: 0
+  - component: {fileID: 5566466965494397128}
+  m_Layer: 7
   m_Name: DetectionZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,18 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5983293308674734709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5566466965494397128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812661643867307379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e004c5bc688435045abe0ac6ee0df5f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &456764210082445867
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -60,12 +48,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5566466965494397128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812661643867307379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e004c5bc688435045abe0ac6ee0df5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2986037591417971154
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 3724562523401357238}
   - component: {fileID: 8953209080778840833}
   - component: {fileID: 8315131660902336067}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stopper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 7330740873141544154}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.94, y: 1, z: -1.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -265,7 +265,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -284,14 +284,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8315131660902336067}
+        m_TargetAssemblyTypeName: Stopper, Assembly-CSharp
+        m_MethodName: SetModeTravelCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Generator: {fileID: 5760302655183931517}
   Speed: 100
   DistanceThreshold: 0.2
   TurningSpeed: 10
   IsLoop: 0
-  IsMove: 1
-  IsEndEventEnable: 0
+  IsMove: 0
+  IsEndEventEnable: 1
 --- !u!114 &8315131660902336067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +363,7 @@ GameObject:
   - component: {fileID: 990472857095459104}
   - component: {fileID: 5760302655183931517}
   m_Layer: 0
-  m_Name: Path
+  m_Name: PathGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -366,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 7956186473724561032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -12.52, y: 0, z: -6.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -437,9 +449,9 @@ MonoBehaviour:
   IsClosed: 0
   IsLivePath: 0
   IsShowingIcons: 1
-  PathDensity: 5
-  EditMode: 1
-  CreateMeshFlag: 1
+  PathDensity: 36
+  EditMode: 0
+  CreateMeshFlag: 0
   LineMehsWidth: 0.2
   LineOpacity: 0.7
   LineSpeed: 10
@@ -450,24 +462,24 @@ MonoBehaviour:
   PathList: []
   PathLengths: []
   NodeList:
-  - {x: -1.4242129, y: 0, z: 2.1646304}
-  - {x: 1.5253528, y: 0, z: -0.5366154}
-  - {x: 3.6848636, y: 0, z: 6.8652167}
-  - {x: 9.329861, y: 0, z: 8.266831}
-  - {x: 7.9588695, y: 0, z: -0.22777367}
+  - {x: 8.299105, y: 1, z: 7.082969}
+  - {x: 11.248671, y: 1, z: 4.3817234}
+  - {x: 13.408182, y: 1, z: 11.783556}
+  - {x: 17.386894, y: 1, z: 11.5523615}
+  - {x: 17.682188, y: 1, z: 4.690565}
   AngleList:
-  - {x: -0.8927126, y: 0, z: -1.7657996}
-  - {x: 2.7343855, y: 0, z: 0.07797676}
-  - {x: 4.160103, y: 0, z: 10.258837}
-  - {x: 11.91474, y: 0, z: 7.2708287}
+  - {x: 8.8306055, y: 1, z: 3.1525393}
+  - {x: 12.457704, y: 1, z: 4.996316}
+  - {x: 13.883421, y: 1, z: 15.1771755}
+  - {x: 19.98201, y: 1, z: 8.313214}
   NodeList_World:
-  - {x: -1.4242129, y: 0, z: 2.1646304}
-  - {x: 1.5253528, y: 0, z: -0.5366154}
-  - {x: 3.6848636, y: 0, z: 6.8652167}
-  - {x: 9.329861, y: 0, z: 8.266831}
-  - {x: 7.9588695, y: 0, z: -0.22777367}
+  - {x: -4.220896, y: 1, z: 0.4129691}
+  - {x: -1.2713299, y: 1, z: -2.2882767}
+  - {x: 0.8881817, y: 1, z: 5.113556}
+  - {x: 4.866894, y: 1, z: 4.8823614}
+  - {x: 5.1621876, y: 1, z: -1.979435}
   AngleList_World:
-  - {x: -0.8927126, y: 0, z: -1.7657996}
-  - {x: 2.7343855, y: 0, z: 0.07797676}
-  - {x: 4.160103, y: 0, z: 10.258837}
-  - {x: 11.91474, y: 0, z: 7.2708287}
+  - {x: -3.689395, y: 1, z: -3.5174608}
+  - {x: -0.062296867, y: 1, z: -1.6736841}
+  - {x: 1.3634205, y: 1, z: 8.507175}
+  - {x: 7.4620094, y: 1, z: 1.6432142}

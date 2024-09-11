@@ -73,7 +73,7 @@ namespace Gossip.Utilitaries.Managers
         {
             if (target != null)
             {
-                target.GetComponent<Entity>().SetModeCurrentEntity();
+                target.GetComponentInChildren<Entity>().SetModeCurrentEntity();
             }
             _CameraTravelTime = TimeManager.instance.FreezeTotalDuration;
             currentCameraPosition = transform.position;

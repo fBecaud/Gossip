@@ -48,21 +48,21 @@ namespace Gossip.Utilitaries.Managers
             TimeManager.instance.TempFreezeTime();
             if (_CurrentEntity.layer == LayerMask.NameToLayer("Entitée"))
             {
-                _CurrentEntity.GetComponent<Entity>().SetModeUsual();
+                _CurrentEntity.GetComponentInChildren<Entity>().SetModeUsual();
             }
             else if (_CurrentEntity.layer == LayerMask.NameToLayer("Stopper"))
             {
-                _CurrentEntity.GetComponent<Stopper>().SetModeMoving();
+                _CurrentEntity.GetComponentInChildren<Stopper>().SetModeMoving();
             }
             _CurrentEntity = _SelectedEntity; //Changing entity
             _SelectedEntity = null;
             if (_CurrentEntity.layer == LayerMask.NameToLayer("Entitée"))
             {
-                _CurrentEntity.GetComponent<Entity>().SetModeCurrentEntity();
+                _CurrentEntity.GetComponentInChildren<Entity>().SetModeCurrentEntity();
             }
             else if (_CurrentEntity.layer == LayerMask.NameToLayer("Stopper"))
             {
-                _CurrentEntity.GetComponent<Stopper>().SetModeCurrentEntity();
+                _CurrentEntity.GetComponentInChildren<Stopper>().SetModeCurrentEntity();
             }
             EventManager.instance.EntityChanged(_CurrentEntity);
         }
@@ -81,16 +81,16 @@ namespace Gossip.Utilitaries.Managers
                 }
 
                 if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0 && hit.transform.gameObject.GetComponent<Entity>() != null &&
-                    hit.transform.gameObject.GetComponent<Entity>().EntityInRange)
+                    hit.transform.gameObject.GetComponentInChildren<Entity>().EntityInRange)
                 {
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Entitée"))
                     {
                         _SelectedEntity = hit.transform.gameObject;
-                        _SelectedEntity.GetComponent<Entity>().SetModeSelected();
+                        _SelectedEntity.GetComponentInChildren<Entity>().SetModeSelected();
                     }
                 }
                 else if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0 && hit.transform.gameObject.GetComponent<Stopper>() != null 
-                    &&hit.transform.gameObject.GetComponent<Stopper>().stopperInRange && !hit.transform.gameObject.GetComponent<Stopper>().IsAware)
+                    &&hit.transform.gameObject.GetComponentInChildren<Stopper>().stopperInRange && !hit.transform.gameObject.GetComponent<Stopper>().IsAware)
                 {
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Stopper"))
                     {
@@ -101,11 +101,11 @@ namespace Gossip.Utilitaries.Managers
                 {
                     if (_SelectedEntity.layer == LayerMask.NameToLayer("Entitée"))
                     {
-                        _SelectedEntity.GetComponent<Entity>().SetModeInRange();
+                        _SelectedEntity.GetComponentInChildren<Entity>().SetModeInRange();
                     }
                     else if (_SelectedEntity.layer == LayerMask.NameToLayer("Stopper"))
                     {
-                        _SelectedEntity.GetComponent<Stopper>().SetModeInRange();
+                        _SelectedEntity.GetComponentInChildren<Stopper>().SetModeInRange();
                     }
                     _SelectedEntity = null;
                 }
@@ -114,11 +114,11 @@ namespace Gossip.Utilitaries.Managers
             {
                 if (_SelectedEntity.layer == LayerMask.NameToLayer("Entitée"))
                 {
-                    _SelectedEntity.GetComponent<Entity>().SetModeInRange();
+                    _SelectedEntity.GetComponentInChildren<Entity>().SetModeInRange();
                 }
                 else if (_SelectedEntity.layer == LayerMask.NameToLayer("Stopper"))
                 {
-                    _SelectedEntity.GetComponent<Stopper>().SetModeInRange();
+                    _SelectedEntity.GetComponentInChildren<Stopper>().SetModeInRange();
                 }
                 _SelectedEntity = null;
             }
