@@ -80,6 +80,11 @@ namespace Gossip.Utilitaries.Managers
             _IsTransitioning = false;
         }
 
+        private void Update()
+        {
+            _CameraTravelTime = TimeManager.instance.FreezeTotalDuration; //To remove after tests
+        }
+
         private void OnEnable()
         {
             EventManager.instance.OnEntityChangedGameObject += ChangeTarget;
@@ -103,8 +108,8 @@ namespace Gossip.Utilitaries.Managers
 
         private void UpdateRotation()
         {
-            _RotationYAxis += _XAxis;
-            _RotationXAxis -= _YAxis;
+            _RotationYAxis += _XAxis * Time.timeScale;
+            _RotationXAxis -= _YAxis * Time.timeScale;
         }
 
         private IEnumerator UpdateCameraPosition(GameObject pTarget, float pTravelTime)
@@ -144,11 +149,13 @@ namespace Gossip.Utilitaries.Managers
 
         private void HandleInput()
         {
+            //if (GameManager.instance._isPaused)
+                //return;
             if (Input.GetMouseButton(1))
             {
                 _XAxis = Input.GetAxis(MOUSE_X) * mouseSensitivity;
                 _YAxis = Input.GetAxis(MOUSE_Y) * mouseSensitivity;
-                UpdateRotation();
+                UpdateRotation();                                    
             }
         }
 
