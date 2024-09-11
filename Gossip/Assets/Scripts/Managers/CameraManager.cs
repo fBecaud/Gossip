@@ -80,6 +80,11 @@ namespace Gossip.Utilitaries.Managers
             _IsTransitioning = false;
         }
 
+        private void Update()
+        {
+            _CameraTravelTime = TimeManager.instance.FreezeTotalDuration; //To remove after tests
+        }
+
         private void OnEnable()
         {
             EventManager.instance.OnEntityChangedGameObject += ChangeTarget;

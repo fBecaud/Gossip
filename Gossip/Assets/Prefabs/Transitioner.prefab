@@ -133,7 +133,7 @@ MonoBehaviour:
   IsLivePath: 0
   IsShowingIcons: 1
   PathDensity: 36
-  EditMode: 0
+  EditMode: 1
   CreateMeshFlag: 1
   LineMehsWidth: 0.2
   LineOpacity: 0.7
@@ -145,15 +145,19 @@ MonoBehaviour:
   PathList: []
   PathLengths: []
   NodeList:
-  - {x: -1.4086995, y: 0, z: -1.1672363}
-  - {x: 2.1329832, y: 0, z: 2.906416}
+  - {x: -0.2930727, y: -1, z: 3.1945143}
+  - {x: -5.8638744, y: -1, z: 1.4230633}
+  - {x: -5.026724, y: -1, z: -5.8262467}
   AngleList:
-  - {x: 0.9020883, y: 0, z: 2.689559}
+  - {x: -1.8974032, y: -1, z: -1.3323894}
+  - {x: -8.771174, y: -1, z: 1.5553837}
   NodeList_World:
-  - {x: -0.75869954, y: 1, z: 1.0527637}
-  - {x: 2.7829833, y: 1, z: 5.126416}
+  - {x: -3.9230728, y: 0, z: 9.824514}
+  - {x: -9.493875, y: 0, z: 8.053063}
+  - {x: -8.656724, y: 0, z: 0.8037534}
   AngleList_World:
-  - {x: 1.5520883, y: 1, z: 4.9095592}
+  - {x: -5.5274034, y: 0, z: 5.2976108}
+  - {x: -12.401175, y: 0, z: 8.185384}
 --- !u!1 &377746327516108406
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8914462962616588830}
   m_Layer: 0
-  m_Name: Entity
+  m_Name: Transitioner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,11 +301,10 @@ GameObject:
   - component: {fileID: 3543657232418051088}
   - component: {fileID: 7784769204141544255}
   - component: {fileID: 2484425571273266863}
-  - component: {fileID: 3693620284253171663}
-  - component: {fileID: 5833552668152468053}
-  - component: {fileID: 106174672008402818}
+  - component: {fileID: 3441851573185381003}
+  - component: {fileID: 8127853667435089490}
   m_Layer: 6
-  m_Name: "Entit\xE92"
+  m_Name: Transitioner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +434,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978354910927077467}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 539089cfe4dd8c149854dff36789b0b4, type: 3}
   m_Name: 
@@ -446,7 +449,7 @@ MonoBehaviour:
   IsLoop: 0
   IsMove: 0
   IsEndEventEnable: 0
---- !u!114 &3693620284253171663
+--- !u!114 &3441851573185381003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,11 +458,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1978354910927077467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2140d0cf658d06a49b6969d7b73bd484, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f4c6ebf909b9dd4ea913c70e2395dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _EntityDetection: {fileID: 6918746190159037781}
-  _PathFollower: {fileID: 0}
+  _PathFollower: {fileID: 2484425571273266863}
   _Speed: 0
   _IsInRange: 0
   _TalkingSound:
@@ -486,49 +489,8 @@ MonoBehaviour:
   _InRangeOutline: {r: 1, g: 1, b: 1, a: 1}
   _SelectedOutline: {r: 1, g: 0.5019608, b: 0, a: 1}
   _CurrentEntityOutline: {r: 0, g: 1, b: 0, a: 1}
-  _Outline: {fileID: 0}
---- !u!114 &5833552668152468053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978354910927077467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2140d0cf658d06a49b6969d7b73bd484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _EntityDetection: {fileID: 6918746190159037781}
-  _PathFollower: {fileID: 0}
-  _Speed: 0
-  _IsInRange: 0
-  _TalkingSound:
-    Guid:
-      Data1: 702853873
-      Data2: 1189614432
-      Data3: -243500632
-      Data4: 1476249640
-    Path: event:/SD/PNJ/voice
-  _CorruptedTalkingSound:
-    Guid:
-      Data1: -442357544
-      Data2: 1108458877
-      Data3: -536434025
-      Data4: -926883562
-    Path: event:/SD/PNJ/voice_corrupted
-  _WalkingSound:
-    Guid:
-      Data1: -454353848
-      Data2: 1230142891
-      Data3: 1932742811
-      Data4: -1792681536
-    Path: event:/SD/PNJ/footstep_dirt
-  _InRangeOutline: {r: 1, g: 1, b: 1, a: 1}
-  _SelectedOutline: {r: 1, g: 0.5019608, b: 0, a: 1}
-  _CurrentEntityOutline: {r: 0, g: 1, b: 0, a: 1}
-  _Outline: {fileID: 106174672008402818}
---- !u!114 &106174672008402818
+  _Outline: {fileID: 8127853667435089490}
+--- !u!114 &8127853667435089490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

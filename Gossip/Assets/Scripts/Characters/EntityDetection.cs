@@ -1,18 +1,10 @@
-using Gossip.Utilitaries.Managers;
 using UnityEngine;
 
 public class EntityDetection : MonoBehaviour
 {
     private void Awake()
     {
-        if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Entitée"))
-        {
-            transform.parent.gameObject.GetComponentInChildren<Entity>().SetModeUsual();
-        }
-        else if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Stopper"))
-        {
-            transform.parent.gameObject.GetComponentInChildren<Stopper>().SetModeUsual();
-        }
+        transform.parent.gameObject.GetComponentInChildren<Character>().SetModeUsual();
     }
 
     private void OnEnable()
