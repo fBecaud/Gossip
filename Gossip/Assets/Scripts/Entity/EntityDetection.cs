@@ -5,7 +5,14 @@ public class EntityDetection : MonoBehaviour
 {
     private void Awake()
     {
-        transform.parent.gameObject.GetComponent<Entity>().SetModeUsual();
+        if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Entitée"))
+        {
+            transform.parent.gameObject.GetComponent<Entity>().SetModeUsual();
+        }
+        else if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Stopper"))
+        {
+            transform.parent.gameObject.GetComponent<Stopper>().SetModeUsual();
+        }
     }
 
     private void OnEnable()
@@ -25,6 +32,10 @@ public class EntityDetection : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
             {
                 other.GetComponent<Entity>().SetModeInRange();
+            }
+            else if (other.gameObject.layer == LayerMask.NameToLayer("Stopper"))
+            {
+                other.GetComponent<Stopper>().SetModeInRange();
             }
         }
     }
