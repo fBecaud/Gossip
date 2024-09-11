@@ -129,6 +129,76 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1377159932}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &173096030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173096033}
+  - component: {fileID: 173096032}
+  - component: {fileID: 173096031}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &173096031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173096030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec1840577a507d4f87b0e91594e92fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TrackName: track2
+  _DetectionZoneLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!65 &173096032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173096030}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.592077, y: 14.646542, z: 1}
+  m_Center: {x: -0.56452274, y: 6.8232718, z: 0}
+--- !u!4 &173096033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173096030}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1352494, y: 0, z: -5.274294}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202401896
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +378,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229444018}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -562,6 +632,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Transitioner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Path
+      value: event:/SD/PNJ/voice
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Path
+      value: event:/SD/PNJ/footstep_dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data1
+      value: 702853873
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data2
+      value: 1189614432
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data3
+      value: -243500632
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data4
+      value: 1476249640
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data1
+      value: -454353848
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data2
+      value: 1230142891
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data3
+      value: 1932742811
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441851573185381003, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data4
+      value: -1792681536
       objectReference: {fileID: 0}
     - target: {fileID: 4846616088375348078, guid: 559a4efb8ff542b47ae67b4ff3842a1a,
         type: 3}
@@ -1199,6 +1319,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stopper
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Path
+      value: event:/SD/PNJ/voice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Path
+      value: event:/SD/PNJ/footstep_dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data1
+      value: 702853873
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data2
+      value: 1189614432
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data3
+      value: -243500632
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _TalkingSoundReference.Guid.Data4
+      value: 1476249640
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data1
+      value: -454353848
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data2
+      value: 1230142891
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data3
+      value: 1932742811
+      objectReference: {fileID: 0}
+    - target: {fileID: 8315131660902336067, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
+        type: 3}
+      propertyPath: _WalkingSoundReference.Guid.Data4
+      value: -1792681536
       objectReference: {fileID: 0}
     - target: {fileID: 9143172513754209197, guid: 7f7a4f0349889384c9ad8fff2bd0a18f,
         type: 3}
@@ -2078,3 +2248,4 @@ SceneRoots:
   - {fileID: 1066479998}
   - {fileID: 1822632704}
   - {fileID: 389704243}
+  - {fileID: 173096033}
