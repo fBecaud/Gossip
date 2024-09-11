@@ -28,7 +28,7 @@ public class Entity : Character
 
     protected virtual void Start()
     {
-        //SetModeMove();
+        SetModeMove();
     }
 
     public void UpdateCorrupted()
