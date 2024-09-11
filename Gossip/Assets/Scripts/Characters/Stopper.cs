@@ -1,4 +1,5 @@
 using CurvedPathGenerator;
+using FMOD.Studio;
 using FMODUnity;
 using Gossip.Utilitaries.Managers;
 using System;
@@ -7,6 +8,7 @@ using UnityEngine;
 public class Stopper : Character
 {
     [SerializeField] private bool _IsAware;
+    [SerializeField] private EventReference _AwareSoundAlert;
 
     protected override void Start()
     {
@@ -22,6 +24,7 @@ public class Stopper : Character
     {
         base.SetModeCurrentEntity();
         _IsAware = true;
+        AudioManager.instance.PlayOneShot(_AwareSoundAlert);
     }
 
     public override void SetModeUsual()
