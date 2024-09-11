@@ -16,6 +16,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private StudioEventEmitter _MusicEmitter;
     [SerializeField] private StudioEventEmitter _AmbianceEmitter;
 
+    private Bus _MasterBus;
+    private Bus _MusicBus;
+    private Bus _SFXBus;
+
+    public static float masterVolume = 1;
+    public static float musicVolume = 1;
+    public static float SFXVolume = 1;
+
     private void Awake()
     {
         if (instance != null)
@@ -30,6 +38,10 @@ public class AudioManager : MonoBehaviour
     {
         _MusicInstance = _MusicEmitter.EventInstance;
         _AmbianceInstance = _AmbianceEmitter.EventInstance;
+
+        _MasterBus = RuntimeManager.GetBus("bus:/Master Bus");
+        _MusicBus = RuntimeManager.GetBus("bus:/Music Bus");
+        _SFXBus = RuntimeManager.GetBus("bus:/SFX Bus");
     }
 
     public void PlayOneShot(EventReference pSound, Vector3 pWorldPos)
@@ -82,4 +94,10 @@ public class AudioManager : MonoBehaviour
         SetParameterLabelName(_AmbianceInstance, pParameter, pLabel);
     }
 
+    public void UpdateVolume()
+    {
+        _MasterBus.setVolume(masterVolume);
+        _SFXBus.setVolume(SFXVolume);
+        _MusicBus.setVolume(musicVolume);
+    }
 }
