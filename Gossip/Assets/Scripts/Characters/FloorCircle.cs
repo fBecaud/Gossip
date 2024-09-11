@@ -13,6 +13,7 @@ public class FloorCircle : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private Material _LineMat;
+    [SerializeField] private CapsuleCollider _CapsuleCollider;
 
     void Start()
     {
@@ -24,6 +25,8 @@ public class FloorCircle : MonoBehaviour
         // Create a unique instance of the first material to ensure changes apply
         lineRenderer.materials[0] = new Material(lineRenderer.materials[0]);
         _LineMat = lineRenderer.materials[0];
+
+        radius = _CapsuleCollider.radius;
     }
 
     void Update()
