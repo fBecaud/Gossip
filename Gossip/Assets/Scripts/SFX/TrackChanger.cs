@@ -1,10 +1,13 @@
 using Gossip.Utilitaries.Managers;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TrackChanger : MonoBehaviour
 {
-    [SerializeField] private string _TrackName; 
     [SerializeField] private LayerMask _DetectionZoneLayerMask;
+
+    [SerializeField] private List<TrackAttributes> TracksList = new();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,17 +16,41 @@ public class TrackChanger : MonoBehaviour
             return;
         }
 
-        if (!string.IsNullOrEmpty(_TrackName))
+        for (int i = 0; i < TracksList.Count; i++)
         {
-            Character character = other.GetComponentInChildren<Character>();
-            if (character != null && character.gameObject == PlayerManager.instance.CurrentCharacter)
+            TrackAttributes trackAttributes = TracksList[i];
+
+            if (!string.IsNullOrEmpty(trackAttributes.trackName))
             {
-                AudioManager.instance.ChangeMusicTrack(_TrackName);
+                Character character = other.GetComponentInChildren<Character>();
+                if (character != null && character.gameObject == PlayerManager.instance.CurrentCharacter)
+                {
+                    if (trackAttributes.changeMusic)
+                    {
+                        AudioManager.instance.ChangeMusicTrack("MusicSwitch", trackAttributes.trackName);
+                    }
+
+                    if (trackAttributes.changeAmbiance)
+                    {
+                        AudioManager.instance.ChangeAmbiantTrack("MusicSwitch", trackAttributes.trackName);
+                    }
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Track name or ambiance name is empty.");
             }
         }
-        else
-        {
-            Debug.LogWarning("Track name is empty.");
-        }
     }
+
+
+    [Serializable]
+    public class TrackAttributes
+    {
+        public string eventName;
+        public string trackName;  // For music
+        public bool changeMusic;  // Whether to change music
+        public bool changeAmbiance;  // Whether to change ambiance
+    }
+
 }
