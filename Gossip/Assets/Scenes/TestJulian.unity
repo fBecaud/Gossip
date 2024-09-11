@@ -651,27 +651,13 @@ MonoBehaviour:
     Path: event:/SD/PNJ/footstep_dirt
   _WalkingSoundFrequency: 0.5
   _TalkingSoundFrequency: 1
-  _TalkingSound:
+  _CorruptedTalkingSoundReference:
     Guid:
-      Data1: 702853873
-      Data2: 1189614432
-      Data3: -243500632
-      Data4: 1476249640
-    Path: event:/SD/PNJ/voice
-  _CorruptedTalkingSound:
-    Guid:
-      Data1: -442357544
-      Data2: 1108458877
-      Data3: -536434025
-      Data4: -926883562
-    Path: event:/SD/PNJ/voice_corrupted
-  _WalkingSound:
-    Guid:
-      Data1: -454353848
-      Data2: 1230142891
-      Data3: 1932742811
-      Data4: -1792681536
-    Path: event:/SD/PNJ/footstep_dirt
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _InRangeOutline: {r: 0, g: 0, b: 0, a: 0}
   _SelectedOutline: {r: 0, g: 0, b: 0, a: 0}
   _CurrentEntityOutline: {r: 0, g: 0, b: 0, a: 0}
@@ -730,12 +716,7 @@ MonoBehaviour:
   _DetectionZoneLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  TracksList:
-  - eventName: music
-    trackName: track1
-    ambianceName: 
-    changeMusic: 1
-    changeAmbiance: 0
+  _TracksList: []
 --- !u!4 &743821601
 Transform:
   m_ObjectHideFlags: 0
@@ -928,7 +909,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1417841902}
+      objectReference: {fileID: 1557739965}
     - target: {fileID: 8914462962616588830, guid: de958926e5ddc2c488e2108a5f351506,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1000,7 +981,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 501153041}
   m_SourcePrefab: {fileID: 100100000, guid: de958926e5ddc2c488e2108a5f351506, type: 3}
---- !u!43 &1417841902
+--- !u!43 &1557739965
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1283,74 +1264,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81707a9f4d302f841a5e1167c44bc759, type: 3}
---- !u!1 &1960843270 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1323766481515586946, guid: 8abfe043253114f4d8119c22dbdfd011,
-    type: 3}
-  m_PrefabInstance: {fileID: 5891790150499163135}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1960843273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960843270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -340702407
-      Data2: 1206741754
-      Data3: 406423971
-      Data4: -1032698888
-    Path: event:/SD/Ambiance/amb_school
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1960843274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960843270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -492587248
-      Data2: 1090864704
-      Data3: -1518406257
-      Data4: -859583805
-    Path: event:/Music/music
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &2009451410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6918746190159037781, guid: de958926e5ddc2c488e2108a5f351506,
@@ -1381,16 +1294,6 @@ PrefabInstance:
       propertyPath: _CurrentEntity
       value: 
       objectReference: {fileID: 501153039}
-    - target: {fileID: 6331775084247496360, guid: 8abfe043253114f4d8119c22dbdfd011,
-        type: 3}
-      propertyPath: _MusicEmitter
-      value: 
-      objectReference: {fileID: 1960843274}
-    - target: {fileID: 6331775084247496360, guid: 8abfe043253114f4d8119c22dbdfd011,
-        type: 3}
-      propertyPath: _AmbianceEmitter
-      value: 
-      objectReference: {fileID: 1960843273}
     - target: {fileID: 7782812987233226609, guid: 8abfe043253114f4d8119c22dbdfd011,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1444,15 +1347,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1323766481515586946, guid: 8abfe043253114f4d8119c22dbdfd011,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1960843274}
-    - targetCorrespondingSourceObject: {fileID: 1323766481515586946, guid: 8abfe043253114f4d8119c22dbdfd011,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1960843273}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8abfe043253114f4d8119c22dbdfd011, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

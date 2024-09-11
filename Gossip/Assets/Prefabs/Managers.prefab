@@ -54,6 +54,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6481397592328579353}
   - component: {fileID: 6331775084247496360}
+  - component: {fileID: 2038974617988648804}
+  - component: {fileID: 2950445892281539510}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -88,6 +90,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e611f730a22ae1847b1a8a70ce95c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ClickUI:
+    Guid:
+      Data1: -2112937722
+      Data2: 1249806442
+      Data3: -826695789
+      Data4: 699248190
+    Path: event:/SD/UI/clic_UI
   _RingbellSound:
     Guid:
       Data1: 0
@@ -102,6 +111,13 @@ MonoBehaviour:
       Data3: -1518406257
       Data4: -859583805
     Path: event:/Music/music
+  _CharacterMusic:
+    Guid:
+      Data1: -1795528865
+      Data2: 1152241334
+      Data3: 1706518674
+      Data4: -830542794
+    Path: event:/SD/Player/player_loop
   _AmbiantSchoolSound:
     Guid:
       Data1: -340702407
@@ -109,6 +125,70 @@ MonoBehaviour:
       Data3: 406423971
       Data4: -1032698888
     Path: event:/SD/Ambiance/amb_school
+  _MusicEmitter: {fileID: 2038974617988648804}
+  _AmbianceEmitter: {fileID: 2950445892281539510}
+--- !u!114 &2038974617988648804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323766481515586946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -492587248
+      Data2: 1090864704
+      Data3: -1518406257
+      Data4: -859583805
+    Path: event:/Music/music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2950445892281539510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323766481515586946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -340702407
+      Data2: 1206741754
+      Data3: 406423971
+      Data4: -1032698888
+    Path: event:/SD/Ambiance/amb_school
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1973856528994068378
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,8 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TimeScale: 0
-  _FreezeTotalDuration: 3
-  _FreezeSingleDuration: 0.75
+  _FreezeTotalDuration: 0.75
+  _FreezeSingleDuration: 0.3
 --- !u!1 &3031235751982648793
 GameObject:
   m_ObjectHideFlags: 0
