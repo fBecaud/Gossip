@@ -2,10 +2,14 @@ using Gossip.Utilitaries.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public bool _isPaused { get; private set; } = false;
+
+    private const string TITLE_CARD_SCENE = "TitleCard";
+
     public static GameManager instance;
 
     private void Awake()
@@ -28,13 +32,11 @@ public class GameManager : MonoBehaviour
         {
             if (!_isPaused)
             {
-                PauseMenuManager.instance.PopInMenu();
-                PauseGame();
+                PauseMenuManager.instance.PauseGame();
             }
             else
             {
-                PauseMenuManager.instance.PopOutMenu();
-                ResumeGame();
+                PauseMenuManager.instance.ResumeGame();
             }
         }
     }
@@ -52,6 +54,6 @@ public class GameManager : MonoBehaviour
     }
     public void QuitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene(TITLE_CARD_SCENE);
     }
 }
