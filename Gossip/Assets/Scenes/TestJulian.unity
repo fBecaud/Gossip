@@ -245,6 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 229444019}
   - component: {fileID: 229444020}
+  - component: {fileID: 229444021}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -300,6 +301,37 @@ MonoBehaviour:
       Data3: 406423971
       Data4: -1032698888
     Path: event:/SD/Ambiance/amb_school
+--- !u!114 &229444021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229444018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -492587248
+      Data2: 1090864704
+      Data3: -1518406257
+      Data4: -859583805
+    Path: event:/Music/music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,8 +1185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TimeScale: 0
-  _FreezeTotalDuration: 3
-  _FreezeSingleDuration: 0.75
+  _FreezeTotalDuration: 0.5
+  _FreezeSingleDuration: 0.25
 --- !u!1001 &1051322334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1354,6 +1386,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _CanSwape: 1
+  _IsOnTransitioner: 0
 --- !u!43 &1358855377
 Mesh:
   m_ObjectHideFlags: 0
