@@ -13,14 +13,12 @@ public class Entity : MonoBehaviour
     [SerializeField] private Color _InRangeOutline;
     [SerializeField] private Color _SelectedOutline;
     [SerializeField] private Color _CurrentEntityOutline;
-    [SerializeField] private Color _UsualOutline;
 
     [Space(10)]
     private bool _EntityInRange;
     public bool isCorrupted;
 
 
-    [SerializeField] private Material _EntityMat;
     [SerializeField] private EntityDetection _EntityDetection;
     [SerializeField] private Outline _Outline;
 
@@ -28,7 +26,6 @@ public class Entity : MonoBehaviour
 
     private void Awake()
     {
-        _EntityMat = GetComponent<Renderer>().material;
         _EntityDetection = GetComponentInChildren<EntityDetection>();
         _Outline = GetComponentInChildren<Outline>();
         SetModeVoid();

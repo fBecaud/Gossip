@@ -7,11 +7,11 @@ public class EntityDetection : MonoBehaviour
     {
         if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Entitée"))
         {
-            transform.parent.gameObject.GetComponent<Entity>().SetModeUsual();
+            transform.parent.gameObject.GetComponentInChildren<Entity>().SetModeUsual();
         }
         else if (transform.parent.gameObject.layer == LayerMask.NameToLayer("Stopper"))
         {
-            transform.parent.gameObject.GetComponent<Stopper>().SetModeUsual();
+            transform.parent.gameObject.GetComponentInChildren<Stopper>().SetModeUsual();
         }
     }
 
@@ -31,11 +31,11 @@ public class EntityDetection : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
             {
-                other.GetComponent<Entity>().SetModeInRange();
+                other.GetComponentInChildren<Entity>().SetModeInRange();
             }
             else if (other.gameObject.layer == LayerMask.NameToLayer("Stopper"))
             {
-                other.GetComponent<Stopper>().SetModeInRange();
+                other.GetComponentInChildren<Stopper>().SetModeInRange();
             }
         }
     }
@@ -46,7 +46,7 @@ public class EntityDetection : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
             {
-                other.GetComponent<Entity>().SetModeUsual();
+                other.GetComponentInChildren<Entity>().SetModeUsual();
             }
         }
     }
@@ -55,10 +55,10 @@ public class EntityDetection : MonoBehaviour
     {
         int lEntityLayerMask = 1 << LayerMask.NameToLayer("Entitée");
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, lEntityLayerMask);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, GetComponentInChildren<SphereCollider>().radius, lEntityLayerMask);
         foreach (var hitCollider in hitColliders)
         {
-            hitCollider.GetComponent<Entity>().SetModeUsual();
+            hitCollider.GetComponentInChildren<Entity>().SetModeUsual();
         }
     }
 
@@ -66,12 +66,12 @@ public class EntityDetection : MonoBehaviour
     {
         int lEntityLayerMask = 1 << LayerMask.NameToLayer("Entitée");
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius, lEntityLayerMask);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, GetComponentInChildren<SphereCollider>().radius, lEntityLayerMask);
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.gameObject != transform.parent.gameObject)
             {
-                hitCollider.gameObject.GetComponent<Entity>().SetModeInRange();
+                hitCollider.gameObject.GetComponentInChildren<Entity>().SetModeInRange();
             }
         }
     }
