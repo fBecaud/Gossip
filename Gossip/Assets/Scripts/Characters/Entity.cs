@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Entity : Character
 {
@@ -32,7 +33,10 @@ public class Entity : Character
 
     public void UpdateCorrupted()
     {
-        _IsCorrupted = true;
+        if (IsCorrupted)
+            return;
+        IsCorrupted = true;
+        ScoreManager.instance.IncreaseCount();
     }
     
     public override void SetModeInRange()
@@ -48,6 +52,7 @@ public class Entity : Character
 
     public override void SetModeCurrentEntity()
     {
+        UpdateCorrupted();
         base.SetModeCurrentEntity();
         SetOutline(_CurrentEntityOutline);
     }

@@ -108,8 +108,8 @@ namespace Gossip.Utilitaries.Managers
 
         private void UpdateRotation()
         {
-            _RotationYAxis += _XAxis;
-            _RotationXAxis -= _YAxis;
+            _RotationYAxis += _XAxis * Time.deltaTime;
+            _RotationXAxis -= _YAxis * Time.deltaTime;
         }
 
         private IEnumerator UpdateCameraPosition(GameObject pTarget, float pTravelTime)
@@ -149,8 +149,8 @@ namespace Gossip.Utilitaries.Managers
 
         private void HandleInput()
         {
-            if (GameManager.instance._isPaused)
-                return;
+            //if (GameManager.instance._isPaused)
+                //return;
             if (Input.GetMouseButton(1))
             {
                 _XAxis = Input.GetAxis(MOUSE_X) * mouseSensitivity;
