@@ -316,34 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8340df3a0ad27d543acdd43fef120f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EntityDetection: {fileID: 5566466965494397128}
-  _PathFollower: {fileID: 8953209080778840833}
-  _Speed: 0
-  _IsInRange: 0
-  _TalkingSoundReference:
-    Guid:
-      Data1: 702853873
-      Data2: 1189614432
-      Data3: -243500632
-      Data4: 1476249640
-    Path: event:/SD/PNJ/voice
-  _WalkingSoundReference:
-    Guid:
-      Data1: -454353848
-      Data2: 1230142891
-      Data3: 1932742811
-      Data4: -1792681536
-    Path: event:/SD/PNJ/footstep_dirt
-  _WalkingSoundFrequency: 0.5
-  _TalkingSoundFrequency: 1
   _IsAware: 0
-  _AwareSoundAlert:
-    Guid:
-      Data1: -2112937722
-      Data2: 1249806442
-      Data3: -826695789
-      Data4: 699248190
-    Path: event:/SD/UI/clic_UI
+  stopperInRange: 0
+  _EntityDetection: {fileID: 0}
 --- !u!1 &7887646587164358522
 GameObject:
   m_ObjectHideFlags: 0
