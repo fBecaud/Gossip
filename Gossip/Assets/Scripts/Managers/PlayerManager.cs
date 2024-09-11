@@ -140,7 +140,7 @@ namespace Gossip.Utilitaries.Managers
             _CanSwape = true;
         }
 
-        public GameObject CurrentEntity
+        public GameObject CurrentCharacter
         {
             get { return _CurrentEntity; }
             set { _CurrentEntity = value; }

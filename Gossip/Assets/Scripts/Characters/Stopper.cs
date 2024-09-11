@@ -8,9 +8,14 @@ public class Stopper : Character
 {
     [SerializeField] private bool _IsAware;
 
-    private void Start()
+    protected override void Start()
     {
-        SetModeVoid();
+        base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
     }
 
     public override void SetModeCurrentEntity()

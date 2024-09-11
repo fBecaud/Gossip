@@ -11,56 +11,65 @@ public class AudioManager : MonoBehaviour
     [SerializeField] EventReference _Music;
     [SerializeField] EventReference _AmbiantSchoolSound;
 
+    private EventInstance _CurrentMusicInstance;
+    private StudioEventEmitter _musicEmitter; // Reference to the emitter in your scene
+
     private void Awake()
     {
         if (instance != null)
         {
-            Destroy(instance);
+            Destroy(instance.gameObject);
             return;
         }
         instance = this;
+    }
+
+    private void Start()
+    {
+        // Find the FMOD Studio Event Emitter attached to the GameObject that plays your music
+        _musicEmitter = FindObjectOfType<StudioEventEmitter>();
+
+        if (_musicEmitter != null && _musicEmitter.EventInstance.isValid())
+        {
+            _CurrentMusicInstance = _musicEmitter.EventInstance; // Use the existing event instance from the emitter
+        }
+        else
+        {
+            Debug.LogError("FMOD Studio Event Emitter for music not found or not valid!");
+        }
     }
 
     public void PlayOneShot(EventReference pSound, Vector3 pWorldPos)
     {
         RuntimeManager.PlayOneShot(pSound, pWorldPos);
     }
-
     public void SetParameterLabelName(string eventName, string parameterName, string label)
     {
-        // Find the event instance by name (if you are not storing it like _currentMusicInstance)
-        EventInstance eventInstance = RuntimeManager.CreateInstance(eventName);
-
-        // Set the parameter using its name and the desired label
-        eventInstance.setParameterByNameWithLabel(parameterName, label);
-
-        // Start or update the event if needed
-        eventInstance.start();
-        eventInstance.release();  // To ensure it gets cleaned up
+        _CurrentMusicInstance.setParameterByNameWithLabel(parameterName, label);
     }
 
-    private void ChangeTrack(string pTrackName)
+    public void ChangeMusicTrack(string pTrackName)
     {
-        SetParameterLabelName("music", "MusicSwitch", pTrackName);
+        SetParameterLabelName(_Music.ToString(), "MusicSwitch", pTrackName);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            ChangeTrack("track1");
+            ChangeMusicTrack("track1");
         }
         else if (Input.GetKeyDown(KeyCode.F))
         {
-            ChangeTrack("track2");
+            ChangeMusicTrack("track2");
         }
         else if (Input.GetKeyDown(KeyCode.G))
         {
-            ChangeTrack("track3");
+            ChangeMusicTrack("track3");
         }
         else if (Input.GetKeyDown(KeyCode.H))
         {
-            ChangeTrack("track4");
+            ChangeMusicTrack("track4");
         }
     }
 }
