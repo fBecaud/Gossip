@@ -1,11 +1,14 @@
 using UnityEngine;
 using FMODUnity;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Entity : Character
 {
     [Header("Audio")]
+    [SerializeField] private EventReference _TalkingSound;
     [SerializeField] private EventReference _CorruptedTalkingSound;
+    [SerializeField] private EventReference _WalkingSound;
 
     [Header("Colors")]
     [SerializeField] private Color _InRangeOutline;
@@ -23,20 +26,17 @@ public class Entity : Character
         _Outline = GetComponentInChildren<Outline>();
     }
 
-    protected override void Start()
+    protected virtual void Start()
     {
-        base.Start();
-        //SetModeMove();
-    }
-
-    protected override void Update()
-    {
-        base.Update();
+        SetModeMove();
     }
 
     public void UpdateCorrupted()
     {
-        _IsCorrupted = true;
+        if (IsCorrupted)
+            return;
+        IsCorrupted = true;
+        ScoreManager.instance.IncreaseCount();
     }
     
     public override void SetModeInRange()
@@ -52,6 +52,7 @@ public class Entity : Character
 
     public override void SetModeCurrentEntity()
     {
+        UpdateCorrupted();
         base.SetModeCurrentEntity();
         SetOutline(_CurrentEntityOutline);
     }
