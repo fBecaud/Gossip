@@ -68,6 +68,7 @@ namespace Gossip.Utilitaries.Managers
 
         private void FindNewEntity()
         {
+            AudioManager.instance.PlayTransitionSound();
             TimeManager.instance.TempFreezeTime();
             _CurrentEntity.GetComponentInChildren<Character>().SetModeUsual();
 

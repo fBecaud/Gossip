@@ -30,9 +30,6 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] private float collisionRadius = 0.5f;  // Radius for SphereCast
         [SerializeField] private float positionSmoothSpeed = 10f;  // Speed for smoothing camera position transitions
 
-        [Header("Sound Settings")]
-        [SerializeField] private EventReference _EntityTransitionSound;
-
         private SphereCollider cameraCollider;
         private Vector3 currentCameraPosition;
 
@@ -97,7 +94,6 @@ namespace Gossip.Utilitaries.Managers
 
         public void ChangeTarget(GameObject pTarget)
         {
-            AudioManager.instance.PlayOneShot(_EntityTransitionSound, transform.position);
             StartCoroutine(UpdateCameraPosition(pTarget, _CameraTravelTime));
         }
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using Gossip.Utilitaries.Managers;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private EventReference _Music;
     [SerializeField] private EventReference _CharacterMusic;
     [SerializeField] private EventReference _AmbiantSchoolSound;
+    [SerializeField] private EventReference _TransitionSound;
 
     private EventInstance _MusicInstance;
     private EventInstance _AmbianceInstance;
     private EventInstance _ClickUIInstance;
+    private EventInstance _TransitionInstance;
     [SerializeField] private StudioEventEmitter _MusicEmitter;
     [SerializeField] private StudioEventEmitter _AmbianceEmitter;
 
@@ -42,7 +45,6 @@ public class AudioManager : MonoBehaviour
     {
         _MusicInstance = _MusicEmitter.EventInstance;
         _AmbianceInstance = _AmbianceEmitter.EventInstance;
-        _ClickUIInstance = RuntimeManager.CreateInstance(_ClickUI);
 
         _MasterBus = RuntimeManager.GetBus("bus:/");
     }
@@ -98,6 +100,10 @@ public class AudioManager : MonoBehaviour
         {
             SetParameterLabelName(_AmbianceInstance, "MusicSwitch", "track4");
         }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            PlayClickSound();
+        }
     }
 
     public void ChangeMusicTrack(string pParameter, string pLabel)
@@ -113,5 +119,10 @@ public class AudioManager : MonoBehaviour
     public void PlayClickSound()
     {
         PlayOneShot(_ClickUI);
+    }
+
+    public void PlayTransitionSound()
+    {
+        PlayOneShot(_TransitionSound);
     }
 }

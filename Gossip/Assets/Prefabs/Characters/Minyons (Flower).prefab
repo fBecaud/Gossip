@@ -408,16 +408,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.6214731
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.7183482
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.5618883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.000643149
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.23211727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.008145124
+      objectReference: {fileID: 0}
     - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: _Animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4815863009478149561}
     - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: _FloorCircle
       value: 
       objectReference: {fileID: 3436889202789764409}
+    - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: _PossessedEntityParticulePosition
+      value: 
+      objectReference: {fileID: 4267549149805683058}
     - target: {fileID: 7340962032821537424, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: Generator
@@ -527,6 +562,18 @@ PrefabInstance:
 --- !u!4 &1456154926225711043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6651743481159369273, guid: 7297d3c2820e92b4391bdbca45ea8800,
+    type: 3}
+  m_PrefabInstance: {fileID: 5222750895289671162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4267549149805683058 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8305641651941424264, guid: 7297d3c2820e92b4391bdbca45ea8800,
+    type: 3}
+  m_PrefabInstance: {fileID: 5222750895289671162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4815863009478149561 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 769994180485945411, guid: 7297d3c2820e92b4391bdbca45ea8800,
     type: 3}
   m_PrefabInstance: {fileID: 5222750895289671162}
   m_PrefabAsset: {fileID: 0}

@@ -354,6 +354,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7297d3c2820e92b4391bdbca45ea8800, type: 3}
+--- !u!95 &3109788060739689233 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 769994180485945411, guid: 7297d3c2820e92b4391bdbca45ea8800,
+    type: 3}
+  m_PrefabInstance: {fileID: 2416109059294380882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5963943967554830298 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8305641651941424264, guid: 7297d3c2820e92b4391bdbca45ea8800,
+    type: 3}
+  m_PrefabInstance: {fileID: 2416109059294380882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9063497648649929067 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6651743481159369273, guid: 7297d3c2820e92b4391bdbca45ea8800,
@@ -370,9 +382,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3361870421203940520, guid: 8b4c3be446477634d9161cb0958b017a,
         type: 3}
+      propertyPath: _Animator
+      value: 
+      objectReference: {fileID: 3109788060739689233}
+    - target: {fileID: -3361870421203940520, guid: 8b4c3be446477634d9161cb0958b017a,
+        type: 3}
       propertyPath: _FloorCircle
       value: 
       objectReference: {fileID: 9162893223291482026}
+    - target: {fileID: -3361870421203940520, guid: 8b4c3be446477634d9161cb0958b017a,
+        type: 3}
+      propertyPath: _PossessedEntityParticulePosition
+      value: 
+      objectReference: {fileID: 5963943967554830298}
     - target: {fileID: 1235216910599011740, guid: 8b4c3be446477634d9161cb0958b017a,
         type: 3}
       propertyPath: m_Name
@@ -442,6 +464,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920112574255850406, guid: 8b4c3be446477634d9161cb0958b017a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920112574255850406, guid: 8b4c3be446477634d9161cb0958b017a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920112574255850406, guid: 8b4c3be446477634d9161cb0958b017a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920112574255850406, guid: 8b4c3be446477634d9161cb0958b017a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 7340962032821537424, guid: 8b4c3be446477634d9161cb0958b017a,
         type: 3}
