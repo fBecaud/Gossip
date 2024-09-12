@@ -1,8 +1,5 @@
 using System.Collections;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Gossip.Utilitaries.Managers
 {
@@ -17,7 +14,7 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] private LayerMask _IgnoreLayerMask; // Layer mask to ignore colliders
 
         private int _CombinedLayerMask;
-        [SerializeField] private bool _CanSwape = true;
+        [SerializeField] private bool _CanSwape;
         [SerializeField] private bool _IsOnTransitioner = false;
 
         [SerializeField] private GameObject _TrailPrefab;
@@ -26,6 +23,7 @@ namespace Gossip.Utilitaries.Managers
 
         private void Awake()
         {
+            _CanSwape = false;
             if (instance != null)
             {
                 Destroy(instance.gameObject);
@@ -87,6 +85,14 @@ namespace Gossip.Utilitaries.Managers
             _CurrentEntity.GetComponentInChildren<Character>().SetModeCurrentEntity();
             EventManager.instance.EntityChanged();
             EventManager.instance.EntityChanged(_CurrentEntity);
+        }
+
+        public void ChangeEntityAutomated(GameObject pNewEntity)
+        {
+            _SelectedEntity = pNewEntity;
+            pNewEntity.transform.GetComponentInChildren<Entity>().SetModeSelected();
+            FindNewEntity();
+            _CanSwape = true;
         }
 
         private void ScanEntities()
