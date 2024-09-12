@@ -2,6 +2,7 @@ using UnityEngine;
 using FMODUnity;
 using System;
 using FMOD.Studio;
+using Gossip.Utilitaries.Managers;
 
 public class Entity : Character
 {
@@ -22,6 +23,8 @@ public class Entity : Character
     [SerializeField] private bool _MoveAtStart;
 
     [SerializeField] private MaterialUpdater _MaterialUpdater;
+
+    [SerializeField] private GameObject _AutomatedCharacterSwap;
 
     protected override void Awake()
     {
@@ -92,6 +95,11 @@ public class Entity : Character
 
     public override void SetModeTravelCompleted()
     {
+    }
+
+    public void SwapToTarget()
+    {
+        PlayerManager.instance.ChangeEntityAutomated(_AutomatedCharacterSwap);
     }
 
     public bool IsCorrupted
