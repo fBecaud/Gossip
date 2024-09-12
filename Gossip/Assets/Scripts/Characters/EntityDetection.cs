@@ -1,7 +1,10 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class EntityDetection : MonoBehaviour
 {
+    [SerializeField] private LayerMask _SelectedLayerMask;
+
     private void Awake()
     {
         transform.parent.gameObject.GetComponentInChildren<Character>().SetModeUsual();
@@ -19,16 +22,20 @@ public class EntityDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (enabled) // Verification to prevent running when the script is disabled
+        if (enabled && (other.gameObject.layer == LayerMask.NameToLayer("Entitée") || other.gameObject.layer == LayerMask.NameToLayer("Stopper") 
+            || other.gameObject.layer == LayerMask.NameToLayer("Transitioner")))// Verification to prevent running when the script is disabled
         {
+            print($"trigger detected with {other.gameObject.name}.");    
             other.GetComponent<Character>().SetModeInRange();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (enabled) // Verification to prevent running when the script is disabled
+        if (enabled && (other.gameObject.layer == LayerMask.NameToLayer("Entitée") || other.gameObject.layer == LayerMask.NameToLayer("Stopper")
+            || other.gameObject.layer == LayerMask.NameToLayer("Transitioner"))) // Verification to prevent running when the script is disabled
         {
+            print($"trigger undetected with {other.gameObject.name}.");
             other.GetComponent<Character>().SetModeUsual();
         }
     }
@@ -56,5 +63,10 @@ public class EntityDetection : MonoBehaviour
                 hitCollider.gameObject.GetComponentInChildren<Entity>().SetModeInRange();
             }
         }
+    }
+
+    private bool IsSelectedLayer(int layer)
+    {
+        return (_SelectedLayerMask.value & (1 << layer)) != 0;
     }
 }

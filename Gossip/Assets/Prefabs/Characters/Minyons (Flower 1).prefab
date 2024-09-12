@@ -250,6 +250,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2756850358018876949, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: _SelectedLayerMask.m_Bits
+      value: 1600
+      objectReference: {fileID: 0}
     - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: m_Size.x

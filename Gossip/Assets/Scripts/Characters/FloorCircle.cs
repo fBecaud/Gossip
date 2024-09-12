@@ -15,6 +15,8 @@ public class FloorCircle : MonoBehaviour
     private Material _LineMat;
     [SerializeField] private CapsuleCollider _CapsuleCollider;
 
+    private GameObject _Player;
+
     void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -26,7 +28,7 @@ public class FloorCircle : MonoBehaviour
         lineRenderer.materials[0] = new Material(lineRenderer.materials[0]);
         _LineMat = lineRenderer.materials[0];
 
-        
+        _Player = transform.parent.GetComponentInChildren<Character>().gameObject;
     }
 
     void Update()
@@ -48,7 +50,6 @@ public class FloorCircle : MonoBehaviour
 
         Vector3[] circlePoints = new Vector3[segments + 1];
         float angleStep = 360f / segments;
-        Vector3 playerPosition = transform.position;
 
         float offset = thickness / 2;
 
@@ -58,7 +59,7 @@ public class FloorCircle : MonoBehaviour
             float x = Mathf.Cos(angle) * radius;
             float z = Mathf.Sin(angle) * radius;
 
-            Vector3 pointPosition = playerPosition + new Vector3(x, 0, z);
+            Vector3 pointPosition = _Player.transform.position + new Vector3(x, 0, z);
 
             RaycastHit hit;
             if (Physics.Raycast(pointPosition + Vector3.up * 10, Vector3.down, out hit, Mathf.Infinity, groundLayer))
@@ -67,7 +68,7 @@ public class FloorCircle : MonoBehaviour
             }
             else
             {
-                pointPosition.y = playerPosition.y + offset;
+                pointPosition.y = _Player.transform.position.y + offset;
             }
 
             circlePoints[i] = pointPosition;
