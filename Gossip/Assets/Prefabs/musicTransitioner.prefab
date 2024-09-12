@@ -48,7 +48,7 @@ MonoBehaviour:
   _DetectionZoneLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  TracksList:
+  _TracksList:
   - eventName: music
     trackName: track2
     changeMusic: 1
