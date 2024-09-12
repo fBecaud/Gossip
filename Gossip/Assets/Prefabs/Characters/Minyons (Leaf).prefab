@@ -408,16 +408,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.6755223
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8002907
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.6281919
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0062156916
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.2730885
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963146287442080840, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.0025090277
+      objectReference: {fileID: 0}
     - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: _Animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3911127455425322835}
     - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: _FloorCircle
       value: 
       objectReference: {fileID: 3436889202789764409}
+    - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: _PossessedEntityParticulePosition
+      value: 
+      objectReference: {fileID: 3035997999297911063}
     - target: {fileID: 7340962032821537424, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: Generator
@@ -524,6 +559,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5588bd5b14727ed42a63a06c6cb810bf, type: 3}
+--- !u!4 &3035997999297911063 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6227796658196754543, guid: 5588bd5b14727ed42a63a06c6cb810bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8957549742974069112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3911127455425322835 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5334656398447556139, guid: 5588bd5b14727ed42a63a06c6cb810bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 8957549742974069112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6964589664495371561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2083105517383117905, guid: 5588bd5b14727ed42a63a06c6cb810bf,
