@@ -294,6 +294,8 @@ MonoBehaviour:
       Data3: 406423971
       Data4: -1032698888
     Path: event:/SD/Ambiance/amb_school
+  _MusicEmitter: {fileID: 0}
+  _AmbianceEmitter: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,11 +1010,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5612621286179003749, guid: 53fc602f0af07a44cb01745378439a6c,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 377746327516108406, guid: de958926e5ddc2c488e2108a5f351506,
         type: 3}
       propertyPath: m_Name
@@ -1067,6 +1064,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612621286179003749, guid: 53fc602f0af07a44cb01745378439a6c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1125,6 +1127,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 631046168611521733, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 631046168611521733, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 631046168611521733, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1919
+      objectReference: {fileID: 0}
+    - target: {fileID: 631046168611521733, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 631046168611521733, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -959.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 631046168611521733, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -540
+      objectReference: {fileID: 0}
     - target: {fileID: 1326297926856985163, guid: 81707a9f4d302f841a5e1167c44bc759,
         type: 3}
       propertyPath: m_Name
@@ -1134,6 +1166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 13.199951
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206781191370024281, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8493746808145585489, guid: 81707a9f4d302f841a5e1167c44bc759,
         type: 3}
@@ -1235,6 +1272,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8495535499934530956, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1296,7 +1338,6 @@ MonoBehaviour:
   _IsOnTransitioner: 0
   _TrailPrefab: {fileID: 1434675498405729298, guid: fa26967173645264d94dd401788919ba,
     type: 3}
-  _TrailTravelTime: 1
 --- !u!1 &1636262642
 GameObject:
   m_ObjectHideFlags: 0
