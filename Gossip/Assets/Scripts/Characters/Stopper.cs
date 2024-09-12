@@ -41,6 +41,7 @@ public class Stopper : Character
     public override void SetModeTravelCompleted()
     {
         _PathFollower.IsMove = false;
+        SetModeVoid();
         print("arrived at the victim");
     }
 

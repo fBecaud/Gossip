@@ -27,6 +27,8 @@ public class FloorCircle : MonoBehaviour
         _LineMat = lineRenderer.materials[0];
 
         radius = _CapsuleCollider.radius;
+
+
     }
 
     void Update()
