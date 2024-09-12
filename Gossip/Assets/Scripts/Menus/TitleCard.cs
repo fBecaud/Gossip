@@ -27,21 +27,25 @@ namespace Gossip.Menus
 
         private void Play()
         {
+            AudioManager.instance.PlayClickSound();
             TransitionIn(GAME_SCENE);
         }
 
         private void DisplaySettings()
         {
+            AudioManager.instance.PlayClickSound();
             Instantiate(_SettingsPopupPrefab, transform);
         }
 
         private void Credit()
         {
+            AudioManager.instance.PlayClickSound();
             TransitionIn(CREDIT_SCENE);
         }
 
         private void Quit()
         {
+            AudioManager.instance.PlayClickSound();
             Application.Quit();
         } 
     }
