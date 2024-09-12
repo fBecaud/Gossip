@@ -21,11 +21,17 @@ public class Character : MonoBehaviour
     internal EventInstance _WalkingSoundInstance;
 
     // Frequency of the sounds in seconds
-    [SerializeField] internal float _WalkingSoundFrequency = 0.5f; // Example: play sound every 0.5 seconds
-    [SerializeField] internal float _TalkingSoundFrequency = 1.0f; // Example: play sound every 1 second
+    [SerializeField] internal float _WalkingSoundFrequency = 0.5f;
+    [SerializeField] internal float _TalkingSoundFrequency = 1.0f;
 
-    internal float _WalkingSoundTimer = 0f; // Timer to keep track of elapsed time for walking sound
-    internal float _TalkingSoundTimer = 0f; // Timer to keep track of elapsed time for talking sound
+    internal float _WalkingSoundTimer = 0f;
+    internal float _TalkingSoundTimer = 0f;
+
+
+    [Header("Animation")]
+    [SerializeField] private Animator _Animator;
+
+    internal const string ANIM_BOOL_IS_WALKING = "IsWalking";
 
     protected virtual void Awake()
     {
@@ -39,14 +45,28 @@ public class Character : MonoBehaviour
         // Initialize the sound instances
         _WalkingSoundInstance = RuntimeManager.CreateInstance(_WalkingSoundReference);
         _TalkingSoundInstance = RuntimeManager.CreateInstance(_TalkingSoundReference);
+
+        if (_Animator == null)
+        {
+            _Animator.GetComponent<Animator>();
+        }
     }
 
     protected virtual void Update()
     {
         _Action();
 
-        // Update timers and play sounds if needed
         UpdateSoundPlayback(ref _WalkingSoundTimer, _WalkingSoundInstance, _WalkingSoundFrequency, _PathFollower.IsMove);
+
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, _PathFollower.IsMove);
+    }
+
+    protected virtual void UpdateAnimation(string pBoolName, bool pBoolValue)
+    {
+        if (_Animator != null)
+        {
+            _Animator.SetBool(pBoolName, pBoolValue);
+        }
     }
 
     internal void UpdateSoundPlayback(ref float timer, EventInstance soundInstance, float frequency, bool condition)
@@ -70,7 +90,6 @@ public class Character : MonoBehaviour
     {
         if (soundInstance.isValid())
         {
-            print("playing sound : " + soundInstance);
             soundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
             soundInstance.start();
         }
@@ -92,6 +111,7 @@ public class Character : MonoBehaviour
         _Action = DoActionVoid;
         StopSound(_WalkingSoundInstance);
         StopSound(_TalkingSoundInstance);
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, false);
     }
 
     protected virtual void DoActionVoid()
@@ -112,6 +132,7 @@ public class Character : MonoBehaviour
         _PathFollower.IsMove = true;
         _Speed = _PathFollower.Speed;
         _Action = DoActionMove;
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, true);
     }
 
     public virtual void SetModeInRange()

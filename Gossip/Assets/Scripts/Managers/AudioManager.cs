@@ -6,15 +6,27 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    [Header("Audio")]
-    [SerializeField] EventReference _RingbellSound;
-    [SerializeField] EventReference _Music;
-    [SerializeField] EventReference _AmbiantSchoolSound;
+    [Header("UI Audio")]
+    [SerializeField] private EventReference _ClickUI;
+
+    [Space(10)]
+    [Header("Ambiant Audio")]
+    [SerializeField] private EventReference _RingbellSound;
+    [SerializeField] private EventReference _Music;
+    [SerializeField] private EventReference _CharacterMusic;
+    [SerializeField] private EventReference _AmbiantSchoolSound;
 
     private EventInstance _MusicInstance;
     private EventInstance _AmbianceInstance;
+    private EventInstance _ClickUIInstance;
     [SerializeField] private StudioEventEmitter _MusicEmitter;
     [SerializeField] private StudioEventEmitter _AmbianceEmitter;
+
+    private Bus _MasterBus;
+
+    public static float masterVolume;
+    public static float musicVolume = 1;
+    public static float SFXVolume = 1;
 
     private void Awake()
     {
@@ -30,11 +42,29 @@ public class AudioManager : MonoBehaviour
     {
         _MusicInstance = _MusicEmitter.EventInstance;
         _AmbianceInstance = _AmbianceEmitter.EventInstance;
+        _ClickUIInstance = RuntimeManager.CreateInstance(_ClickUI);
+
+        _MasterBus = RuntimeManager.GetBus("bus:/");
+    }
+
+    public void UpdateVolume()
+    {
+        _MasterBus.setVolume(masterVolume);
     }
 
     public void PlayOneShot(EventReference pSound, Vector3 pWorldPos)
     {
         RuntimeManager.PlayOneShot(pSound, pWorldPos);
+    }
+
+    public void PlayOneShot(EventReference pSound)
+    {
+        RuntimeManager.PlayOneShot(pSound);
+    }
+
+    public void PlayOneShot(EventInstance pSoundInstance)
+    {
+        pSoundInstance.start();
     }
 
     public void SetParameterLabelName(EventInstance pMusicInstance, string parameterName, string label)
@@ -72,14 +102,16 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeMusicTrack(string pParameter, string pLabel)
     {
-        print("changing music");
         SetParameterLabelName(_MusicInstance, pParameter, pLabel);
     }
 
     public void ChangeAmbiantTrack(string pParameter, string pLabel)
     {
-        print("changing ambiance");
         SetParameterLabelName(_AmbianceInstance, pParameter, pLabel);
     }
 
+    public void PlayClickSound()
+    {
+        PlayOneShot(_ClickUI);
+    }
 }

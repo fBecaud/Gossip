@@ -34,6 +34,7 @@ public class Transitioner : Entity
     {
         PlayerManager.instance.IsOnTransitioner = false;
         _PathFollower.IsMove = false;
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, false);
         print("changed room");
     }
 }

@@ -1,8 +1,4 @@
-using CurvedPathGenerator;
-using FMOD.Studio;
 using FMODUnity;
-using Gossip.Utilitaries.Managers;
-using System;
 using UnityEngine;
 
 public class Stopper : Character
@@ -45,6 +41,7 @@ public class Stopper : Character
     public override void SetModeTravelCompleted()
     {
         _PathFollower.IsMove = false;
+        SetModeVoid();
         print("arrived at the victim");
     }
 
