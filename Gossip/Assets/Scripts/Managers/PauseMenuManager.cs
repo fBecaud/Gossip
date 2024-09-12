@@ -23,23 +23,31 @@ public class PauseMenuManager : MonoBehaviour
     }
     public void PauseGame()
     {
+        AudioManager.instance.PlayClickSound();
+
         _PauseMenu.SetActive(true);
         _GameManager.PauseGame();
     }
 
     public void ResumeGame()
     {
+        AudioManager.instance.PlayClickSound();
+
         _PauseMenu.SetActive(false);
         _GameManager.ResumeGame();
     }
 
     public void DisplaySettings()
     {
+        AudioManager.instance.PlayClickSound();
+
         Instantiate(_SettingsPopupPrefab, transform);
     }
 
     public void QuitGame()
     {
+        AudioManager.instance.PlayClickSound();
+
         _GameManager.QuitGame();
     }
 }

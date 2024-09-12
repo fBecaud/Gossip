@@ -33,6 +33,8 @@ namespace Gossip.Menus
 
         private void QuitSettings()
         {
+            AudioManager.instance.PlayClickSound();
+
             Destroy(gameObject);
         }
     }
