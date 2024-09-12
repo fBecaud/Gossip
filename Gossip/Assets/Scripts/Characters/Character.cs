@@ -143,12 +143,12 @@ public class Character : MonoBehaviour
         _IsInRange = false;
         _EntityDetection.enabled = false;
         _FloorCircle.SetActive(false);
-        StopSound(_WalkingSoundInstance);
         StopSound(_TalkingSoundInstance);
     }
 
     public virtual void SetModeMove()
     {
+        _PathFollower.enabled = true;
         _PathFollower.IsMove = true;
         _Speed = _PathFollower.Speed;
         _Action = DoActionMove;
