@@ -399,6 +399,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 34260365983179878, guid: 4328fdc868fcad94d8ac904fad6e253c,
         type: 3}
+      propertyPath: circleColor.b
+      value: 0.20392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 34260365983179878, guid: 4328fdc868fcad94d8ac904fad6e253c,
+        type: 3}
+      propertyPath: circleColor.g
+      value: 0.7921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 34260365983179878, guid: 4328fdc868fcad94d8ac904fad6e253c,
+        type: 3}
+      propertyPath: circleColor.r
+      value: 0.11372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 34260365983179878, guid: 4328fdc868fcad94d8ac904fad6e253c,
+        type: 3}
       propertyPath: _CapsuleCollider
       value: 
       objectReference: {fileID: 1700704469937866753}
