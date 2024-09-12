@@ -96,8 +96,13 @@ namespace Gossip.Utilitaries.Managers
                 Entity lEntity = hit.transform.GetComponentInChildren<Entity>();
                 Stopper lStopper = hit.transform.GetComponentInChildren<Stopper>();
 
+
                 if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0)
                 {
+                    if ((_SelectedEntity != null && hit.transform.gameObject != _SelectedEntity))
+                    {
+                        ResetSelectedEntity();
+                    }
                     if (lEntity != null && lEntity.IsInRange)
                     {
                         _SelectedEntity = hit.transform.gameObject;
