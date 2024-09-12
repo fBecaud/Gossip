@@ -5,7 +5,7 @@
 			<value>voice_stopper</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{5f4ed50a-4017-46f1-9c7e-5e091a8c0162}</destination>
@@ -122,7 +122,6 @@
 	<object class="MixerBusEffectChain" id="{b8df5b66-2a87-4c94-a269-6fc604773322}">
 		<relationship name="effects">
 			<destination>{bf261a96-b5ec-4948-881e-3d2d969f5124}</destination>
-			<destination>{d8a6420d-5cab-4161-aced-804813958d5a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{dfcd4f64-c32c-47b4-846a-6e4ec3c36678}" />
@@ -162,6 +161,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{07963b00-dc78-4bf8-86e4-a2ffef11c2a8}" />
 	<object class="MixerBusFader" id="{bf261a96-b5ec-4948-881e-3d2d969f5124}" />
-	<object class="SpatialiserEffect" id="{d8a6420d-5cab-4161-aced-804813958d5a}" />
 	<object class="MixerBusFader" id="{fb944c22-dfd0-4850-a30d-2047ba8fbf9e}" />
 </objects>
