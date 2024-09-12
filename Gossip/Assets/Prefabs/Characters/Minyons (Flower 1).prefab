@@ -297,6 +297,11 @@ PrefabInstance:
       objectReference: {fileID: 3436889202789764409}
     - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
+      propertyPath: _MaterialUpdater
+      value: 
+      objectReference: {fileID: 6495809215819233541}
+    - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
       propertyPath: _PossessedEntityParticulePosition
       value: 
       objectReference: {fileID: 7342430986344365120}
@@ -422,6 +427,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2372355873775839295}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6495809215819233541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8847758016307876154, guid: ff43f3869077f3849baa0d36477f35f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2372355873775839295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae10fa8a9e42024984e7cfb78951bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &7077280471186220737 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4817655394877132542, guid: ff43f3869077f3849baa0d36477f35f8,

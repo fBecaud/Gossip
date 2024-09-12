@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 0.64
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -169,7 +169,7 @@ MonoBehaviour:
       Data3: 1932742811
       Data4: -1792681536
     Path: event:/SD/PNJ/footstep_dirt
-  _WalkingSoundFrequency: 0.5
+  _WalkingSoundFrequency: 0.8955
   _TalkingSoundFrequency: 1
   _PossessedEntityParticuleGameObject: {fileID: 8910151540430102802}
   _PossessedEntityParticulePosition: {fileID: 8476298615319874288}
@@ -283,9 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e004c5bc688435045abe0ac6ee0df5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _IgnoredLayerMask:
+  _SelectedLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
 --- !u!136 &1351753874707160227
 CapsuleCollider:
   m_ObjectHideFlags: 0
