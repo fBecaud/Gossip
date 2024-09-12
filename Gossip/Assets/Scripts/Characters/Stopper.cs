@@ -44,7 +44,6 @@ public class Stopper : Character
         base.SetModeMove();
         PlayParticule(_PoContentParticuleGameObject, _PoContentParticulePosition.position);
         _EntityDetection.enabled = false;
-
     }
 
     public override void SetModeTravelCompleted()
