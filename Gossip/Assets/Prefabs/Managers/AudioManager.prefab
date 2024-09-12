@@ -55,11 +55,11 @@ MonoBehaviour:
     Path: event:/SD/UI/clic_UI
   _RingbellSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -340702407
+      Data2: 1206741754
+      Data3: 406423971
+      Data4: -1032698888
+    Path: event:/SD/Ambiance/amb_school
   _Music:
     Guid:
       Data1: -492587248

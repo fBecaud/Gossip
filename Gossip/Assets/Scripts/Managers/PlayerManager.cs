@@ -38,7 +38,7 @@ namespace Gossip.Utilitaries.Managers
 
         private void Start()
         {
-            _CombinedLayerMask = LayerMask.GetMask("Entitée", "Stopper");
+            _CombinedLayerMask = LayerMask.GetMask("Entitée", "Stopper", "Transitioner");
             _IsOnTransitioner = false;
         }
 

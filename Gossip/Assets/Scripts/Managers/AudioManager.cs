@@ -125,4 +125,9 @@ public class AudioManager : MonoBehaviour
     {
         PlayOneShot(_TransitionSound);
     }
+
+    public void PlayRingbellSounf()
+    {
+        PlayOneShot(_RingbellSound);
+    }
 }

@@ -703,6 +703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minyons (Flower 1) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2529392979687436983, guid: de958926e5ddc2c488e2108a5f351506,
+        type: 3}
+      propertyPath: _SelectedLayerMask.m_Bits
+      value: 1600
+      objectReference: {fileID: 0}
     - target: {fileID: 6969372495284035122, guid: de958926e5ddc2c488e2108a5f351506,
         type: 3}
       propertyPath: m_Enabled
