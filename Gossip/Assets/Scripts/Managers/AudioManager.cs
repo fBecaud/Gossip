@@ -1,26 +1,33 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using Gossip.Utilitaries.Managers;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    [Header("Audio")]
-    [SerializeField] EventReference _RingbellSound;
-    [SerializeField] EventReference _Music;
-    [SerializeField] EventReference _AmbiantSchoolSound;
+    [Header("UI Audio")]
+    [SerializeField] private EventReference _ClickUI;
+
+    [Space(10)]
+    [Header("Ambiant Audio")]
+    [SerializeField] private EventReference _RingbellSound;
+    [SerializeField] private EventReference _Music;
+    [SerializeField] private EventReference _CharacterMusic;
+    [SerializeField] private EventReference _AmbiantSchoolSound;
+    [SerializeField] private EventReference _TransitionSound;
 
     private EventInstance _MusicInstance;
     private EventInstance _AmbianceInstance;
+    private EventInstance _ClickUIInstance;
+    private EventInstance _TransitionInstance;
     [SerializeField] private StudioEventEmitter _MusicEmitter;
     [SerializeField] private StudioEventEmitter _AmbianceEmitter;
 
     private Bus _MasterBus;
-    private Bus _MusicBus;
-    private Bus _SFXBus;
 
-    public static float masterVolume = 1;
+    public static float masterVolume;
     public static float musicVolume = 1;
     public static float SFXVolume = 1;
 
@@ -39,14 +46,27 @@ public class AudioManager : MonoBehaviour
         _MusicInstance = _MusicEmitter.EventInstance;
         _AmbianceInstance = _AmbianceEmitter.EventInstance;
 
-        _MasterBus = RuntimeManager.GetBus("bus:/Master Bus");
-        _MusicBus = RuntimeManager.GetBus("bus:/Music Bus");
-        _SFXBus = RuntimeManager.GetBus("bus:/SFX Bus");
+        _MasterBus = RuntimeManager.GetBus("bus:/");
+    }
+
+    public void UpdateVolume()
+    {
+        _MasterBus.setVolume(masterVolume);
     }
 
     public void PlayOneShot(EventReference pSound, Vector3 pWorldPos)
     {
         RuntimeManager.PlayOneShot(pSound, pWorldPos);
+    }
+
+    public void PlayOneShot(EventReference pSound)
+    {
+        RuntimeManager.PlayOneShot(pSound);
+    }
+
+    public void PlayOneShot(EventInstance pSoundInstance)
+    {
+        pSoundInstance.start();
     }
 
     public void SetParameterLabelName(EventInstance pMusicInstance, string parameterName, string label)
@@ -80,24 +100,29 @@ public class AudioManager : MonoBehaviour
         {
             SetParameterLabelName(_AmbianceInstance, "MusicSwitch", "track4");
         }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            PlayClickSound();
+        }
     }
 
     public void ChangeMusicTrack(string pParameter, string pLabel)
     {
-        print("changing music");
         SetParameterLabelName(_MusicInstance, pParameter, pLabel);
     }
 
     public void ChangeAmbiantTrack(string pParameter, string pLabel)
     {
-        print("changing ambiance");
         SetParameterLabelName(_AmbianceInstance, pParameter, pLabel);
     }
 
-    public void UpdateVolume()
+    public void PlayClickSound()
     {
-        _MasterBus.setVolume(masterVolume);
-        _SFXBus.setVolume(SFXVolume);
-        _MusicBus.setVolume(musicVolume);
+        PlayOneShot(_ClickUI);
+    }
+
+    public void PlayTransitionSound()
+    {
+        PlayOneShot(_TransitionSound);
     }
 }

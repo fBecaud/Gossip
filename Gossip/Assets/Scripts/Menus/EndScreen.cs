@@ -31,6 +31,8 @@ namespace Gossip.Menus
 
         private void Quit()
         {
+            AudioManager.instance.PlayClickSound();
+
             SceneManager.LoadScene(TITLE_CARD_SCENE);
         }
 

@@ -14,7 +14,7 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] private GameObject _SelectedEntity;
 
         [SerializeField] private LayerMask _EntityLayerMask; // Layer mask to filter entity colliders
-        [SerializeField] private LayerMask _IgnoreLayerMask; // Layer mask to ignore sphere colliders
+        [SerializeField] private LayerMask _IgnoreLayerMask; // Layer mask to ignore colliders
 
         private int _CombinedLayerMask;
         [SerializeField] private bool _CanSwape = true;
@@ -41,6 +41,8 @@ namespace Gossip.Utilitaries.Managers
         {
             _CombinedLayerMask = LayerMask.GetMask("Entitée", "Stopper");
             _IsOnTransitioner = false;
+
+            if (_CurrentEntity.GetComponentInChildren<Entity>() != null) _CurrentEntity.GetComponentInChildren<Entity>().IsCorrupted = true;
         }
 
         private void Update()
@@ -69,10 +71,16 @@ namespace Gossip.Utilitaries.Managers
 
         private void FindNewEntity()
         {
+            AudioManager.instance.PlayTransitionSound();
             TimeManager.instance.TempFreezeTime();
             _CurrentEntity.GetComponentInChildren<Character>().SetModeUsual();
 
-            StartCoroutine(UpdateTrailPosition(_SelectedEntity, TimeManager.instance.FreezeTotalDuration));
+            bool lCanIncreaseScore = true;
+            if (_SelectedEntity.GetComponentInChildren<Entity>() != null && _SelectedEntity.GetComponentInChildren<Entity>().IsCorrupted) lCanIncreaseScore = false;
+
+            StartCoroutine(UpdateTrailPosition(_SelectedEntity, TimeManager.instance.FreezeTotalDuration, lCanIncreaseScore));
+
+            if (_SelectedEntity.GetComponentInChildren<Entity>() != null) _SelectedEntity.GetComponentInChildren<Entity>().IsCorrupted = true;
 
             _CurrentEntity = _SelectedEntity; //Changing entity
             _SelectedEntity = null;
@@ -96,8 +104,13 @@ namespace Gossip.Utilitaries.Managers
                 Entity lEntity = hit.transform.GetComponentInChildren<Entity>();
                 Stopper lStopper = hit.transform.GetComponentInChildren<Stopper>();
 
+
                 if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0)
                 {
+                    if ((_SelectedEntity != null && hit.transform.gameObject != _SelectedEntity))
+                    {
+                        ResetSelectedEntity();
+                    }
                     if (lEntity != null && lEntity.IsInRange)
                     {
                         _SelectedEntity = hit.transform.gameObject;
@@ -162,7 +175,7 @@ namespace Gossip.Utilitaries.Managers
             get { return _IsOnTransitioner; }
             set { _IsOnTransitioner = value; }
         }
-        private IEnumerator UpdateTrailPosition(GameObject pTarget, float pTravelTime)
+        private IEnumerator UpdateTrailPosition(GameObject pTarget, float pTravelTime, bool pCanIncreaseScore)
         {
             _TrailInstance.SetActive(true);
             _TrailInstance.transform.position = _CurrentEntity.transform.position;
@@ -179,6 +192,10 @@ namespace Gossip.Utilitaries.Managers
                 yield return null;
             }
             _TrailInstance.SetActive(false);
+
+            if (pCanIncreaseScore) ScoreManager.instance.IncreaseCount();
+
+            StopCoroutine(UpdateTrailPosition(pTarget, pTravelTime, pCanIncreaseScore));
         }
     }
 }
