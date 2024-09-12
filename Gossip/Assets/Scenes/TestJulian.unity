@@ -954,11 +954,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3720121707672089128, guid: de958926e5ddc2c488e2108a5f351506,
+        type: 3}
+      propertyPath: _PossessedEntityParticuleFactory
+      value: 
+      objectReference: {fileID: 1727473123122321504, guid: b361149d26705ca4f80ec2b40b786e6f,
+        type: 3}
     - target: {fileID: 4846616088375348078, guid: de958926e5ddc2c488e2108a5f351506,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1139860791}
+    - target: {fileID: 5973416724044328136, guid: de958926e5ddc2c488e2108a5f351506,
+        type: 3}
+      propertyPath: _CapsuleCollider
+      value: 
+      objectReference: {fileID: 2013940217}
     - target: {fileID: 6791453819231523101, guid: de958926e5ddc2c488e2108a5f351506,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1322,6 +1333,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81707a9f4d302f841a5e1167c44bc759, type: 3}
+--- !u!136 &2013940217 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1700704469937866753, guid: de958926e5ddc2c488e2108a5f351506,
+    type: 3}
+  m_PrefabInstance: {fileID: 1377159932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5891790150499163135
 PrefabInstance:
   m_ObjectHideFlags: 0

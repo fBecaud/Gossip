@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     protected Action _Action;
     [SerializeField] protected EntityDetection _EntityDetection;
     [SerializeField] protected PathFollower _PathFollower;
+    [SerializeField] private GameObject _FloorCircle;
     [SerializeField] protected float _Speed;
     [SerializeField] protected bool _IsInRange;
 
@@ -27,6 +28,9 @@ public class Character : MonoBehaviour
     internal float _WalkingSoundTimer = 0f;
     internal float _TalkingSoundTimer = 0f;
 
+    [Header("Particules")]
+    [SerializeField] private GameObject _PossessedEntityParticuleGameObject;
+    [SerializeField] private Transform _PossessedEntityParticulePosition;
 
     [Header("Animation")]
     [SerializeField] private Animator _Animator;
@@ -38,6 +42,7 @@ public class Character : MonoBehaviour
         _PathFollower = GetComponent<PathFollower>();
         _EntityDetection = GetComponentInChildren<EntityDetection>();
         SetModeVoid();
+        _FloorCircle.SetActive(false);
     }
 
     protected virtual void Start()
@@ -59,6 +64,19 @@ public class Character : MonoBehaviour
         UpdateSoundPlayback(ref _WalkingSoundTimer, _WalkingSoundInstance, _WalkingSoundFrequency, _PathFollower.IsMove);
 
         UpdateAnimation(ANIM_BOOL_IS_WALKING, _PathFollower.IsMove);
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SetModeVoid();
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            SetModeCurrentEntity();
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            SetModeInRange();
+        }
     }
 
     protected virtual void UpdateAnimation(string pBoolName, bool pBoolValue)
@@ -108,6 +126,7 @@ public class Character : MonoBehaviour
         _IsInRange = false;
         _PathFollower.IsMove = false;
         _EntityDetection.enabled = false;
+        _FloorCircle.SetActive(false);
         _Action = DoActionVoid;
         StopSound(_WalkingSoundInstance);
         StopSound(_TalkingSoundInstance);
@@ -123,6 +142,7 @@ public class Character : MonoBehaviour
     {
         _IsInRange = false;
         _EntityDetection.enabled = false;
+        _FloorCircle.SetActive(false);
         StopSound(_WalkingSoundInstance);
         StopSound(_TalkingSoundInstance);
     }
@@ -138,11 +158,14 @@ public class Character : MonoBehaviour
     public virtual void SetModeInRange()
     {
         _IsInRange = true;
+        _FloorCircle.SetActive(false);
     }
 
     public virtual void SetModeCurrentEntity()
     {
         _EntityDetection.enabled = true;
+        _FloorCircle.SetActive(true);
+        PlayParticule(_PossessedEntityParticuleGameObject, _PossessedEntityParticulePosition.position);
     }
 
     protected virtual void DoActionMove()
@@ -171,5 +194,11 @@ public class Character : MonoBehaviour
     {
         get { return _IsInRange; }
         set { _IsInRange = value; }
+    }
+
+    internal virtual void PlayParticule(GameObject pParticule, Vector3 pPos)
+    {
+        pParticule.transform.position = pPos;
+        pParticule.GetComponent<ParticleSystem>().Play();
     }
 }

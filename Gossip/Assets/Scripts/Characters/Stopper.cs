@@ -6,6 +6,12 @@ public class Stopper : Character
     [SerializeField] private bool _IsAware;
     [SerializeField] private EventReference _AwareSoundAlert;
 
+    [Header("Stopper Particules")]
+    [SerializeField] private GameObject _AngryParticuleGameObject;
+    [SerializeField] private Transform _AngryParticulePosition;
+    [SerializeField] private GameObject _PoContentParticuleGameObject;
+    [SerializeField] private Transform _PoContentParticulePosition;
+
     protected override void Start()
     {
         base.Start();
@@ -19,6 +25,7 @@ public class Stopper : Character
     public override void SetModeCurrentEntity()
     {
         base.SetModeCurrentEntity();
+        PlayParticule(_AngryParticuleGameObject, _AngryParticulePosition.position);
         _IsAware = true;
         AudioManager.instance.PlayOneShot(_AwareSoundAlert);
     }
@@ -35,7 +42,9 @@ public class Stopper : Character
     public override void SetModeMove()
     {
         base.SetModeMove();
+        PlayParticule(_PoContentParticuleGameObject, _PoContentParticulePosition.position);
         _EntityDetection.enabled = false;
+
     }
 
     public override void SetModeTravelCompleted()
