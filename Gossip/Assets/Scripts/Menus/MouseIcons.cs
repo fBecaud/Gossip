@@ -28,6 +28,15 @@ public class MouseIcons : MonoBehaviour
         _State++;
     }
 
+    private void OnEnable()
+    {
+       EventManager.instance.OnEntityChanged += CloseTutorial;
+    }
+    private void Ondisable()
+    {
+        EventManager.instance.OnEntityChanged -= CloseTutorial;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +50,6 @@ public class MouseIcons : MonoBehaviour
             {
                 _State++;
                 _Animator.SetTrigger("Right Click"); //Rightclick
-                EventManager.instance.OnEntityChanged += CloseTutorial;
             }
         }
     }
@@ -52,7 +60,6 @@ public class MouseIcons : MonoBehaviour
         {
             _State++;
             _Animator.SetTrigger("Left Click"); //Leftclick
-            EventManager.instance.OnEntityChanged -= CloseTutorial;
         }
     }
 }

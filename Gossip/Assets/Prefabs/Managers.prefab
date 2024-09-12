@@ -191,6 +191,7 @@ MonoBehaviour:
   _IsOnTransitioner: 0
   _TrailPrefab: {fileID: 1434675498405729298, guid: fa26967173645264d94dd401788919ba,
     type: 3}
+  _TrailOffset: {x: 0, y: 1, z: 0}
 --- !u!1 &4368165219462179177
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03755e59de72d64481cb6b22a1903f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Text: {fileID: 0}
 --- !u!1 &4542119235428670489
 GameObject:
   m_ObjectHideFlags: 0

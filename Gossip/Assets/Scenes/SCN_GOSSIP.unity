@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1556221784}
-  m_IndirectSpecularColor: {r: 0.02288793, g: 0.07656699, b: 0.21019143, a: 1}
+  m_IndirectSpecularColor: {r: 0.022926252, g: 0.07658745, b: 0.21018797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9561,6 +9561,11 @@ PrefabInstance:
       propertyPath: _CurrentEntity
       value: 
       objectReference: {fileID: 578433633}
+    - target: {fileID: 4680247437310754709, guid: 8abfe043253114f4d8119c22dbdfd011,
+        type: 3}
+      propertyPath: _TrailOffset.y
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6331775084247496360, guid: 8abfe043253114f4d8119c22dbdfd011,
         type: 3}
       propertyPath: _MusicEmitter

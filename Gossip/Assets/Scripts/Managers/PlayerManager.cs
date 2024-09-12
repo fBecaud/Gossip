@@ -85,6 +85,7 @@ namespace Gossip.Utilitaries.Managers
             _CurrentEntity = _SelectedEntity; //Changing entity
             _SelectedEntity = null;
             _CurrentEntity.GetComponentInChildren<Character>().SetModeCurrentEntity();
+            EventManager.instance.EntityChanged();
             EventManager.instance.EntityChanged(_CurrentEntity);
         }
 
