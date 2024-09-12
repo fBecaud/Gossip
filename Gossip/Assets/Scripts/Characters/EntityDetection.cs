@@ -22,7 +22,8 @@ public class EntityDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (enabled && IsSelectedLayer(other.gameObject.layer)) // Verification to prevent running when the script is disabled
+        if (enabled && (other.gameObject.layer == LayerMask.NameToLayer("Entitée") || other.gameObject.layer == LayerMask.NameToLayer("Stopper") 
+            || other.gameObject.layer == LayerMask.NameToLayer("Transitioner")))// Verification to prevent running when the script is disabled
         {
             print($"trigger detected with {other.gameObject.name}.");    
             other.GetComponent<Character>().SetModeInRange();
@@ -31,7 +32,8 @@ public class EntityDetection : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (enabled && IsSelectedLayer(other.gameObject.layer)) // Verification to prevent running when the script is disabled
+        if (enabled && (other.gameObject.layer == LayerMask.NameToLayer("Entitée") || other.gameObject.layer == LayerMask.NameToLayer("Stopper")
+            || other.gameObject.layer == LayerMask.NameToLayer("Transitioner"))) // Verification to prevent running when the script is disabled
         {
             print($"trigger undetected with {other.gameObject.name}.");
             other.GetComponent<Character>().SetModeUsual();
