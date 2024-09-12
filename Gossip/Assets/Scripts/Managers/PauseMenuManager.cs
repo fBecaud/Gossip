@@ -6,10 +6,10 @@ public class PauseMenuManager : MonoBehaviour
 {
     public static PauseMenuManager instance;
 
-    [SerializeField] GameObject _PauseMenu;
-    [SerializeField] GameObject _Settings;
+    [SerializeField] private GameObject _PauseMenu;
+    [SerializeField] private GameObject _SettingsPopupPrefab;
 
-    [SerializeField] GameManager _GameManager;
+    private GameManager _GameManager;
 
     private void Awake()
     {
@@ -18,30 +18,26 @@ public class PauseMenuManager : MonoBehaviour
             return;
         }
         instance = this;
+
         _GameManager = GameManager.instance;
     }
     public void PauseGame()
     {
-        PopInMenu();
-        _GameManager.PauseGame();
-    }
-    public void PopInMenu()
-    {
         _PauseMenu.SetActive(true);
-        _Settings.SetActive(false);
+        _GameManager.PauseGame();
     }
 
     public void ResumeGame()
     {
-       PopOutMenu();
-      _GameManager.ResumeGame();
-    }
-    // Update is called once per frame
-    public void PopOutMenu()
-    {
         _PauseMenu.SetActive(false);
-        _Settings.SetActive(true);
+        _GameManager.ResumeGame();
     }
+
+    public void DisplaySettings()
+    {
+        Instantiate(_SettingsPopupPrefab, transform);
+    }
+
     public void QuitGame()
     {
         _GameManager.QuitGame();

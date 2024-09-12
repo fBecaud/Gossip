@@ -16,6 +16,8 @@ namespace Gossip.Menus
         [SerializeField] private Image _TransitionScreen;
         [SerializeField] private float _TransitionSpeed;
 
+        [SerializeField] private GameObject _SettingsPopupPrefab;
+
         private float _ElapsedTime;
 
         private const string GAME_SCENE = "SCN_GOSSIP";
@@ -37,7 +39,7 @@ namespace Gossip.Menus
 
         private void DisplaySettings()
         {
-
+            Instantiate(_SettingsPopupPrefab, transform);
         }
 
         private void Credit()
