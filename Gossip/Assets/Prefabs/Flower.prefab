@@ -76,5 +76,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1536961011690083273, guid: fef464aaf5a24754592f01b0ec2170e6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8847758016307876154}
   m_SourcePrefab: {fileID: 100100000, guid: fef464aaf5a24754592f01b0ec2170e6, type: 3}
+--- !u!1 &496860792391229606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1536961011690083273, guid: fef464aaf5a24754592f01b0ec2170e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1419009535596950383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8847758016307876154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496860792391229606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae10fa8a9e42024984e7cfb78951bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Material: {fileID: 2100000, guid: 4986c696b3785d442a5f28214769f80f, type: 2}
+  _VariableName: _Corruption
+  _LerpDuration: 0.5
+  _TargetValue: 0.4

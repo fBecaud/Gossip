@@ -21,10 +21,13 @@ public class Entity : Character
 
     [SerializeField] private bool _MoveAtStart;
 
+    [SerializeField] private MaterialUpdater _MaterialUpdater;
+
     protected override void Awake()
     {
         base.Awake();
         _Outline = GetComponentInChildren<Outline>();
+        _MaterialUpdater = GetComponentInChildren<MaterialUpdater>();
     }
 
     protected override void Start()
@@ -63,6 +66,10 @@ public class Entity : Character
     public override void SetModeCurrentEntity()
     {
         base.SetModeCurrentEntity();
+        if (_MaterialUpdater)
+        {
+            _MaterialUpdater.UpdateMaterial();
+        }
         SetOutline(_CurrentEntityOutline);
     }
 
