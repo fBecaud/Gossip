@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{578ad0f3-654d-4b01-9485-aac0f475f23e}">
+		<property name="assetPath">
+			<value>SD/PNJ/voice/voice3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.00875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{03a7ff0c-23d7-48c7-85e1-8994bdb9cfeb}</destination>
+		</relationship>
+	</object>
+</objects>
