@@ -9,6 +9,8 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] private GameObject _PauseMenu;
     [SerializeField] private GameObject _SettingsPopupPrefab;
 
+    public bool isPaused;
+
     private GameManager _GameManager;
 
     private void Awake()
@@ -24,6 +26,7 @@ public class PauseMenuManager : MonoBehaviour
     public void PauseGame()
     {
         AudioManager.instance.PlayClickSound();
+        isPaused = true;
 
         _PauseMenu.SetActive(true);
         _GameManager.PauseGame();
@@ -32,6 +35,7 @@ public class PauseMenuManager : MonoBehaviour
     public void ResumeGame()
     {
         AudioManager.instance.PlayClickSound();
+        isPaused = false;
 
         _PauseMenu.SetActive(false);
         _GameManager.ResumeGame();

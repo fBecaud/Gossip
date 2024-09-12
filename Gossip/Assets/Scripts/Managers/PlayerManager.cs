@@ -39,7 +39,7 @@ namespace Gossip.Utilitaries.Managers
 
         private void Start()
         {
-            _CombinedLayerMask = LayerMask.GetMask("Entitée", "Stopper");
+            _CombinedLayerMask = LayerMask.GetMask("Entitée", "Stopper", "Transitioner");
             _IsOnTransitioner = false;
 
             if (_CurrentEntity.GetComponentInChildren<Entity>() != null) _CurrentEntity.GetComponentInChildren<Entity>().IsCorrupted = true;
@@ -47,9 +47,9 @@ namespace Gossip.Utilitaries.Managers
 
         private void Update()
         {
-            if (_CanSwape && !_IsOnTransitioner)
+            if (_CanSwape && !_IsOnTransitioner && PauseMenuManager.instance.isPaused == false)
             {
-                if (Input.GetMouseButtonDown(0) && _SelectedEntity != null)
+                if (Input.GetMouseButtonDown(0) && _SelectedEntity != null )
                 {
                     FindNewEntity();
                 }
