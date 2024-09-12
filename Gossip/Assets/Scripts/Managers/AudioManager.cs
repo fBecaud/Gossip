@@ -27,9 +27,7 @@ public class AudioManager : MonoBehaviour
 
     private Bus _MasterBus;
 
-    public static float masterVolume;
-    public static float musicVolume = 1;
-    public static float SFXVolume = 1;
+    public static float masterVolume = 1;
 
     private void Awake()
     {
@@ -47,6 +45,8 @@ public class AudioManager : MonoBehaviour
         _AmbianceInstance = _AmbianceEmitter.EventInstance;
 
         _MasterBus = RuntimeManager.GetBus("bus:/");
+
+        UpdateVolume();
     }
 
     public void UpdateVolume()
