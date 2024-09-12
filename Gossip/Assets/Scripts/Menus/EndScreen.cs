@@ -12,6 +12,9 @@ namespace Gossip.Menus
         [SerializeField] private Text _Message;
         [SerializeField] private GameObject _GoodMessage;
 
+        [SerializeField] private GameObject _TextBubbleContainer;
+        [SerializeField] private GameObject _BigCross;
+
         [SerializeField] private bool _GoodEnding;
 
         private const string MESSAGE_START = "Il suffit de ";
@@ -34,6 +37,17 @@ namespace Gossip.Menus
             AudioManager.instance.PlayClickSound();
 
             SceneManager.LoadScene(TITLE_CARD_SCENE);
+        }
+
+        //Functions used by Animator
+
+        private void EndingChock()
+        {
+            if (_GoodEnding)
+            {
+                _BigCross.SetActive(true);
+                _TextBubbleContainer.SetActive(false);
+            }
         }
 
         private void EnableQuit()
