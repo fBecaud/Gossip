@@ -58,7 +58,7 @@ public class Character : MonoBehaviour
 
         UpdateSoundPlayback(ref _WalkingSoundTimer, _WalkingSoundInstance, _WalkingSoundFrequency, _PathFollower.IsMove);
 
-        //UpdateAnimation(ANIM_BOOL_IS_WALKING, _PathFollower.IsMove);
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, _PathFollower.IsMove);
     }
 
     protected virtual void UpdateAnimation(string pBoolName, bool pBoolValue)

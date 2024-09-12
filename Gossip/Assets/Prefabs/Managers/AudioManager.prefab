@@ -46,6 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e611f730a22ae1847b1a8a70ce95c9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ClickUI:
+    Guid:
+      Data1: -2112937722
+      Data2: 1249806442
+      Data3: -826695789
+      Data4: 699248190
+    Path: event:/SD/UI/clic_UI
   _RingbellSound:
     Guid:
       Data1: 0
@@ -60,6 +67,13 @@ MonoBehaviour:
       Data3: -1518406257
       Data4: -859583805
     Path: event:/Music/music
+  _CharacterMusic:
+    Guid:
+      Data1: -1795528865
+      Data2: 1152241334
+      Data3: 1706518674
+      Data4: -830542794
+    Path: event:/SD/Player/player_loop
   _AmbiantSchoolSound:
     Guid:
       Data1: -340702407

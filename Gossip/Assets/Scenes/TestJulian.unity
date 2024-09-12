@@ -1144,6 +1144,11 @@ PrefabInstance:
       propertyPath: AngleList_World.Array.data[2].z
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7449030149468132674, guid: de958926e5ddc2c488e2108a5f351506,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8914462962616588830, guid: de958926e5ddc2c488e2108a5f351506,
         type: 3}
       propertyPath: m_LocalPosition.x
