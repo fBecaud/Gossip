@@ -19,27 +19,17 @@ public class EntityDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (enabled) //Added because Unity still runs OnTrigger functions even when the script is disabled. Acts as a verification.
+        if (enabled) // Verification to prevent running when the script is disabled
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
-            {
-                other.GetComponentInChildren<Entity>().SetModeInRange();
-            }
-            else if (other.gameObject.layer == LayerMask.NameToLayer("Stopper"))
-            {
-                other.GetComponentInChildren<Stopper>().SetModeInRange();
-            }
+            other.GetComponent<Character>().SetModeInRange();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (enabled)
+        if (enabled) // Verification to prevent running when the script is disabled
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Entitée"))
-            {
-                other.GetComponentInChildren<Entity>().SetModeUsual();
-            }
+            other.GetComponent<Character>().SetModeUsual();
         }
     }
 

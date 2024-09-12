@@ -15,7 +15,7 @@ public class FloorCircle : MonoBehaviour
     private Material _LineMat;
     [SerializeField] private CapsuleCollider _CapsuleCollider;
 
-    void Start()
+    void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
 
@@ -26,9 +26,7 @@ public class FloorCircle : MonoBehaviour
         lineRenderer.materials[0] = new Material(lineRenderer.materials[0]);
         _LineMat = lineRenderer.materials[0];
 
-        radius = _CapsuleCollider.radius;
-
-
+        
     }
 
     void Update()
@@ -38,6 +36,8 @@ public class FloorCircle : MonoBehaviour
 
     void UpdateCircle()
     {
+        radius = _CapsuleCollider.radius;
+
         _LineMat.SetColor("_Color", circleColor);
 
         lineRenderer.startWidth = thickness;

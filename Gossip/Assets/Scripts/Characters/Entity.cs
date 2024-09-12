@@ -19,6 +19,8 @@ public class Entity : Character
 
     [SerializeField] private Outline _Outline;
 
+    [SerializeField] private bool _MoveAtStart;
+
     protected override void Awake()
     {
         base.Awake();
@@ -29,7 +31,10 @@ public class Entity : Character
     {
         base.Start();
         _CorruptedTalkingSoundInstance = RuntimeManager.CreateInstance(_CorruptedTalkingSoundReference);
-        //SetModeMove();
+        if (_MoveAtStart)
+        {
+            SetModeMove();
+        }
     }
 
     protected override void Update()

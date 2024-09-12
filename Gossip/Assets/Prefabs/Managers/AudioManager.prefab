@@ -81,6 +81,13 @@ MonoBehaviour:
       Data3: 406423971
       Data4: -1032698888
     Path: event:/SD/Ambiance/amb_school
+  _TransitionSound:
+    Guid:
+      Data1: 997564717
+      Data2: 1328843584
+      Data3: 626422155
+      Data4: -246367183
+    Path: event:/SD/Player/transmission
   _MusicEmitter: {fileID: 6892309101615511031}
   _AmbianceEmitter: {fileID: 1110793364810392606}
 --- !u!114 &6892309101615511031
