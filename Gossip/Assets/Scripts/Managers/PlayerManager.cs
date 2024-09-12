@@ -14,7 +14,7 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] private GameObject _SelectedEntity;
 
         [SerializeField] private LayerMask _EntityLayerMask; // Layer mask to filter entity colliders
-        [SerializeField] private LayerMask _IgnoreLayerMask; // Layer mask to ignore sphere colliders
+        [SerializeField] private LayerMask _IgnoreLayerMask; // Layer mask to ignore colliders
 
         private int _CombinedLayerMask;
         [SerializeField] private bool _CanSwape = true;

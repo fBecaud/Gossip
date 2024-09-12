@@ -11,50 +11,49 @@ public class Character : MonoBehaviour
     protected Action _Action;
     [SerializeField] protected EntityDetection _EntityDetection;
     [SerializeField] protected PathFollower _PathFollower;
+    [SerializeField] private GameObject _FloorCircle;
     [SerializeField] protected float _Speed;
     [SerializeField] protected bool _IsInRange;
 
     [Header("Audio Instances")]
     [SerializeField] protected EventReference _TalkingSoundReference;
     [SerializeField] protected EventReference _WalkingSoundReference;
-    private EventInstance _TalkingSoundInstance;
-    private EventInstance _WalkingSoundInstance;
+    internal EventInstance _TalkingSoundInstance;
+    internal EventInstance _WalkingSoundInstance;
 
     // Frequency of the sounds in seconds
-    [SerializeField] private float _WalkingSoundFrequency = 0.5f; // Example: play sound every 0.5 seconds
-    [SerializeField] private float _TalkingSoundFrequency = 1.0f; // Example: play sound every 1 second
+    [SerializeField] internal float _WalkingSoundFrequency = 0.5f;
+    [SerializeField] internal float _TalkingSoundFrequency = 1.0f;
 
-    private float _walkingSoundTimer = 0f; // Timer to keep track of elapsed time for walking sound
-    private float _talkingSoundTimer = 0f; // Timer to keep track of elapsed time for talking sound
+    internal float _WalkingSoundTimer = 0f;
+    internal float _TalkingSoundTimer = 0f;
+
+    [Header("Particules")]
+    [SerializeField] private GameObject _PossessedEntityParticuleGameObject;
+    [SerializeField] private Transform _PossessedEntityParticulePosition;
+
+    [Header("Animation")]
+    [SerializeField] private Animator _Animator;
+
+    internal const string ANIM_BOOL_IS_WALKING = "IsWalking";
 
     protected virtual void Awake()
     {
         _PathFollower = GetComponent<PathFollower>();
         _EntityDetection = GetComponentInChildren<EntityDetection>();
         SetModeVoid();
+        _FloorCircle.SetActive(false);
     }
 
     protected virtual void Start()
     {
         // Initialize the sound instances
         _WalkingSoundInstance = RuntimeManager.CreateInstance(_WalkingSoundReference);
-        if (_WalkingSoundInstance.isValid())
-        {
-            Debug.Log($"Walking sound instance created. {gameObject.name}");
-        }
-        else
-        {
-            Debug.Log($"Walking sound instance is not valid. {gameObject.name}");
-        }
-
         _TalkingSoundInstance = RuntimeManager.CreateInstance(_TalkingSoundReference);
-        if (_TalkingSoundInstance.isValid())
+
+        if (_Animator == null)
         {
-            Debug.Log($"Talking sound instance created. {gameObject.name}");
-        }
-        else
-        {
-            Debug.Log($"Talking sound instance is not valid. {gameObject.name}");
+            _Animator.GetComponent<Animator>();
         }
     }
 
@@ -62,12 +61,33 @@ public class Character : MonoBehaviour
     {
         _Action();
 
-        // Update timers and play sounds if needed
-        UpdateSoundPlayback(ref _walkingSoundTimer, _WalkingSoundInstance, _WalkingSoundFrequency, _PathFollower.IsMove);
-        UpdateSoundPlayback(ref _talkingSoundTimer, _TalkingSoundInstance, _TalkingSoundFrequency, _EntityDetection.enabled);
+        UpdateSoundPlayback(ref _WalkingSoundTimer, _WalkingSoundInstance, _WalkingSoundFrequency, _PathFollower.IsMove);
+
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, _PathFollower.IsMove);
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SetModeVoid();
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            SetModeCurrentEntity();
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            SetModeInRange();
+        }
     }
 
-    private void UpdateSoundPlayback(ref float timer, EventInstance soundInstance, float frequency, bool condition)
+    protected virtual void UpdateAnimation(string pBoolName, bool pBoolValue)
+    {
+        if (_Animator != null)
+        {
+            _Animator.SetBool(pBoolName, pBoolValue);
+        }
+    }
+
+    internal void UpdateSoundPlayback(ref float timer, EventInstance soundInstance, float frequency, bool condition)
     {
         if (condition)
         {
@@ -88,7 +108,6 @@ public class Character : MonoBehaviour
     {
         if (soundInstance.isValid())
         {
-            print("playing sound : " + soundInstance);
             soundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
             soundInstance.start();
         }
@@ -107,9 +126,11 @@ public class Character : MonoBehaviour
         _IsInRange = false;
         _PathFollower.IsMove = false;
         _EntityDetection.enabled = false;
+        _FloorCircle.SetActive(false);
         _Action = DoActionVoid;
         StopSound(_WalkingSoundInstance);
         StopSound(_TalkingSoundInstance);
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, false);
     }
 
     protected virtual void DoActionVoid()
@@ -121,6 +142,7 @@ public class Character : MonoBehaviour
     {
         _IsInRange = false;
         _EntityDetection.enabled = false;
+        _FloorCircle.SetActive(false);
         StopSound(_WalkingSoundInstance);
         StopSound(_TalkingSoundInstance);
     }
@@ -130,16 +152,20 @@ public class Character : MonoBehaviour
         _PathFollower.IsMove = true;
         _Speed = _PathFollower.Speed;
         _Action = DoActionMove;
+        UpdateAnimation(ANIM_BOOL_IS_WALKING, true);
     }
 
     public virtual void SetModeInRange()
     {
         _IsInRange = true;
+        _FloorCircle.SetActive(false);
     }
 
     public virtual void SetModeCurrentEntity()
     {
         _EntityDetection.enabled = true;
+        _FloorCircle.SetActive(true);
+        PlayParticule(_PossessedEntityParticuleGameObject, _PossessedEntityParticulePosition.position);
     }
 
     protected virtual void DoActionMove()
@@ -168,5 +194,11 @@ public class Character : MonoBehaviour
     {
         get { return _IsInRange; }
         set { _IsInRange = value; }
+    }
+
+    internal virtual void PlayParticule(GameObject pParticule, Vector3 pPos)
+    {
+        pParticule.transform.position = pPos;
+        pParticule.GetComponent<ParticleSystem>().Play();
     }
 }

@@ -7,7 +7,7 @@ public class TrackChanger : MonoBehaviour
 {
     [SerializeField] private LayerMask _DetectionZoneLayerMask;
 
-    [SerializeField] private List<TrackAttributes> TracksList = new();
+    [SerializeField] private List<TrackAttributes> _TracksList = new();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,9 +16,9 @@ public class TrackChanger : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < TracksList.Count; i++)
+        for (int i = 0; i < _TracksList.Count; i++)
         {
-            TrackAttributes trackAttributes = TracksList[i];
+            TrackAttributes trackAttributes = _TracksList[i];
 
             if (!string.IsNullOrEmpty(trackAttributes.trackName))
             {
@@ -52,5 +52,4 @@ public class TrackChanger : MonoBehaviour
         public bool changeMusic;  // Whether to change music
         public bool changeAmbiance;  // Whether to change ambiance
     }
-
 }
