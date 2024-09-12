@@ -339,7 +339,7 @@ MonoBehaviour:
   radius: 5
   thickness: 0.1
   segments: 100
-  circleColor: {r: 1, g: 0.4871792, b: 0, a: 1}
+  circleColor: {r: 0.11372549, g: 0.7921569, b: 0.20392157, a: 1}
   groundLayer:
     serializedVersion: 2
     m_Bits: 2048
