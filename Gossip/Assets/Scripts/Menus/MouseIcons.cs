@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Gossip.Utilitaries.Managers;
 using UnityEngine;
 
 public class MouseIcons : MonoBehaviour
@@ -16,47 +14,45 @@ public class MouseIcons : MonoBehaviour
 
     [SerializeField] GameObject _RightClickIcon;
     [SerializeField] GameObject _LeftClickIcon;
+    Animator _Animator;
 
+    private void Awake()
+    {
+        _Animator = GetComponent<Animator>();
+    }
     // Start is called before the first frame update
     void Start()
     {
         _State = State.Start;
-        PopUpIcon(_RightClickIcon);
+        _Animator.SetTrigger("Start Tuto"); //Start tuto
+        _State++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ChangeState();
-        }
+        ChangeState();
     }
     void ChangeState()
     {
-        _State++;
         if (_State == State.Rightclick)
         {
-            PopOutIcon(_RightClickIcon);
-            PopUpIcon(_LeftClickIcon);
-        }
-        else if (_State == State.Leftclick)
-        {
-            PopOutIcon(_LeftClickIcon);
-        }
-        else if (_State == State.End)
-        {
-            Destroy(gameObject);
+            if (Input.GetMouseButtonDown(1))
+            {
+                _State++;
+                _Animator.SetTrigger("Right Click"); //Rightclick
+                EventManager.instance.OnEntityChanged += CloseTutorial;
+            }
         }
     }
-    void PopUpIcon(GameObject icon)
+
+    private void CloseTutorial()
     {
-        icon.SetActive(true);
-        icon.GetComponent<Animation>().Play();
-    }
-    void PopOutIcon(GameObject icon)
-    {
-        icon.GetComponent<Animation>().Play();
-        icon.SetActive(false);
+        if (_State == State.Leftclick)
+        {
+            _State++;
+            _Animator.SetTrigger("Left Click"); //Leftclick
+            EventManager.instance.OnEntityChanged -= CloseTutorial;
+        }
     }
 }

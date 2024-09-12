@@ -21,6 +21,7 @@ namespace Gossip.Utilitaries.Managers
         [SerializeField] private bool _IsOnTransitioner = false;
 
         [SerializeField] private GameObject _TrailPrefab;
+        [SerializeField] private Vector3 _TrailOffset;
         private GameObject _TrailInstance;
 
         private void Awake()
@@ -165,8 +166,8 @@ namespace Gossip.Utilitaries.Managers
         {
             _TrailInstance.SetActive(true);
             _TrailInstance.transform.position = _CurrentEntity.transform.position;
-            Vector3 lStartPosition = _TrailInstance.transform.position;
-            Vector3 lEndPosition = pTarget.transform.position;// - transform.forward * _CurrentTargetDistance;
+            Vector3 lStartPosition = _TrailInstance.transform.position + _TrailOffset;
+            Vector3 lEndPosition = pTarget.transform.position + _TrailOffset;
 
             float startTime = Time.time;
 
