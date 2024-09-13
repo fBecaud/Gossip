@@ -15,11 +15,13 @@ public class MouseIcons : MonoBehaviour
     [SerializeField] GameObject _RightClickIcon;
     [SerializeField] GameObject _LeftClickIcon;
     Animator _Animator;
+    int _SpreadCount = 0;
 
     private void Awake()
     {
         _Animator = GetComponent<Animator>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,8 @@ public class MouseIcons : MonoBehaviour
     {
        EventManager.instance.OnEntityChanged += CloseTutorial;
     }
-    private void Ondisable()
+
+    private void OnDisable()
     {
         EventManager.instance.OnEntityChanged -= CloseTutorial;
     }
@@ -56,7 +59,8 @@ public class MouseIcons : MonoBehaviour
 
     private void CloseTutorial()
     {
-        if (_State == State.Leftclick)
+        _SpreadCount++;
+        if (_State == State.Leftclick && _SpreadCount == 2)
         {
             _State++;
             _Animator.SetTrigger("Left Click"); //Leftclick
