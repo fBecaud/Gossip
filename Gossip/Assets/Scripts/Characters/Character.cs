@@ -31,7 +31,9 @@ public class Character : MonoBehaviour
     [Header("Particules")]
     [SerializeField] private GameObject _PossessedEntityParticuleGameObject;
     [SerializeField] private Transform _PossessedEntityParticulePosition;
-    internal RandomChildActivator _BlablaContainerGameObject;
+    internal RandomChildActivator _RandomChildActivator;
+    [SerializeField] internal Transform _BlablaPos;
+    [SerializeField] internal GameObject _BlaBlaGameObject;
 
     [Header("Animation")]
     [SerializeField] private Animator _Animator;
@@ -44,7 +46,7 @@ public class Character : MonoBehaviour
         _EntityDetection = GetComponentInChildren<EntityDetection>();
         SetModeVoid();
         _FloorCircle.SetActive(false);
-        _BlablaContainerGameObject = GetComponent<RandomChildActivator>();
+        _RandomChildActivator = GetComponent<RandomChildActivator>();
     }
 
     protected virtual void Start()
@@ -62,6 +64,8 @@ public class Character : MonoBehaviour
     protected virtual void Update()
     {
         _Action();
+
+        _BlaBlaGameObject.transform.position = _BlablaPos.position;
 
         UpdateSoundPlayback(ref _WalkingSoundTimer, _WalkingSoundInstance, _WalkingSoundFrequency, _PathFollower.IsMove);
 

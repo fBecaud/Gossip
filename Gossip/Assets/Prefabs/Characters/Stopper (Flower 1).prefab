@@ -352,6 +352,11 @@ PrefabInstance:
       objectReference: {fileID: 7567595680055674319}
     - target: {fileID: -9118314729143237579, guid: 17236d5ff37daf44e82d4c32ee29f700,
         type: 3}
+      propertyPath: _BlaBlaGameObject
+      value: 
+      objectReference: {fileID: 925751394246384476}
+    - target: {fileID: -9118314729143237579, guid: 17236d5ff37daf44e82d4c32ee29f700,
+        type: 3}
       propertyPath: _AngryParticulePosition
       value: 
       objectReference: {fileID: 0}
@@ -505,6 +510,11 @@ PrefabInstance:
       propertyPath: Generator
       value: 
       objectReference: {fileID: 5760302655183931517}
+    - target: {fileID: 8554591734257636321, guid: 17236d5ff37daf44e82d4c32ee29f700,
+        type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 925751394246384476}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4020442751353792009, guid: 17236d5ff37daf44e82d4c32ee29f700, type: 3}

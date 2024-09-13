@@ -170,6 +170,7 @@ MonoBehaviour:
   _TalkingSoundFrequency: 1
   _PossessedEntityParticuleGameObject: {fileID: 4029202534448077536}
   _PossessedEntityParticulePosition: {fileID: 7790546504886623322}
+  _BlablaPos: {fileID: 3101168609672866059}
   _Animator: {fileID: 3027972421334316379}
   _CorruptedTalkingSoundReference:
     Guid:

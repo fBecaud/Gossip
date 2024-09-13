@@ -420,6 +420,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1053281068856616959}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4599812991878922539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3552161458051360468, guid: 653f5a805e55a654bb677fa9d7602514,
+    type: 3}
+  m_PrefabInstance: {fileID: 1053281068856616959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4794375449357474650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -535,9 +541,19 @@ PrefabInstance:
       objectReference: {fileID: 2841923981492837329}
     - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
+      propertyPath: _BlaBlaGameObject
+      value: 
+      objectReference: {fileID: 4599812991878922539}
+    - target: {fileID: 3961197018553968266, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
       propertyPath: _PossessedEntityParticulePosition
       value: 
       objectReference: {fileID: 4267549149805683058}
+    - target: {fileID: 6961926276719249692, guid: 0c0a1c1947e4c9f4999368e451300ce2,
+        type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 4599812991878922539}
     - target: {fileID: 7340962032821537424, guid: 0c0a1c1947e4c9f4999368e451300ce2,
         type: 3}
       propertyPath: Generator
