@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     }
     public void QuitGame()
     {
+        ResumeGame();
         SceneManager.LoadScene(TITLE_CARD_SCENE);
     }
 }
