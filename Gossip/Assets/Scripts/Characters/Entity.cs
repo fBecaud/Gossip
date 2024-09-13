@@ -117,7 +117,7 @@ public class Entity : Character
 
         if (randomValue <= _ChanceAppearancePourcentage)
         {
-            _BlablaContainerGameObject.ActivateRandomChild();
+            _RandomChildActivator.ActivateRandomChild();
         }
     }
 

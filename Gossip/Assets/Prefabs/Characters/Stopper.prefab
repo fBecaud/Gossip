@@ -174,7 +174,7 @@ MonoBehaviour:
   _TalkingSoundFrequency: 1
   _PossessedEntityParticuleGameObject: {fileID: 8910151540430102802}
   _PossessedEntityParticulePosition: {fileID: 8476298615319874288}
-  _BlablaContainerGameObject: {fileID: 0}
+  _BlablaPos: {fileID: 274144898491034474}
   _Animator: {fileID: 0}
   _IsAware: 0
   _AwareSoundAlert:
@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274144898491034474}
   m_Layer: 0
-  m_Name: Blabla
+  m_Name: BlablaPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 5302966194853584352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.79, y: 4.76, z: 4.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

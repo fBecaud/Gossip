@@ -7468,6 +7468,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minyons (Flower)
       objectReference: {fileID: 0}
+    - target: {fileID: 2720693565340538576, guid: 710098e09f63dc2478fff8724e8c19dd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.141
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720693565340538576, guid: 710098e09f63dc2478fff8724e8c19dd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.448
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720693565340538576, guid: 710098e09f63dc2478fff8724e8c19dd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.038
+      objectReference: {fileID: 0}
     - target: {fileID: 2839903307118105034, guid: 710098e09f63dc2478fff8724e8c19dd,
         type: 3}
       propertyPath: IsEndEventEnable
@@ -7623,6 +7638,21 @@ PrefabInstance:
       propertyPath: _AutomatedCharacterSwap
       value: 
       objectReference: {fileID: 490851603}
+    - target: {fileID: 8574493182500920339, guid: 710098e09f63dc2478fff8724e8c19dd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574493182500920339, guid: 710098e09f63dc2478fff8724e8c19dd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574493182500920339, guid: 710098e09f63dc2478fff8724e8c19dd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8914462962616588830, guid: 710098e09f63dc2478fff8724e8c19dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14743,6 +14773,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stopper (Flower) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3836556816927418971, guid: b1e159945c8be234693282bcbe9c6ad5,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908624569730048961, guid: b1e159945c8be234693282bcbe9c6ad5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908624569730048961, guid: b1e159945c8be234693282bcbe9c6ad5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908624569730048961, guid: b1e159945c8be234693282bcbe9c6ad5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5760302655183931517, guid: b1e159945c8be234693282bcbe9c6ad5,
         type: 3}
@@ -23094,7 +23144,7 @@ PrefabInstance:
     - target: {fileID: 6707982553200137613, guid: 81707a9f4d302f841a5e1167c44bc759,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 6707982553200137613, guid: 81707a9f4d302f841a5e1167c44bc759,
         type: 3}
