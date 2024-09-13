@@ -1,9 +1,10 @@
+using Gossip.Menus;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class HudManager : MonoBehaviour
+public class HudManager : Menu
 {
     [SerializeField] private TextMeshProUGUI _ScoreDisplay;
     [SerializeField] private Animator _ScoreAnim;
@@ -21,14 +22,11 @@ public class HudManager : MonoBehaviour
         instance = this;
     }
 
-    void Start()
+    protected override void Init()
     {
         ScoreManager.instance.OnScoreUpdate += SetScore;
-    }
 
-    void Update()
-    {
-        
+        base.Init();
     }
 
     private void SetScore()

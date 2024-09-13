@@ -16,19 +16,19 @@ namespace Gossip.Menus
         [SerializeField] private GameObject _TextBubbleContainer;
         [SerializeField] private GameObject _BigCross;
 
-        [SerializeField] private bool _GoodEnding;
-
         [SerializeField] private EventReference _EndingVoice;
 
         private const string MESSAGE_START = "Il suffit de ";
         private const string MESSAGE_END = " personnes pour ruiner la vie d'une autre.";
         private const string TITLE_CARD_SCENE = "TitleCard";
 
+        public bool isGoodEnding;
+
         void Start()
         {
             if (ScoreManager.instance != null) _Message.text = MESSAGE_START + ScoreManager.instance._SpreadCount + MESSAGE_END;
 
-            if (_GoodEnding) _GoodMessage.SetActive(true);
+            if (isGoodEnding) _GoodMessage.SetActive(true);
             else _GoodMessage.SetActive(false);
 
             _QuitButton.enabled = false;
@@ -48,7 +48,7 @@ namespace Gossip.Menus
 
         private void EndingChock()
         {
-            if (_GoodEnding) StartCoroutine(DestroyBubbleCoroutine());
+            if (isGoodEnding) StartCoroutine(DestroyBubbleCoroutine());
         }
 
         private IEnumerator DestroyBubbleCoroutine()
