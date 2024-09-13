@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _EntityDetection: {fileID: 2756850358018876949}
   _PathFollower: {fileID: 7340962032821537424}
-  _FloorCircle: {fileID: 0}
+  _FloorCircle: {fileID: 5302966194853584352}
   _Speed: 0
   _IsInRange: 0
   _TalkingSoundReference:
@@ -174,6 +174,7 @@ MonoBehaviour:
   _TalkingSoundFrequency: 1
   _PossessedEntityParticuleGameObject: {fileID: 8910151540430102802}
   _PossessedEntityParticulePosition: {fileID: 8476298615319874288}
+  _BlablaContainerGameObject: {fileID: 0}
   _Animator: {fileID: 0}
   _IsAware: 0
   _AwareSoundAlert:

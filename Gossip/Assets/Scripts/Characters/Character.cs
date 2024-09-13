@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
     [Header("Particules")]
     [SerializeField] private GameObject _PossessedEntityParticuleGameObject;
     [SerializeField] private Transform _PossessedEntityParticulePosition;
+    internal RandomChildActivator _BlablaContainerGameObject;
 
     [Header("Animation")]
     [SerializeField] private Animator _Animator;
@@ -43,6 +44,7 @@ public class Character : MonoBehaviour
         _EntityDetection = GetComponentInChildren<EntityDetection>();
         SetModeVoid();
         _FloorCircle.SetActive(false);
+        _BlablaContainerGameObject = GetComponent<RandomChildActivator>();
     }
 
     protected virtual void Start()
