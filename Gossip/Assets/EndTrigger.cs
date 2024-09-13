@@ -14,9 +14,12 @@ public class EndTrigger : MonoBehaviour
 
         Character character = other.GetComponentInChildren<Character>();
 
+
         if (GameManager.instance.StopperActivated) //Good Ending
         {
+            GameManager.instance.SetEnding(true);
             PlayerManager.instance.CanSwap = false;
         }
+        else GameManager.instance.SetEnding(false);
     }
 }
