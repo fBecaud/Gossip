@@ -43,11 +43,26 @@ namespace Gossip.Menus
 
         private void EndingChock()
         {
-            if (_GoodEnding)
+            if (_GoodEnding) StartCoroutine(DestroyBubbleCoroutine());
+        }
+
+        private IEnumerator DestroyBubbleCoroutine()
+        {
+            int lBubbleCount = _TextBubbleContainer.transform.childCount - 1;
+            for (int i = lBubbleCount; i >= 0; i--)
             {
-                _BigCross.SetActive(true);
-                _TextBubbleContainer.SetActive(false);
+                Transform lBubble = _TextBubbleContainer.transform.GetChild(i);
+                lBubble.GetChild(0).gameObject.SetActive(true);
+
+                yield return new WaitForSeconds(0.05f);
+
+                lBubble.GetChild(0).gameObject.SetActive(false);
+                lBubble.GetComponent<Image>().color = Color.clear;
+
+                yield return new WaitForSeconds(0.01f);
             }
+
+            StopCoroutine(DestroyBubbleCoroutine());
         }
 
         private void EnableQuit()

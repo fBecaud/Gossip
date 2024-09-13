@@ -449,11 +449,16 @@ PrefabInstance:
     - target: {fileID: 4893213562087498745, guid: 3fac5077c1f4c824d9f5a2d794d19fe1,
         type: 3}
       propertyPath: _GoodEnding
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5133547618949741638, guid: 3fac5077c1f4c824d9f5a2d794d19fe1,
         type: 3}
       propertyPath: m_fontColor32.rgba
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5369608654104579537, guid: 3fac5077c1f4c824d9f5a2d794d19fe1,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
