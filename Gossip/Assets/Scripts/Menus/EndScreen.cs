@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,12 @@ namespace Gossip.Menus
         [SerializeField] private Text _Message;
         [SerializeField] private GameObject _GoodMessage;
 
+        [SerializeField] private GameObject _TextBubbleContainer;
+        [SerializeField] private GameObject _BigCross;
+
         [SerializeField] private bool _GoodEnding;
+
+        [SerializeField] private EventReference _EndingVoice;
 
         private const string MESSAGE_START = "Il suffit de ";
         private const string MESSAGE_END = " personnes pour ruiner la vie d'une autre.";
@@ -27,6 +33,8 @@ namespace Gossip.Menus
 
             _QuitButton.enabled = false;
             _QuitButton.onClick.AddListener(Quit);
+
+            RuntimeManager.PlayOneShot(_EndingVoice);
         }
 
         private void Quit()
@@ -34,6 +42,33 @@ namespace Gossip.Menus
             AudioManager.instance.PlayClickSound();
 
             SceneManager.LoadScene(TITLE_CARD_SCENE);
+        }
+
+        //Functions used by Animator
+
+        private void EndingChock()
+        {
+            if (_GoodEnding) StartCoroutine(DestroyBubbleCoroutine());
+        }
+
+        private IEnumerator DestroyBubbleCoroutine()
+        {
+            int lBubbleCount = _TextBubbleContainer.transform.childCount - 1;
+            for (int i = lBubbleCount; i >= 0; i--)
+            {
+                Transform lBubble = _TextBubbleContainer.transform.GetChild(i);
+                lBubble.GetChild(0).gameObject.SetActive(true);
+
+                yield return new WaitForSeconds(0.02f);
+
+                lBubble.GetChild(0).gameObject.SetActive(false);
+                lBubble.GetComponent<Image>().color = Color.clear;
+
+                yield return new WaitForSeconds(0.01f);
+
+            }
+
+            StopCoroutine(DestroyBubbleCoroutine());
         }
 
         private void EnableQuit()
