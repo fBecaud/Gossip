@@ -114,7 +114,7 @@ namespace Gossip.Utilitaries.Managers
 
                 if ((_IgnoreLayerMask & (1 << hit.transform.gameObject.layer)) == 0)
                 {
-                    if ((_SelectedEntity != null && hit.transform.gameObject != _SelectedEntity))
+                    if (_SelectedEntity != null && hit.transform.gameObject != _SelectedEntity)
                     {
                         ResetSelectedEntity();
                     }
@@ -142,20 +142,21 @@ namespace Gossip.Utilitaries.Managers
 
         private void ResetSelectedEntity()
         {
+            
             // Reset the selected entity to its in-range state if it was selected before
             if (_SelectedEntity != null)
             {
                 Entity entity = _SelectedEntity.GetComponentInChildren<Entity>();
-                Stopper stopper = _SelectedEntity.GetComponentInChildren<Stopper>();
+                //Stopper stopper = _SelectedEntity.GetComponentInChildren<Stopper>();
 
                 if (entity != null)
                 {
-                    entity.SetModeInRange();
+                    entity.CancelSelectedMode();
                 }
-                else if (stopper != null)
-                {
-                    stopper.SetModeInRange();
-                }
+                //else if (stopper != null)
+                //{
+                //    stopper.SetModeInRange();
+                //}
 
                 _SelectedEntity = null;
             }
