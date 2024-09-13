@@ -321,12 +321,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _AngryParticulePosition
       value: 
-      objectReference: {fileID: 2005563699189865567}
+      objectReference: {fileID: 0}
     - target: {fileID: -9118314729143237579, guid: 17236d5ff37daf44e82d4c32ee29f700,
         type: 3}
       propertyPath: _PoContentParticulePosition
       value: 
-      objectReference: {fileID: 2005563699189865567}
+      objectReference: {fileID: 0}
     - target: {fileID: -9118314729143237579, guid: 17236d5ff37daf44e82d4c32ee29f700,
         type: 3}
       propertyPath: _PossessedEntityParticulePosition
@@ -346,6 +346,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 274144898491034474, guid: 17236d5ff37daf44e82d4c32ee29f700,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 274144898491034474, guid: 17236d5ff37daf44e82d4c32ee29f700,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 274144898491034474, guid: 17236d5ff37daf44e82d4c32ee29f700,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.98
       objectReference: {fileID: 0}
     - target: {fileID: 1235216910599011740, guid: 17236d5ff37daf44e82d4c32ee29f700,
         type: 3}
@@ -471,12 +486,6 @@ PrefabInstance:
 --- !u!136 &601318072948257704 stripped
 CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 1351753874707160227, guid: 17236d5ff37daf44e82d4c32ee29f700,
-    type: 3}
-  m_PrefabInstance: {fileID: 1916892305310609163}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2005563699189865567 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 94323716939756372, guid: 17236d5ff37daf44e82d4c32ee29f700,
     type: 3}
   m_PrefabInstance: {fileID: 1916892305310609163}
   m_PrefabAsset: {fileID: 0}
