@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1556221784}
-  m_IndirectSpecularColor: {r: 0.022922702, g: 0.07659049, b: 0.21018675, a: 1}
+  m_IndirectSpecularColor: {r: 0.022926252, g: 0.07658745, b: 0.21018797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4945,7 +4945,7 @@ MonoBehaviour:
   _CurrentTargetDistance: 5
   minDistanceFromWall: 0.5
   maxCameraDistance: 10
-  _MinXAngleCamLock: 0
+  _MinXAngleCamLock: 10
   _MaxXAngleCamLock: 30
   collisionLayer:
     serializedVersion: 2
@@ -24183,6 +24183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168546817935632402, guid: 81707a9f4d302f841a5e1167c44bc759,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4916255007457793434, guid: 81707a9f4d302f841a5e1167c44bc759,
         type: 3}
