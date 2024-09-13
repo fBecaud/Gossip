@@ -205,5 +205,11 @@ namespace Gossip.Utilitaries.Managers
 
             StopCoroutine(UpdateTrailPosition(pTarget, pTravelTime, pCanIncreaseScore));
         }
+
+        public bool CanSwap
+        {
+            get { return _CanSwape; }
+            set { _CanSwape = value; }
+        }
     }
 }

@@ -29,6 +29,7 @@ public class Stopper : Character
         _IsAware = true;
         AudioManager.instance.PlayOneShot(_AwareSoundAlert);
         _BlablaContainerGameObject.ActivateRandomChild();
+        GameManager.instance.StopperActivated = true;
     }
 
     public override void SetModeUsual()

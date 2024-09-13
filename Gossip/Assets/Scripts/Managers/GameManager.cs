@@ -1,6 +1,3 @@
-using Gossip.Utilitaries.Managers;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +8,8 @@ public class GameManager : MonoBehaviour
     private const string TITLE_CARD_SCENE = "TitleCard";
 
     public static GameManager instance;
+
+    private bool _StopperActivated = false;
 
     private void Awake()
     {
@@ -55,5 +54,11 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         SceneManager.LoadScene(TITLE_CARD_SCENE);
+    }
+
+    public bool StopperActivated
+    {
+        get { return _StopperActivated; }
+        set { _StopperActivated = value; }
     }
 }
