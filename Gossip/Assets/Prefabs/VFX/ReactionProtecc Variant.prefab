@@ -68,7 +68,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReactionProtecc Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 201414447977738694, guid: 311edb76a33a22547a55e75107e82666, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
