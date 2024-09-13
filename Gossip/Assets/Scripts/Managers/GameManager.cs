@@ -1,3 +1,4 @@
+using Gossip.Menus;
 using Gossip.Utilitaries.Managers;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _EndScreen;
     public bool _isPaused { get; private set; } = false;
 
     private const string TITLE_CARD_SCENE = "TitleCard";
@@ -40,6 +42,13 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void SetEnding(bool pIsGoodEnding)
+    {
+        _EndScreen.SetActive(true);
+        _EndScreen.GetComponent<EndScreen>().isGoodEnding = pIsGoodEnding;
+    }
+
     public void PauseGame()
     {
         _isPaused = true;
@@ -52,6 +61,7 @@ public class GameManager : MonoBehaviour
         //TimeManager ref here
         Time.timeScale = 1f;
     }
+
     public void QuitGame()
     {
         SceneManager.LoadScene(TITLE_CARD_SCENE);
