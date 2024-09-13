@@ -7,6 +7,7 @@ public class MouseIcons : MonoBehaviour
     {
         Start,
         Rightclick,
+        Demo,
         Leftclick,
         End
     };
@@ -60,7 +61,11 @@ public class MouseIcons : MonoBehaviour
     private void CloseTutorial()
     {
         _SpreadCount++;
-        if (_State == State.Leftclick && _SpreadCount == 2)
+        if (_State == State.Demo && _SpreadCount == 2)
+        {
+            _State++;
+        }
+        else if (_State == State.Leftclick && _SpreadCount == 3)
         {
             _State++;
             _Animator.SetTrigger("Left Click"); //Leftclick
