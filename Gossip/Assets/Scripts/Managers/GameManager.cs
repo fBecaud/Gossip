@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _EndScreen;
     public bool _isPaused { get; private set; } = false;
 
+    private bool _StopperActivated = false;
+    public bool StopperActivated
+    {
+        get { return _StopperActivated; }
+        set { _StopperActivated = value; }
+    }
+
     private const string TITLE_CARD_SCENE = "TitleCard";
 
     public static GameManager instance;

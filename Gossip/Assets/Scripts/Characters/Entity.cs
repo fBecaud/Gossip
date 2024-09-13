@@ -117,7 +117,7 @@ public class Entity : Character
 
         if (randomValue <= _ChanceAppearancePourcentage)
         {
-            _AutomatedCharacterSwap.GetComponent<RandomChildActivator>().ActivateRandomChild();
+            _BlablaContainerGameObject.ActivateRandomChild();
         }
     }
 

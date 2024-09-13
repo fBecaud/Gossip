@@ -185,6 +185,7 @@ MonoBehaviour:
   _MoveAtStart: 0
   _MaterialUpdater: {fileID: 0}
   _AutomatedCharacterSwap: {fileID: 0}
+  _ChanceAppearancePourcentage: 80
 --- !u!54 &4948375275585521014
 Rigidbody:
   m_ObjectHideFlags: 0

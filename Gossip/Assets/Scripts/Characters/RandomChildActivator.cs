@@ -8,9 +8,12 @@ public class RandomChildActivator : MonoBehaviour
     {
         int childCount = parentObject.transform.childCount;
 
-        for (int i = 0; i < childCount; i++)
+        if (childCount > 0 )
         {
-            parentObject.transform.GetChild(i).gameObject.SetActive(false);
+            for (int i = 0; i < childCount; i++)
+            {
+                parentObject.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
     }
 
@@ -18,12 +21,15 @@ public class RandomChildActivator : MonoBehaviour
     {
         int childCount = parentObject.transform.childCount;
 
-        DeactivateAllChildren();
+        if (childCount > 0)
+        {
+            DeactivateAllChildren();
 
-        int randomIndex = Random.Range(0, childCount);
+            int randomIndex = Random.Range(0, childCount);
 
-        GameObject selectedChild = parentObject.transform.GetChild(randomIndex).gameObject;
-        selectedChild.SetActive(true);
+            GameObject selectedChild = parentObject.transform.GetChild(randomIndex).gameObject;
+            selectedChild.SetActive(true);
+        }
     }
 
     private void Start()
