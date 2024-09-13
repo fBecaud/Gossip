@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ namespace Gossip.Menus
 
         [SerializeField] private bool _GoodEnding;
 
+        [SerializeField] private EventReference _EndingVoice;
+
         private const string MESSAGE_START = "Il suffit de ";
         private const string MESSAGE_END = " personnes pour ruiner la vie d'une autre.";
         private const string TITLE_CARD_SCENE = "TitleCard";
@@ -30,6 +33,8 @@ namespace Gossip.Menus
 
             _QuitButton.enabled = false;
             _QuitButton.onClick.AddListener(Quit);
+
+            RuntimeManager.PlayOneShot(_EndingVoice);
         }
 
         private void Quit()
@@ -54,12 +59,13 @@ namespace Gossip.Menus
                 Transform lBubble = _TextBubbleContainer.transform.GetChild(i);
                 lBubble.GetChild(0).gameObject.SetActive(true);
 
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.02f);
 
                 lBubble.GetChild(0).gameObject.SetActive(false);
                 lBubble.GetComponent<Image>().color = Color.clear;
 
                 yield return new WaitForSeconds(0.01f);
+
             }
 
             StopCoroutine(DestroyBubbleCoroutine());

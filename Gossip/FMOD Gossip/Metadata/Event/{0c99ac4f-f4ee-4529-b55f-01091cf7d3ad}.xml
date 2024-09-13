@@ -90,7 +90,7 @@
 	<object class="MixerBusPanner" id="{45ef98d7-e187-4fe7-87a1-5b7becd38f64}" />
 	<object class="SoundScatterer" id="{d08d94b0-6d59-4ff1-9f25-0caad15a9e53}">
 		<property name="length">
-			<value>7</value>
+			<value>4.5</value>
 		</property>
 		<property name="volume">
 			<value>10</value>
@@ -99,7 +99,7 @@
 			<value>27</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>3</value>
+			<value>5</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>2.10000014</value>
