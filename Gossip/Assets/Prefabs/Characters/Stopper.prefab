@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 110535130306517241}
   - component: {fileID: -9118314729143237579}
   - component: {fileID: 7287748683934901020}
+  - component: {fileID: 8554591734257636321}
   m_Layer: 9
   m_Name: Stopper
   m_TagString: Untagged
@@ -127,14 +128,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235216910599011740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 0
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -169,7 +170,7 @@ MonoBehaviour:
       Data3: 1932742811
       Data4: -1792681536
     Path: event:/SD/PNJ/footstep_dirt
-  _WalkingSoundFrequency: 0.5
+  _WalkingSoundFrequency: 0.8955
   _TalkingSoundFrequency: 1
   _PossessedEntityParticuleGameObject: {fileID: 8910151540430102802}
   _PossessedEntityParticulePosition: {fileID: 8476298615319874288}
@@ -207,6 +208,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3354915, y: 1.5419478, z: 1.1118305}
   m_Center: {x: 0.038710535, y: 0.6322726, z: 0.0043011606}
+--- !u!114 &8554591734257636321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235216910599011740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18a570a546c5ae42b0b81e1aac8f7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 5302966194853584352}
 --- !u!1 &1287599487629865508
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e004c5bc688435045abe0ac6ee0df5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _SelectedLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!136 &1351753874707160227
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -306,6 +323,37 @@ CapsuleCollider:
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5302966194853584352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274144898491034474}
+  m_Layer: 0
+  m_Name: Blabla
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274144898491034474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5302966194853584352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4588467596424680154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6046681983385151436
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +419,7 @@ Transform:
   - {fileID: 7430251341676425240}
   - {fileID: 5094083996481023787}
   - {fileID: 94323716939756372}
+  - {fileID: 274144898491034474}
   m_Father: {fileID: 2681098760404534136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2393245004641818510

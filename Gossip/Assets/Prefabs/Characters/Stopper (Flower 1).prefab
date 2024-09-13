@@ -309,6 +309,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9118314729143237579, guid: 17236d5ff37daf44e82d4c32ee29f700,
         type: 3}
+      propertyPath: _Animator
+      value: 
+      objectReference: {fileID: 7740518259299891761}
+    - target: {fileID: -9118314729143237579, guid: 17236d5ff37daf44e82d4c32ee29f700,
+        type: 3}
       propertyPath: _FloorCircle
       value: 
       objectReference: {fileID: 7567595680055674319}
@@ -326,7 +331,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _PossessedEntityParticulePosition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7834534212333199536}
     - target: {fileID: 94323716939756372, guid: 17236d5ff37daf44e82d4c32ee29f700,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -396,6 +401,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756850358018876949, guid: 17236d5ff37daf44e82d4c32ee29f700,
+        type: 3}
+      propertyPath: _SelectedLayerMask.m_Bits
+      value: 1600
       objectReference: {fileID: 0}
     - target: {fileID: 3357893950505405840, guid: 17236d5ff37daf44e82d4c32ee29f700,
         type: 3}
@@ -559,6 +569,18 @@ PrefabInstance:
 --- !u!4 &4434907140267925579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1458019329602262148, guid: ff43f3869077f3849baa0d36477f35f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3003927713315288271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7740518259299891761 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4817655394877132542, guid: ff43f3869077f3849baa0d36477f35f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3003927713315288271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7834534212333199536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4974721726590489727, guid: ff43f3869077f3849baa0d36477f35f8,
     type: 3}
   m_PrefabInstance: {fileID: 3003927713315288271}
   m_PrefabAsset: {fileID: 0}
