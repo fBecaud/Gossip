@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1797913462606881009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6007523281824672874}
+  - component: {fileID: 6733855305779704795}
+  - component: {fileID: 6892309101615511031}
+  - component: {fileID: 1110793364810392606}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6007523281824672874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797913462606881009}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.58156, y: 2.116405, z: 0.7576227}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6733855305779704795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797913462606881009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e611f730a22ae1847b1a8a70ce95c9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ClickUI:
+    Guid:
+      Data1: -2112937722
+      Data2: 1249806442
+      Data3: -826695789
+      Data4: 699248190
+    Path: event:/SD/UI/clic_UI
+  _RingbellSound:
+    Guid:
+      Data1: -340702407
+      Data2: 1206741754
+      Data3: 406423971
+      Data4: -1032698888
+    Path: event:/SD/Ambiance/amb_school
+  _Music:
+    Guid:
+      Data1: -492587248
+      Data2: 1090864704
+      Data3: -1518406257
+      Data4: -859583805
+    Path: event:/Music/music
+  _CharacterMusic:
+    Guid:
+      Data1: -1795528865
+      Data2: 1152241334
+      Data3: 1706518674
+      Data4: -830542794
+    Path: event:/SD/Player/player_loop
+  _AmbiantSchoolSound:
+    Guid:
+      Data1: -340702407
+      Data2: 1206741754
+      Data3: 406423971
+      Data4: -1032698888
+    Path: event:/SD/Ambiance/amb_school
+  _TransitionSound:
+    Guid:
+      Data1: 997564717
+      Data2: 1328843584
+      Data3: 626422155
+      Data4: -246367183
+    Path: event:/SD/Player/transmission
+  _MusicEmitter: {fileID: 6892309101615511031}
+  _AmbianceEmitter: {fileID: 1110793364810392606}
+--- !u!114 &6892309101615511031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797913462606881009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -492587248
+      Data2: 1090864704
+      Data3: -1518406257
+      Data4: -859583805
+    Path: event:/Music/music
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1110793364810392606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797913462606881009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -340702407
+      Data2: 1206741754
+      Data3: 406423971
+      Data4: -1032698888
+    Path: event:/SD/Ambiance/amb_school
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

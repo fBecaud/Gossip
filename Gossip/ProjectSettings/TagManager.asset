@@ -13,10 +13,10 @@ TagManager:
   - UI
   - "Entit\xE9e"
   - DetectionZone
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Stopper
+  - Transitioner
+  - Ground
   - 
   - 
   - 

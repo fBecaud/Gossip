@@ -56,7 +56,7 @@
 			<destination>{098a881d-1f3f-4228-a2fe-64df7d8957da}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{b50e4391-b0c4-4b80-bdb6-173ad3a1ae20}</destination>
+			<destination>{a5f2345c-61ef-4f2f-8e97-199b602ec1fa}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{96abb730-4fd9-433b-a0b7-0c40594a8eea}" />
@@ -100,12 +100,86 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b30ebe8a-ce8e-461a-87ef-2d3f51410e34}" />
-	<object class="MultiSound" id="{e254a05f-44fa-4951-8e23-d302a100002e}" />
+	<object class="MultiSound" id="{e254a05f-44fa-4951-8e23-d302a100002e}">
+		<property name="volume">
+			<value>-3</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{75c09aa0-0626-4d9c-9998-b923d235f057}</destination>
+		</relationship>
+		<relationship name="sounds">
+			<destination>{1ac04f25-724f-4053-a058-fba30e3ed200}</destination>
+			<destination>{fa4bbfe1-1532-475b-a42d-1dcd571a074e}</destination>
+			<destination>{ce3b03d8-47a6-45e7-84ba-a84a018b39fe}</destination>
+			<destination>{91d5f9fb-69ed-4620-aa7c-99a8fcd12848}</destination>
+			<destination>{d2308bf4-5fc2-4af3-a25d-39e857c4a02d}</destination>
+			<destination>{476d73dd-c7dc-4fc6-af29-ff3fb3867190}</destination>
+			<destination>{321a5592-d782-4ebf-87f3-9457c2a67aa3}</destination>
+			<destination>{7f66f2bd-e415-4d6c-a3fa-a030fa6a0ef0}</destination>
+			<destination>{946d4b5c-3160-47e6-9ceb-d5425b853731}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{5449209b-c5e0-4a68-b6d1-8aba6cb676d4}" />
 	<object class="MixerBusFader" id="{792eb0c7-6f8c-4ecd-93d8-c5fa0ab869c7}" />
 	<object class="SpatialiserEffect" id="{789b47c7-c8a1-463a-8e9b-74a594514d17}">
+		<property name="maximumDistance">
+			<value>15</value>
+		</property>
 		<property name="overrideRange">
 			<value>true</value>
 		</property>
+	</object>
+	<object class="RandomizerModulator" id="{75c09aa0-0626-4d9c-9998-b923d235f057}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>5</value>
+		</property>
+	</object>
+	<object class="SingleSound" id="{1ac04f25-724f-4053-a058-fba30e3ed200}">
+		<relationship name="audioFile">
+			<destination>{98ecbf06-5d9b-4eca-8263-3a34d59bcc80}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{fa4bbfe1-1532-475b-a42d-1dcd571a074e}">
+		<relationship name="audioFile">
+			<destination>{75e75669-3455-48a4-8ec8-d120d34e9912}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{ce3b03d8-47a6-45e7-84ba-a84a018b39fe}">
+		<relationship name="audioFile">
+			<destination>{f500b61e-a64b-4eb8-baea-7324e2895375}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{91d5f9fb-69ed-4620-aa7c-99a8fcd12848}">
+		<relationship name="audioFile">
+			<destination>{db1cfef6-e11e-4498-8614-47ef29075ced}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{d2308bf4-5fc2-4af3-a25d-39e857c4a02d}">
+		<relationship name="audioFile">
+			<destination>{0e44c8bc-cde3-4000-8d85-fb77721e82f7}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{476d73dd-c7dc-4fc6-af29-ff3fb3867190}">
+		<relationship name="audioFile">
+			<destination>{42f5cc8c-141d-4ed0-91f0-382e54ee7053}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{321a5592-d782-4ebf-87f3-9457c2a67aa3}">
+		<relationship name="audioFile">
+			<destination>{2f6b27d7-b2bf-4335-84e4-968a5b541691}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{7f66f2bd-e415-4d6c-a3fa-a030fa6a0ef0}">
+		<relationship name="audioFile">
+			<destination>{2ed19d55-7b97-4019-a234-1e986a5534e1}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{946d4b5c-3160-47e6-9ceb-d5425b853731}">
+		<relationship name="audioFile">
+			<destination>{a47fc64f-722c-4836-8050-a95dc5f152f4}</destination>
+		</relationship>
 	</object>
 </objects>
