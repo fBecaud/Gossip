@@ -4,8 +4,7 @@ Game developed in the context of Isart's "Game Week" Game Jam.
 In an eerie forest, spread between the seeds minyons (the seeds) until you reach the last one.
 Was it the best route ? Could you have done it another way ?
 
-![Uploading VAeDfC.png…]()
-
+![VAeDfC-1](https://github.com/user-attachments/assets/697cce9d-a816-424b-a276-0be93b30b4ba)
 
 Made by:
 
